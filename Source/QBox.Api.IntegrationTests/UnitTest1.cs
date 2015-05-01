@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace QBox.Api.UnitTests
+namespace QBox.Api.IntegrationTests
 {
     [TestClass]
     public class UnitTest1

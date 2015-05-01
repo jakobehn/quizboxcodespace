@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B8CBFDC6-992C-4386-8288-4F9AC8D7D45F}</ProjectGuid>
+    <ProjectGuid>{3A3E5172-AB09-4DF8-BF70-DB3CD67605D6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QBox.Api.UnitTests</RootNamespace>
-    <AssemblyName>QBox.Api.UnitTests</AssemblyName>
+    <RootNamespace>QBox.Api.IntegrationTests</RootNamespace>
+    <AssemblyName>QBox.Api.IntegrationTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("QBox.Api.UnitTests")]
+[assembly: AssemblyTitle("QBox.Api.IntegrationTests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("QBox.Api.UnitTests")]
+[assembly: AssemblyProduct("QBox.Api.IntegrationTests")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b8cbfdc6-992c-4386-8288-4f9ac8d7d45f")]
+[assembly: Guid("3a3e5172-ab09-4df8-bf70-db3cd67605d6")]
 
 // Version information for an assembly consists of the following four values:
 //
