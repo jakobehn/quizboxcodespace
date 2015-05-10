@@ -18,5 +18,3 @@ Use the following commands inside the folder of your repository:
  1. git add README.md
  2. git commit -m "Adding project documentation" 
  3. git push origin master
-
-[LinkToOtherPage]
