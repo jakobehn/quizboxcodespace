@@ -6,14 +6,16 @@
 
 <h2>Alright, let's start a new Quiz Game!</h2>
 <label for="Category">Select the category for your quiz:</label>
-@using (Html.BeginForm("Category", "Quiz", FormMethod.Post, new {role = "form"}))
-{
-    <div class="list-group">
+<div class="form-group">
+    @using (Html.BeginForm("Start", "Category", FormMethod.Post, new { role = "form" }))
+    {
+        <div class="list-group">
 
-        @foreach (var c in Model.Categories)
-        {
-            <a href="/Question/@c.Name" class="list-group-item">@c.Name</a>
-        }
-    </div>
-}
+            @foreach (var c in Model.Categories)
+            {
+                <button type="submit" class="btn btn-info" value="@c.Name" name="@c.Id">@c.Name</button>
+            }
+        </div>
+    }
+</div>
 

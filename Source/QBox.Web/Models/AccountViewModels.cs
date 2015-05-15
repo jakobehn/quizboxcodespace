@@ -34,7 +34,6 @@ namespace QBox.Web.Models
     {
         public List<QuizCategoryViewModel> Categories { get; set; }
 
-        public QuizCategoryViewModel Category { get; set; }
     }
 
     public class ExternalLoginConfirmationViewModel
