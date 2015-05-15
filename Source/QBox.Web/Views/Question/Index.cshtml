@@ -1,0 +1,41 @@
+﻿@model QBox.Web.Models.QuizQuestionViewModel
+@{
+    ViewBag.Title = "Quiz Question";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+<div class="col-md-8">
+    <section id="questionForm">
+        @using (Html.BeginForm("PostAnswer", "Question", FormMethod.Post, new { role = "form" }))
+        {
+            <h4>Question @Model.QuestionNr of @Model.QuestionsTotalNr in category @Model.Category:</h4>
+            <hr/>
+            @Html.HiddenFor(m => m.Id)
+            @Html.HiddenFor(m => m.QuestionNr)
+            @Html.HiddenFor(m => m.QuestionsTotalNr)
+            @Html.HiddenFor(m => m.GameId)
+            @Html.HiddenFor(m => m.Category)
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.SelectedAnswer, @Model.Question)
+
+                @foreach (var a in Model.Answers)
+                {
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="answer">@a.AnswerText
+                        </label>
+                    </div>
+                }
+                
+                @Html.ValidationMessageFor(m => m.SelectedAnswer, "", new {@class = "text-danger"})
+
+                <button type="submit" class="btn btn-default">Next Question</button>
+            </div>
+        }
+    </section>
+</div>
+</div>
+

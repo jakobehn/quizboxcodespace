@@ -1,0 +1,15 @@
+﻿@model QBox.Web.Models.QuizCategoriesViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Alright, let's start a new Quiz Game!</h2>
+<label for="Category">Select the category for your quiz:</label>
+    <div class="list-group">
+        @foreach (var c in Model.Categories)
+        {
+            <a href="Quiz/Category/@c.Id" class="list-group-item">@c.Name</a>
+        }
+    </div>
+
