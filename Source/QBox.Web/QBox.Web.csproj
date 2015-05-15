@@ -247,6 +247,9 @@
     <Content Include="less\creative.less" />
     <Content Include="less\mixins.less" />
     <Content Include="less\variables.less" />
+    <Content Include="Deploy\PublishWebSite.ps1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\PublishProfiles\CreatePackage.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
