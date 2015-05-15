@@ -13,7 +13,7 @@ namespace QBox.Web.Controllers
         {
             var model = GetNextQuestion(questionNr);
             if (model == null)
-                return View("Finished", model);
+                return View("Finished");
             return View(model);
         }
 
@@ -23,10 +23,18 @@ namespace QBox.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("Index", model);
             }
+            //TODO: Store answer on backend
 
             return RedirectToAction("Index", new {category = model.Category, questionNr = model.QuestionNr + 1});
+        }
+
+        [HttpPost]
+        [Route("PostScore")]
+        public ActionResult PostScore()
+        {
+            return View();
         }
 
         private QuizQuestionViewModel GetNextQuestion(int questionNr)

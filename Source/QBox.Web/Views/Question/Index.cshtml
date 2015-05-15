@@ -11,7 +11,6 @@
         @using (Html.BeginForm("PostAnswer", "Question", FormMethod.Post, new { role = "form" }))
         {
             <h4>Question @Model.QuestionNr of @Model.QuestionsTotalNr in category @Model.Category:</h4>
-            <hr/>
             @Html.HiddenFor(m => m.Id)
             @Html.HiddenFor(m => m.QuestionNr)
             @Html.HiddenFor(m => m.QuestionsTotalNr)
@@ -19,20 +18,24 @@
             @Html.HiddenFor(m => m.Category)
 
             <div class="form-group">
-                @Html.LabelFor(m => m.SelectedAnswer, @Model.Question)
+                <div class="well">
+                    @Html.LabelFor(m => m.SelectedAnswer, @Model.Question)
 
-                @foreach (var a in Model.Answers)
-                {
-                    <div class="radio">
-                        <label>
-                            <input type="radio" name="answer">@a.AnswerText
-                        </label>
-                    </div>
-                }
-                
-                @Html.ValidationMessageFor(m => m.SelectedAnswer, "", new {@class = "text-danger"})
+                    @foreach (var a in Model.Answers)
+                    {
+                        <div class="radio">
+                            <label>
+                                @Html.RadioButtonFor(m => m.SelectedAnswer, a.Id)
+                                @Html.Label(a.Id.ToString(), a.AnswerText)
+                            </label>
+                        </div>
+                    }
 
-                <button type="submit" class="btn btn-default">Next Question</button>
+                    @Html.ValidationMessageFor(m => m.SelectedAnswer)
+
+                    <button type="submit" class="btn btn-default btn-question">Answer</button>
+                    <div class="clearfix"></div>
+                </div>
             </div>
         }
     </section>

@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "All questions answered";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+<div class="col-md-8">
+    <section id="questionForm">
+        @using (Html.BeginForm("PostScore", "Question", FormMethod.Post, new { role = "form" }))
+        {
+            <h4>You have answered all questions!</h4>
+            <h4>Here is your result</h4>
+
+            <button type="submit" class="btn btn-primary">Save score</button>
+
+        }
+    </section>
+</div>
+</div>
+

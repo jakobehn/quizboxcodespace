@@ -3,39 +3,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace QBox.Web.Models
 {
-    public class QuizQuestionViewModel
-    {
-        public int Id { get; set; }
-
-        public int GameId { get; set; }
-
-        public string Question { get; set; }
-
-        public string Category { get; set; }
-        public int QuestionNr { get; set; }
-        public int QuestionsTotalNr { get; set; }
-
-        public List<QuizAnswer> Answers { get; set; }
-        public string SelectedAnswer { get; set; }
-    }
-
-    public class QuizAnswer
-    {
-        public int Id { get; set; }
-        public string AnswerText { get; set; }
-    }
-    public class QuizCategoryViewModel
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-    }
-    public class QuizCategoriesViewModel
-    {
-        public List<QuizCategoryViewModel> Categories { get; set; }
-
-    }
-
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
