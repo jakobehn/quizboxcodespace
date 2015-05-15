@@ -13,7 +13,7 @@ if (-not (Test-Path $Env:TF_BUILD_SOURCESDIRECTORY))
 	exit 1
 }
 
-Write-Verbose -Verbose "Copying " + $sourcePath + " to binaries folder " + $Env:TF_BUILD_SOURCESDIRECTORY
+Write-Verbose -Verbose ("Copying " + $sourcePath + " to binaries folder " + $Env:TF_BUILD_SOURCESDIRECTORY)
 
 Copy-Item -Verbose $SourcePath $Env:TF_BUILD_SOURCESDIRECTORY
 
