@@ -159,6 +159,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+    <None Include="Properties\PublishProfiles\CreatePackage.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\QBox.Api.DTO\QBox.Api.DTO.csproj">
