@@ -1,1 +1,1 @@
-Publish-AzureWebsiteProject -Name QBox-dev -Package $applicationPath\_PublishedWebsites\QBox.WebApp_Package\QBox.WebApp.zip
+Publish-AzureWebsiteProject -Name QBox-dev -Package $applicationPath\_PublishedWebsites\QBox.Web_Package\QBox.Web.zip
