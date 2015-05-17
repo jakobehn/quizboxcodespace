@@ -250,7 +250,7 @@
     <Content Include="Deploy\PublishWebSite.ps1">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Deploy\CopyFolderToBinaries.ps1" />
+    <Content Include="Deploy\CopyDeploymentScripts.ps1" />
     <None Include="Properties\PublishProfiles\CreatePackage.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
