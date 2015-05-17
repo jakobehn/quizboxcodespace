@@ -9,7 +9,18 @@ else
 	New-AzureWebsite -Name QBox-dev -Location "North Europe"
 }
 
-Write-Verbose -verbose 'Publishing web site'
-Publish-AzureWebsiteProject -Verbose -Name QBox-dev -Package $applicationPath\QBox.Web.zip
+Write-Verbose -verbose "Checking if api site already exists"
+if( Test-AzureName -Website QBoxApi-dev)
+{
+	Write-Verbose -verbose 'Api site already exists'
+}
+else
+{
+	Write-Verbose -verbose 'Creating api site'
+	New-AzureWebsite -Name QBoxApi-dev -Location "North Europe"
+}
+
+Write-Verbose -verbose 'Publishing api site'
+Publish-AzureWebsiteProject -Verbose -Name QBoxApi-dev -Package $applicationPath\QBox.Api.zip
 
 Write-Verbose -verbose 'Deployment done!'
