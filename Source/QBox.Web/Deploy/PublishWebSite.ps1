@@ -1,3 +1,6 @@
+$startTime = Get-Date
+Write-Verbose -Verbose "Starting deployment at $startTime"
+
 Write-Verbose -verbose "Checking if site already exists"
 if( Test-AzureName -Website QBox-dev)
 {
@@ -23,4 +26,6 @@ else
 Write-Verbose -verbose 'Publishing api site'
 Publish-AzureWebsiteProject -Verbose -Name QBoxApi-dev -Package $applicationPath\QBox.Api.zip
 
-Write-Verbose -verbose 'Deployment done!'
+$endTime = Get-Date
+Write-Verbose -Verbose "Finished deployment at $endTime"
+
