@@ -38,7 +38,7 @@ foreach ($file in $paramFiles)
 	Set-Content $file.PSPath
 }
 
-PublishWebSite "$siteName..cmd" $publishUrl $publishUser $publishPassword
+PublishWebSite "$siteName.deploy.cmd" $publishUrl $publishUser $publishPassword
 
 $endTime = Get-Date
 Write-Verbose -Verbose "Finished deployment at $endTime"
