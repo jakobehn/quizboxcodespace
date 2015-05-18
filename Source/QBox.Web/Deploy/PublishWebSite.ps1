@@ -14,12 +14,10 @@ function CreateWebSite([string]$siteName)
 
 function PublishWebSite([string]$deployCmd)
 {
-	Write-Verbose -verbose "Publishing $siteName"
 	$pathToDeployCmd = join-path $applicationPath $deployCmd
-	$output = & $pathToDeployCmd /y /m:$publishUrl /u:$user /p:$password /a:Basic  2>&1 
+	$output = & $pathToDeployCmd /y /m:$publishUrl /u:$publishUser /p:$publishPassword /a:Basic  2>&1 
 
-	Write-Verbose -Verbose $output
-	Write-Verbose -verbose "$siteName published"
+	Write-Verbose ($output | Out-String) -Verbose
 }
 
 $startTime = Get-Date
