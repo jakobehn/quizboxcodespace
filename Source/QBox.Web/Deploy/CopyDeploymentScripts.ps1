@@ -29,18 +29,6 @@ function CreateBinDirectory()
 
 CreateBinDirectory
 
-#Copy deployment script
-$sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Web\Deploy\*.ps1"
-$destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\Deploy\QBox.Web_Package"
-Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
-Copy-Item -Verbose $sourcePath $destinationPath -Recurse
-
-$sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Web\Deploy\*.ps1"
-$destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\Deploy\QBox.Api_Package"
-Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
-Copy-Item -Verbose $sourcePath $destinationPath -Recurse
-
-
 $sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Web\bin\_PublishedWebsites\*.*"
 $destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\"
 
@@ -51,5 +39,16 @@ $sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Api\bin\_PublishedWebs
 $destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\"
 
 Write-Verbose -Verbose ("Copying web deploy package files " + $sourcePath + " to " + $destinationPath)
+Copy-Item -Verbose $sourcePath $destinationPath -Recurse
+
+#Copy deployment script
+$sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Web\Deploy\*.ps1"
+$destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\QBox.Web_Package\"
+Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
+Copy-Item -Verbose $sourcePath $destinationPath -Recurse
+
+$sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Web\Deploy\*.ps1"
+$destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\QBox.Api_Package\"
+Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
 Copy-Item -Verbose $sourcePath $destinationPath -Recurse
 
