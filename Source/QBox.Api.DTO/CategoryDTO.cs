@@ -24,6 +24,20 @@ namespace QBox.Api.DTO
         }
     }
 
+    public class AnswerDTO
+    {
+        public int QuestionId { get; set; }
+        public int SelectedAnswer { get; set; }
+    }
+
+    public class GameResultDTO
+    {
+        public int GameId { get; set; }
+        public int TotalNrQuestions { get; set; }
+        public int CorrectNrAnswers { get; set; }
+        public string ScoreMessage { get; set; }
+    }
+
     public class QuestionDTO
     {
         public int Id { get; set; }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using QBox.Api.Client;
 using QBox.Web.Models;
 
 namespace QBox.Web.Controllers
@@ -8,9 +9,20 @@ namespace QBox.Web.Controllers
     [RoutePrefix("Question")]
     public class QuestionController : Controller
     {
+        private readonly IQBoxClient apiClient;
+
+        public QuestionController(IQBoxClient apiClient)
+        {
+            this.apiClient = apiClient;
+        }
+
         [Route("{category}/{questionNr?}")]
         public ActionResult Index(string category, int questionNr=1)
         {
+            if (questionNr == 1)
+            {
+                var question = apiClient.StartGame(category);
+            }
             var model = GetNextQuestion(questionNr);
             if (model == null)
                 return View("Finished");
@@ -39,6 +51,7 @@ namespace QBox.Web.Controllers
 
         private QuizQuestionViewModel GetNextQuestion(int questionNr)
         {
+
             var questions = new List<QuizQuestionViewModel>
             {
                 new QuizQuestionViewModel()
