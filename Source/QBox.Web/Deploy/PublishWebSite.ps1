@@ -39,7 +39,7 @@ foreach ($file in $paramFiles)
 }
 
 PublishWebSite "QBox.Web..cmd"
-PublishWebSite "QBox.Api..cmd"
+#PublishWebSite "QBox.Api..cmd"
 
 $endTime = Get-Date
 Write-Verbose -Verbose "Finished deployment at $endTime"
