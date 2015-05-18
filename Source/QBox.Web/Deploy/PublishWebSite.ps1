@@ -12,11 +12,11 @@ function CreateWebSite([string]$siteName)
 	}
 }
 
-function PublishWebSite([string]$deployCmd)
+function PublishWebSite([string]$deployCmd, [string]$pubUrl, [string]$usr, [string]$pwd)
 {
 	$pathToDeployCmd = join-path $applicationPath $deployCmd
-	Write-Verbose -Verbose ("Running $pathToDeployCmd /y /m:$publishUrl /u:$publishUser /p:$publishPassword /a:Basic")
-	$output = & $pathToDeployCmd /y /m:$publishUrl /u:$publishUser /p:$publishPassword /a:Basic  2>&1 
+	Write-Verbose -Verbose ("Running $pathToDeployCmd /y /m:$pubUrl /u:$usr /p:$pwd /a:Basic")
+	$output = & $pathToDeployCmd /y /m:$pubUrl /u:$usr /p:$pwd /a:Basic  2>&1 
 
 	Write-Verbose ($output | Out-String) -Verbose
 }
@@ -38,8 +38,8 @@ foreach ($file in $paramFiles)
 	Set-Content $file.PSPath
 }
 
-PublishWebSite "QBox.Web..cmd"
-#PublishWebSite "QBox.Api..cmd"
+PublishWebSite "QBox.Web..cmd" $publishUrl $publishUser $publishPassword
+PublishWebSite "QBox.Api..cmd" $publishUrlApi $publishUserApi $publishPasswordApi
 
 $endTime = Get-Date
 Write-Verbose -Verbose "Finished deployment at $endTime"
