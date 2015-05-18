@@ -36,15 +36,16 @@ $destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\Deploy"
 Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
 Copy-Item -Verbose $SourcePath $destinationPath -Recurse
 
-$sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Api\Deploy\*.ps1"
-$destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\Deploy"
 
-Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
+$sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\bin\_PublishedWebsites\*.*"
+$destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\"
+
+Write-Verbose -Verbose ("Copying web deploy package files " + $sourcePath + " to " + $destinationPath)
 Copy-Item -Verbose $SourcePath $destinationPath -Recurse
 
 $sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Web\bin\_PublishedWebsites\*.*"
 $destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\"
 
-Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
-Copy-Item -Verbose $SourcePath $destinationPath
+Write-Verbose -Verbose ("Copying web deploy package files " + $sourcePath + " to " + $destinationPath)
+Copy-Item -Verbose $SourcePath $destinationPath -Recurse
 
