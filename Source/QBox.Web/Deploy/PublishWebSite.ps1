@@ -12,11 +12,13 @@ function CreateWebSite([string]$siteName)
 	}
 }
 
-function PublishWebSite([string]$siteName, [string]$webDeployPackage)
+function PublishWebSite([string]$deployCmd)
 {
 	Write-Verbose -verbose "Publishing $siteName"
-	#Publish-AzureWebsiteProject -Verbose -Name "$siteName" -Package "$webDeployPackage"
+	$pathToDeployCmd = join-path $applicationPath $deployCmd
+	$output = & $pathToDeployCmd /y /m:$publishUrl /u:$user /p:$password /a:Basic  2>&1 
 
+	Write-Verbose -Verbose $output
 	Write-Verbose -verbose "$siteName published"
 }
 
@@ -37,8 +39,8 @@ foreach ($file in $paramFiles)
 	Set-Content $file.PSPath
 }
 
-PublishWebSite "QBox-Dev" $applicationPath\QBox.Web.cmd
-PublishWebSite "QBoxApi-Dev" $applicationPath\QBox.Api.zip
+PublishWebSite "QBox.Web..cmd"
+PublishWebSite "QBox.Api..cmd"
 
 $endTime = Get-Date
 Write-Verbose -Verbose "Finished deployment at $endTime"
