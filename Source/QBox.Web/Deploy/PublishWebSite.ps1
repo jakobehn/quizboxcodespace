@@ -1,14 +1,14 @@
-function CreateWebSite([string]$siteName)
+function CreateWebSite([string]$site)
 {
-	Write-Verbose -verbose "Checking if $siteName already exists"
-	if( Test-AzureName -Website "$siteName")
+	Write-Verbose -verbose "Checking if $site already exists"
+	if( Test-AzureName -Website "$site")
 	{
-		Write-Verbose -verbose "Site $siteName already exists"
+		Write-Verbose -verbose "Site $site already exists"
 	}
 	else
 	{
-		Write-Verbose -verbose "Creating $siteName"
-		New-AzureWebsite -Name "$siteName" -Location "North Europe"
+		Write-Verbose -verbose "Creating $site"
+		New-AzureWebsite -Name "$site" -Location "North Europe"
 	}
 }
 
@@ -24,8 +24,8 @@ function PublishWebSite([string]$deployCmd, [string]$pubUrl, [string]$usr, [stri
 $startTime = Get-Date
 Write-Verbose -Verbose "Starting deployment at $startTime"
 
-CreateWebSite "QBox-Dev"
-CreateWebSite "QBoxApi-Dev"
+CreateWebSite "$siteName"
+
 
 Write-Verbose -Verbose 'Setting environment specific variables'
 
@@ -38,8 +38,7 @@ foreach ($file in $paramFiles)
 	Set-Content $file.PSPath
 }
 
-PublishWebSite "QBox.Web..cmd" $publishUrl $publishUser $publishPassword
-PublishWebSite "QBox.Api..cmd" $publishUrlApi $publishUserApi $publishPasswordApi
+PublishWebSite "$siteName..cmd" $publishUrl $publishUser $publishPassword
 
 $endTime = Get-Date
 Write-Verbose -Verbose "Finished deployment at $endTime"
