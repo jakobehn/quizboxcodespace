@@ -15,6 +15,7 @@ function CreateWebSite([string]$siteName)
 function PublishWebSite([string]$deployCmd)
 {
 	$pathToDeployCmd = join-path $applicationPath $deployCmd
+	Write-Verbose -Verbose ("Running $pathToDeployCmd /y /m:$publishUrl /u:$publishUser /p:$publishPassword /a:Basic")
 	$output = & $pathToDeployCmd /y /m:$publishUrl /u:$publishUser /p:$publishPassword /a:Basic  2>&1 
 
 	Write-Verbose ($output | Out-String) -Verbose
