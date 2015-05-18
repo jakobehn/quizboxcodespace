@@ -29,10 +29,14 @@ function CreateBinDirectory()
 
 CreateBinDirectory
 
-#Copy web deploy packages
+#Copy deployment script
 $sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Web\Deploy\*.ps1"
-$destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\Deploy\"
+$destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\Deploy\QBox.Web_Package"
+Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
+Copy-Item -Verbose $sourcePath $destinationPath -Recurse
 
+$sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Web\Deploy\*.ps1"
+$destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\Deploy\QBox.Api_Package"
 Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
 Copy-Item -Verbose $sourcePath $destinationPath -Recurse
 
