@@ -5,26 +5,28 @@ using QBox.Api.DTO;
 
 namespace QBox.Api.Controllers
 {
-    [RoutePrefix("Game")]
+    [RoutePrefix("api/game")]
     public class GameController : ApiController
     {
 
         [HttpPost]
-        [Route("{category}")]
-        public IEnumerable<QuestionDTO> StartNewGame(string category)
+        [Route("start/{category}")]
+        public GameDTO StartNewGame(string category)
         { 
             //TODO: Generate a new game
-            int gameId = 1;
-            return new List<QuestionDTO>
+            var game = new GameDTO();
+            game.Id = 1;
+            game.Start = DateTime.Now;
+            game.Questions = new List<QuestionDTO>
             {
-                new QuestionDTO(1, gameId, "Some question", category, 1, new List<QuestionChoiceDTO>
+                new QuestionDTO(1, game.Id, "Some question", category, 1, new List<QuestionChoiceDTO>
                 {
                     new QuestionChoiceDTO(1,"Answer 1"),
                     new QuestionChoiceDTO(2,"Answer 2"),
                     new QuestionChoiceDTO(3,"Answer 3"),
                     new QuestionChoiceDTO(4,"Answer 4")
                 }),
-                new QuestionDTO(1, gameId, "Some question 2", category, 2, new List<QuestionChoiceDTO>
+                new QuestionDTO(1, game.Id, "Some question 2", category, 2, new List<QuestionChoiceDTO>
                 {
                     new QuestionChoiceDTO(1,"Answer 1"),
                     new QuestionChoiceDTO(2,"Answer 2"),
@@ -32,10 +34,11 @@ namespace QBox.Api.Controllers
                     new QuestionChoiceDTO(4,"Answer 4")
                 })
             };
+            return game;
         }
 
         [HttpPost]
-        [Route("{gameId}/")]
+        [Route("{gameId}")]
         public GameResultDTO PostScore(int gameId, [FromBody]List<AnswerDTO> answers)
         {
             //TODO: Validate answers

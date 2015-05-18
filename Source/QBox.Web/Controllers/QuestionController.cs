@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using QBox.Api.Client;
+using QBox.Api.DTO;
 using QBox.Web.Models;
 
 namespace QBox.Web.Controllers
@@ -21,8 +22,11 @@ namespace QBox.Web.Controllers
         {
             if (questionNr == 1)
             {
-                var question = apiClient.StartGame(category);
+                var questions = apiClient.StartGame(category).Result;
+                //Temp until databaseis available
+                Session["questions"] = questions;
             }
+
             var model = GetNextQuestion(questionNr);
             if (model == null)
                 return View("Finished");
@@ -51,167 +55,33 @@ namespace QBox.Web.Controllers
 
         private QuizQuestionViewModel GetNextQuestion(int questionNr)
         {
+            var game = Session["questions"] as GameDTO;
 
-            var questions = new List<QuizQuestionViewModel>
+            var model = new List<QuizQuestionViewModel>();
+            foreach( var q in game.Questions)
             {
-                new QuizQuestionViewModel()
+                var questionModel = new QuizQuestionViewModel()
                 {
-                    Id = 1,
-                    Category = "Sports",
-                    Question = "Some question",
-                    Answers = new List<QuizAnswer>
-                    {
-                        new QuizAnswer
-                        {
-                            Id = 1,
-                            AnswerText = "Answer 1"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 2,
-                            AnswerText = "Answer 2"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 3,
-                            AnswerText = "Answer 3"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 4,
-                            AnswerText = "Answer 4"
-                        }
-                    },
-                    QuestionNr = 1,
-                    QuestionsTotalNr = 5
-                },
-                new QuizQuestionViewModel()
+                    Id = q.Id,
+                    Category = q.Category,
+                    Question = q.Question,
+                    QuestionNr = q.QuestionNr,
+                    QuestionsTotalNr = game.Questions.Count()
+                };
+                questionModel.Answers = new List<QuizAnswer>();
+                foreach (var a in q.Choices)
                 {
-                    Id = 2,
-                    Category = "Sports",
-                    Question = "Some question 2",
-                    Answers = new List<QuizAnswer>
-                    {
-                        new QuizAnswer
+                    questionModel.Answers.Add(
+                        new QuizAnswer()
                         {
-                            Id = 1,
-                            AnswerText = "Answer 1"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 2,
-                            AnswerText = "Answer 2"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 3,
-                            AnswerText = "Answer 3"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 4,
-                            AnswerText = "Answer 4"
-                        }
-                    },
-                    QuestionNr = 2,
-                    QuestionsTotalNr = 5
-                },
-                new QuizQuestionViewModel()
-                {
-                    Id = 3,
-                    Category = "Sports",
-                    Question = "Some question 3",
-                    Answers = new List<QuizAnswer>
-                    {
-                        new QuizAnswer
-                        {
-                            Id = 1,
-                            AnswerText = "Answer 1"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 2,
-                            AnswerText = "Answer 2"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 3,
-                            AnswerText = "Answer 3"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 4,
-                            AnswerText = "Answer 4"
-                        }
-                    },
-                    QuestionNr = 3,
-                    QuestionsTotalNr = 5
-                },
-                new QuizQuestionViewModel()
-                {
-                    Id = 4,
-                    Category = "Sports",
-                    Question = "Some question 4",
-                    Answers = new List<QuizAnswer>
-                    {
-                        new QuizAnswer
-                        {
-                            Id = 1,
-                            AnswerText = "Answer 1"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 2,
-                            AnswerText = "Answer 2"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 3,
-                            AnswerText = "Answer 3"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 4,
-                            AnswerText = "Answer 4"
-                        }
-                    },
-                    QuestionNr = 4,
-                    QuestionsTotalNr = 5
-                },
-                new QuizQuestionViewModel()
-                {
-                    Id = 5,
-                    Category = "Sports",
-                    Question = "Some question 5",
-                    Answers = new List<QuizAnswer>
-                    {
-                        new QuizAnswer
-                        {
-                            Id = 1,
-                            AnswerText = "Answer 1"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 2,
-                            AnswerText = "Answer 2"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 3,
-                            AnswerText = "Answer 3"
-                        },
-                        new QuizAnswer
-                        {
-                            Id = 4,
-                            AnswerText = "Answer 4"
-                        }
-                    },
-                    QuestionNr = 5,
-                    QuestionsTotalNr = 5
+                            Id = a.Id,
+                            AnswerText = a.Text
+                        });
                 }
-            };
+                model.Add(questionModel);
+            }
 
-            return questions.FirstOrDefault(q => q.QuestionNr == questionNr);
+            return model.FirstOrDefault(q => q.QuestionNr == questionNr);
         }
 
     }

@@ -5,7 +5,7 @@ using QBox.Api.Models;
 
 namespace QBox.Api.Controllers
 {
-    [RoutePrefix("Category")]
+    [RoutePrefix("api/category")]
     public class CategoryController : ApiController
     {
         public IEnumerable<CategoryDTO> Get()

@@ -31,10 +31,16 @@ namespace QBox.Api.Client
 
         public async Task<GameDTO> StartGame(string category)
         {
-            string uri = $"{_baseUrl}/game/{category}";
+            string uri = $"{_baseUrl}/game/start/{category}";
             var res = await _httpClient.PostAsync(uri, new StringContent("")).ConfigureAwait(false);
             var textData = await res.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<GameDTO>(textData);
+            if (res.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<GameDTO>(textData);
+            }
+            var errorMessage = ParseErrorResponse(textData);
+            throw new Exception(errorMessage);
+
         }
 
         public async Task<GameResultDTO> PostResult(int gameId, List<AnswerDTO> answers)
