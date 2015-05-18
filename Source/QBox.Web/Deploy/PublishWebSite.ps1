@@ -23,6 +23,16 @@ else
 	New-AzureWebsite -Name QBoxApi-dev -Location "North Europe"
 }
 
+Write-Verbose -Verbose 'Setting environment specific variables'
+
+$paramFiles=get-childitem . *.SetParameters.xml -rec
+foreach ($file in $paramFiles)
+{
+	Write-Verbose -Verbose ("Updating token __APIURL__ in file " + $file.PSPath + " with $APIURL")
+	(Get-Content $file.PSPath) | 
+	Foreach-Object {$_ -replace "__APIURL__", "$APIURL"} | 
+	Set-Content $file.PSPath
+}
 Write-Verbose -verbose 'Publishing api site'
 Publish-AzureWebsiteProject -Verbose -Name QBoxApi-dev -Package $applicationPath\QBox.Api.zip
 
