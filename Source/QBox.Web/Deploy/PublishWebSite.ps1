@@ -15,7 +15,8 @@ function CreateWebSite([string]$siteName)
 function PublishWebSite([string]$siteName, [string]$webDeployPackage)
 {
 	Write-Verbose -verbose "Publishing $siteName"
-	Publish-AzureWebsiteProject -Verbose -Name "$siteName" -Package "$webDeployPackage"
+	#Publish-AzureWebsiteProject -Verbose -Name "$siteName" -Package "$webDeployPackage"
+
 	Write-Verbose -verbose "$siteName published"
 }
 
@@ -36,7 +37,7 @@ foreach ($file in $paramFiles)
 	Set-Content $file.PSPath
 }
 
-PublishWebSite "QBox-Dev" $applicationPath\QBox.Web.zip
+PublishWebSite "QBox-Dev" $applicationPath\QBox.Web.cmd
 PublishWebSite "QBoxApi-Dev" $applicationPath\QBox.Api.zip
 
 $endTime = Get-Date
