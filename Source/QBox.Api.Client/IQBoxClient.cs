@@ -8,8 +8,8 @@ namespace QBox.Api.Client
     {
         Task<List<CategoryDTO>> GetCategories();
         Task<GameDTO> StartGame(int categoryId, int nrQuestions);
-        Task<GameResultDTO> PostResult(int gameId, IEnumerable<AnswerDTO> answers);
         Task<QuestionDTO> GetQuestion(int gameId, int questionNr);
         Task SaveAnswer(int gameId, int questionNr, int selectedAnswer);
+        Task<GameResultDTO> FinishGame(int gameId);
     }
 }

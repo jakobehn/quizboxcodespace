@@ -86,39 +86,40 @@ namespace QBox.Api.Controllers
         }
 
         [HttpPost]
-        [Route("{gameId}")]
-        public GameResultDTO PostScore(int gameId, [FromBody]List<AnswerDTO> answers)
+        [Route("finish/{gameId}")]
+        public GameResultDTO Finish(int gameId)
         {
-            //TODO: Validate answers
-            var result = new GameResultDTO()
+            using (var ctx = new QuizBoxContext())
             {
-                GameId = gameId,
-                TotalNrQuestions = 5,
-                CorrectNrAnswers = new Random().Next(0,5)
-            };
-            result.ScoreMessage = GetScoreMessage(result.CorrectNrAnswers);
-            return result;
+                var game = ctx.Game.First(g => g.Id == gameId);
+                int totalNrQuestions = game.GameQuestion.Count();
+                int nrCorrectAnswers = game.GameQuestion.Count(q => q.Answer.IsCorrect);
+
+                var result = new GameResultDTO()
+                {
+                    GameId = gameId,
+                    TotalNrQuestions = totalNrQuestions,
+                    CorrectNrAnswers = nrCorrectAnswers
+                };
+                result.ScoreMessage = GetScoreMessage((float)result.CorrectNrAnswers / (float)result.TotalNrQuestions);
+                return result;
+            }
         }
 
-        private string GetScoreMessage(int correctNrAnswers)
+        private string GetScoreMessage(float scorePercent)
         {
-            switch (correctNrAnswers)
-            {
-                case 0:
-                    return "Boy, you suck";
-                case 1:
-                    return "That is really bad";
-                case 2:
-                    return "Pretty lousy, I'd say";
-                case 3:
-                    return "Not too shabby";
-                case 4:
-                    return "Wow, not bad!";
-                case 5:
-                    return "Nailed it!";
-                default:
-                    return "Unknown result";
-            }
+            if(scorePercent > 0.9 )
+                return "Nailed it!";
+            if (scorePercent > 0.7)
+                return "Wow, not bad!";
+            if (scorePercent > 0.5)
+                return "Not too shabby";
+            if (scorePercent > 0.3)
+                return "Pretty lousy, I'd say";
+            if (scorePercent > 0.1)
+                return "That was really bad";
+
+            return "Boy, you suck";
         }
     }
 }

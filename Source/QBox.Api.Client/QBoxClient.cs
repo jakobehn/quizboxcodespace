@@ -43,21 +43,6 @@ namespace QBox.Api.Client
 
         }
 
-        public async Task<GameResultDTO> PostResult(int gameId, IEnumerable<AnswerDTO> answers)
-        {
-            string uri = $"{baseUrl}/game/{gameId}";
-            var content = JObject.FromObject(answers).ToString();
-            var res = await httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
-            var response = await res.Content.ReadAsStringAsync();
-            if (res.IsSuccessStatusCode)
-            {
-                return JsonConvert.DeserializeObject<GameResultDTO>(response);
-            }
-
-            var errorMessage = ParseErrorResponse(response);
-            throw new Exception(errorMessage);
-        }
-
         public async Task<QuestionDTO> GetQuestion(int gameId, int questionNr)
         {
             string uri = $"{baseUrl}/game/{gameId}/{questionNr}";
@@ -79,11 +64,20 @@ namespace QBox.Api.Client
             throw new Exception(errorMessage);
         }
 
-        //public async Task<HttpResponseMessage> PostContent(WebContentDTO webContent)
-        //{
-        //    string uri = _baseUrl + "/webcontent/";
-        //    return await _httpClient.PostAsync(uri, new StringContent(JObject.FromObject(webContent).ToString(), Encoding.UTF8, "application/json")).ConfigureAwait(false);
-        //}
+        public async Task<GameResultDTO> FinishGame(int gameId)
+        {
+            string uri = $"{baseUrl}/game/finish/{gameId}";
+            var res = await httpClient.PostAsync(uri, new StringContent("", Encoding.UTF8, "application/json")).ConfigureAwait(false);
+            var response = await res.Content.ReadAsStringAsync();
+            if (res.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<GameResultDTO>(response);
+            }
+
+            var errorMessage = ParseErrorResponse(response);
+            throw new Exception(errorMessage);
+        }
+
 
         private static string ParseErrorResponse(string response)
         {
