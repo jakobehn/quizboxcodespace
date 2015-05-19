@@ -34,6 +34,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QBox.Api.Client", "QBox.Api
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QBox.Api.DTO", "QBox.Api.DTO\QBox.Api.DTO.csproj", "{3EF78755-D6CC-4581-8B23-E02E692E2F99}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildDeploy", "BuildDeploy", "{6527E249-DBF5-4DCD-85FB-FC57D8627DE1}"
+	ProjectSection(SolutionItems) = preProject
+		BuildDeploy\ApplyVersionToAssemblies.ps1 = BuildDeploy\ApplyVersionToAssemblies.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Android = Debug|Android
