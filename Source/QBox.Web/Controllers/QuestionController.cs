@@ -37,6 +37,7 @@ namespace QBox.Web.Controllers
                     Question = q.Question,
                     QuestionNr = q.QuestionNr,
                     QuestionsTotalNr = q.TotalNrQuestions,
+                    GameId = gameId 
                 };
                 questionModel.Answers = new List<QuizAnswer>();
                 foreach (var a in q.Choices)
@@ -52,17 +53,9 @@ namespace QBox.Web.Controllers
                 return View(questionModel);
             }
 
-            return View("Finished");
+            var result = this.apiClient.FinishGame(gameId).Result;
 
-            //    var result = this.apiClient.PostResult(model.GameId, model.Answers.Select(a => new AnswerDTO()
-            //    {
-            //        QuestionId = a.Id,
-            //        SelectedAnswer = a.Id
-            //    })).Result;
-
-            //    return View("Finished", new QuizResultModel(result));
-            //}
-            //return View(model);
+            return View("Finished", new QuizResultModel(result));
         }
 
         [HttpPost]
