@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -137,13 +138,56 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Database\Answer.cs">
+      <DependentUpon>QuizBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Category.cs">
+      <DependentUpon>QuizBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Game.cs">
+      <DependentUpon>QuizBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\GameQuestion.cs">
+      <DependentUpon>QuizBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Highscore.cs">
+      <DependentUpon>QuizBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Question.cs">
+      <DependentUpon>QuizBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\QuizBox.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizBox.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\QuizBox.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizBox.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\QuizBox.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuizBox.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\QuizBoxContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Category.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\QuizBox.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuizBox.edmx</DependentUpon>
+      <LastGenOutput>QuizBox.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\QuizBox.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuizBox.edmx</DependentUpon>
+      <LastGenOutput>QuizBox.cs</LastGenOutput>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -155,9 +199,17 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <EntityDeploy Include="Database\QuizBox.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuizBox.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Database\QuizBox.edmx.diagram">
+      <DependentUpon>QuizBox.edmx</DependentUpon>
+    </Content>
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\CreatePackage.pubxml" />
   </ItemGroup>
@@ -166,6 +218,9 @@
       <Project>{3EF78755-D6CC-4581-8B23-E02E692E2F99}</Project>
       <Name>QBox.Api.DTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

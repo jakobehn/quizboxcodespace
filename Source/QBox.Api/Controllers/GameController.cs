@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
+using QBox.Api.Database;
 using QBox.Api.DTO;
 
 namespace QBox.Api.Controllers
@@ -10,31 +12,77 @@ namespace QBox.Api.Controllers
     {
 
         [HttpPost]
-        [Route("start/{category}")]
-        public GameDTO StartNewGame(string category)
-        { 
-            //TODO: Generate a new game
-            var game = new GameDTO();
-            game.Id = 1;
-            game.Start = DateTime.Now;
-            game.Questions = new List<QuestionDTO>
+        [Route("answer/{gameId}/{questionNr}/{selectedAnswer}")]
+        public void SaveAnswer(int gameId, int questionNr, int selectedAnswer)
+        {
+            using (var ctx = new QuizBoxContext())
             {
-                new QuestionDTO(1, game.Id, "Some question", category, 1, new List<QuestionChoiceDTO>
+                var game = ctx.Game.First(g => g.Id == gameId);
+                var question = game.GameQuestion.First(q => q.Order == questionNr);
+                question.Answer = ctx.Answer.First(a => a.Id == selectedAnswer);
+                ctx.SaveChanges();
+            }
+        }
+
+        [HttpPost]
+        [Route("start/{categoryid}/{nrquestions}")]
+        public GameDTO StartNewGame(int categoryId, int nrQuestions)
+        {
+            int gameId;
+            using (var ctx = new QuizBoxContext())
+            {
+                var selectedCategory = ctx.Category.FirstOrDefault(c => c.Id == categoryId);
+                var newGame = new Game()
                 {
-                    new QuestionChoiceDTO(1,"Answer 1"),
-                    new QuestionChoiceDTO(2,"Answer 2"),
-                    new QuestionChoiceDTO(3,"Answer 3"),
-                    new QuestionChoiceDTO(4,"Answer 4")
-                }),
-                new QuestionDTO(1, game.Id, "Some question 2", category, 2, new List<QuestionChoiceDTO>
+                    Category = selectedCategory,
+                    Start = DateTime.Now,
+                    UserId = "1234567890",
+                };
+
+                var questionsInGame = ctx.Question.Where(q => q.Category.Id == categoryId).Take(nrQuestions).ToList();
+                newGame.GameQuestion = new List<GameQuestion>();
+                for (int i = 1; i <= questionsInGame.Count(); i++)
                 {
-                    new QuestionChoiceDTO(1,"Answer 1"),
-                    new QuestionChoiceDTO(2,"Answer 2"),
-                    new QuestionChoiceDTO(3,"Answer 3"),
-                    new QuestionChoiceDTO(4,"Answer 4")
-                })
-            };
-            return game;
+                    newGame.GameQuestion.Add(
+                        new GameQuestion()
+                        {
+                            Game = newGame,
+                            Question = questionsInGame[i-1],
+                            Order = i
+                        });
+                }
+                ctx.Game.Add(newGame);
+                ctx.SaveChanges();
+                gameId = newGame.Id;
+            }
+
+            using (var ctx = new QuizBoxContext())
+            {
+                var game = ctx.Game.First(g => g.Id == gameId);
+                return new GameDTO
+                {
+                    Id = game.Id,
+                    Start = game.Start
+                };
+            }
+        }
+
+        [HttpGet]
+        [Route("{gameid}/{questionNr}")]
+        public QuestionDTO GetQuestion(int gameId, int questionNr)
+        {
+            using (var ctx = new QuizBoxContext())
+            {
+                var game = ctx.Game.FirstOrDefault(g => g.Id == gameId);
+                var question = game.GameQuestion.FirstOrDefault(q => q.Order == questionNr);
+                if (question == null)
+                    return null;
+
+                return new QuestionDTO(question.Id, gameId, question.Question.Text, game.Category.Name, questionNr,
+                    game.GameQuestion.Count(),
+                    question.Question.Answer.Select(
+                        a => new QuestionChoiceDTO(a.Id, a.Text)).ToList());
+            }
         }
 
         [HttpPost]

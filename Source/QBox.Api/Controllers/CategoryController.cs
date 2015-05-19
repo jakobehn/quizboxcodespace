@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System.CodeDom;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
+using QBox.Api.Database;
 using QBox.Api.DTO;
-using QBox.Api.Models;
 
 namespace QBox.Api.Controllers
 {
@@ -10,12 +12,16 @@ namespace QBox.Api.Controllers
     {
         public IEnumerable<CategoryDTO> Get()
         {
-            return new List<CategoryDTO>
+            using (var ctx = new QuizBoxContext())
             {
-                new CategoryDTO(1, "Sports", "Questions about sports"),
-                new CategoryDTO(2, "Nature", "Questions about nature"),
-                new CategoryDTO(3, "Art", "Questions about art")
-            };
+                return ctx.Category.Select(
+                    c => new CategoryDTO()
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        Description = c.Description
+                    }).ToList();
+            }
         }
     }
 }

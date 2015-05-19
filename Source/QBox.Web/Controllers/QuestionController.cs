@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using QBox.Api.Client;
 using QBox.Api.DTO;
@@ -18,47 +19,16 @@ namespace QBox.Web.Controllers
         }
 
         [Route("{category}/{questionNr?}")]
-        public ActionResult Index(string category, int questionNr=1)
+        public ActionResult Index(int category, int questionNr=1, int gameId=0)
         {
             if (questionNr == 1)
             {
-                var questions = apiClient.StartGame(category).Result;
-                //Temp until databaseis available
-                Session["questions"] = questions;
+                var game = apiClient.StartGame(category,5).Result;
+                gameId = game.Id;
             }
 
-            var model = GetNextQuestion(questionNr);
-            if (model == null)
-                return View("Finished");
-            return View(model);
-        }
-
-        [HttpPost]
-        [Route("PostAnswer")]
-        public ActionResult PostAnswer(QuizQuestionViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View("Index", model);
-            }
-            //TODO: Store answer on backend
-
-            return RedirectToAction("Index", new {category = model.Category, questionNr = model.QuestionNr + 1});
-        }
-
-        [HttpPost]
-        [Route("PostScore")]
-        public ActionResult PostScore()
-        {
-            return View();
-        }
-
-        private QuizQuestionViewModel GetNextQuestion(int questionNr)
-        {
-            var game = Session["questions"] as GameDTO;
-
-            var model = new List<QuizQuestionViewModel>();
-            foreach( var q in game.Questions)
+            var q = apiClient.GetQuestion(gameId, questionNr).Result;
+            if (q != null)
             {
                 var questionModel = new QuizQuestionViewModel()
                 {
@@ -66,7 +36,7 @@ namespace QBox.Web.Controllers
                     Category = q.Category,
                     Question = q.Question,
                     QuestionNr = q.QuestionNr,
-                    QuestionsTotalNr = game.Questions.Count()
+                    QuestionsTotalNr = q.TotalNrQuestions,
                 };
                 questionModel.Answers = new List<QuizAnswer>();
                 foreach (var a in q.Choices)
@@ -78,11 +48,42 @@ namespace QBox.Web.Controllers
                             AnswerText = a.Text
                         });
                 }
-                model.Add(questionModel);
+
+                return View(questionModel);
             }
 
-            return model.FirstOrDefault(q => q.QuestionNr == questionNr);
+            return View("Finished");
+
+            //    var result = this.apiClient.PostResult(model.GameId, model.Answers.Select(a => new AnswerDTO()
+            //    {
+            //        QuestionId = a.Id,
+            //        SelectedAnswer = a.Id
+            //    })).Result;
+
+            //    return View("Finished", new QuizResultModel(result));
+            //}
+            //return View(model);
         }
 
+        [HttpPost]
+        [Route("PostAnswer")]
+        public async Task<ActionResult> PostAnswer(QuizQuestionViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Index", model);
+            }
+            //TODO: Store answer on backend
+            await apiClient.SaveAnswer(model.GameId, model.QuestionNr, model.SelectedAnswer);
+
+            return RedirectToAction("Index", new {category = model.Category, questionNr = model.QuestionNr + 1, gameId = model.GameId});
+        }
+
+        [HttpPost]
+        [Route("PostScore")]
+        public ActionResult PostScore()
+        {
+            return View();
+        }
     }
 }

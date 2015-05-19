@@ -9,11 +9,13 @@
 <div class="form-group">
     @using (Html.BeginForm("Start", "Category", FormMethod.Post, new { role = "form" }))
     {
-        <div class="list-group">
+        <div class="list-group list-categories">
 
             @foreach (var c in Model.Categories)
             {
-                <button type="submit" class="btn btn-info" value="@c.Name" name="@c.Id">@c.Name</button>
+                <div class="list-group-item">
+                    <button type="submit" class="btn btn-lg btn-info btn-category" value="@c.Id" name="@c.Id">@c.Name</button>
+                </div>
             }
         </div>
     }

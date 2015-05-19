@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QBox.Api.Models
+namespace QBox.Api.Database
 {
-
+    public partial class QuizBoxContext
+    {
+    }
 }

@@ -26,3 +26,12 @@ textarea {
 .btn-question {
     float: right;
 }
+
+.btn-category {
+    min-width: 200px;
+}
+
+.list-categories .list-group-item {
+    border: 0px;
+}
+

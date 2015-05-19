@@ -48,6 +48,7 @@ namespace QBox.Api.DTO
 
         public string Category { get; set; }
         public int QuestionNr { get; set; }
+        public int TotalNrQuestions { get; set; }
 
         public List<QuestionChoiceDTO> Choices { get; set; }
 
@@ -56,13 +57,14 @@ namespace QBox.Api.DTO
             
         }
 
-        public QuestionDTO(int id, int gameId, string question, string category, int questionNr, List<QuestionChoiceDTO> choices)
+        public QuestionDTO(int id, int gameId, string question, string category, int questionNr, int totalNrQuestions, List<QuestionChoiceDTO> choices)
         {
             Id = id;
             GameId = gameId;
             Question = question;
             Category = category;
             QuestionNr = questionNr;
+            TotalNrQuestions = totalNrQuestions;
             Choices = choices;
         }
     }
@@ -70,7 +72,6 @@ namespace QBox.Api.DTO
     public class GameDTO
     {
         public int Id { get; set; }
-        public List<QuestionDTO> Questions { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
     }

@@ -13,26 +13,26 @@ namespace QBox.Api.Client
 {
     public class QBoxClient : IQBoxClient
     {
-        private readonly string _baseUrl;
-        private readonly HttpClient _httpClient;
+        private readonly string baseUrl;
+        private readonly HttpClient httpClient;
 
         public QBoxClient(string baseUrl)
         {
-            _httpClient = new HttpClient();
-            _baseUrl = baseUrl.TrimEnd('/');
+            httpClient = new HttpClient();
+            this.baseUrl = baseUrl.TrimEnd('/');
         }
 
         public async Task<List<CategoryDTO>> GetCategories()
         {
-            string uri = $"{_baseUrl}/category";
-            var content = await _httpClient.GetStringAsync(uri).ConfigureAwait(false);
+            string uri = $"{baseUrl}/category";
+            var content = await httpClient.GetStringAsync(uri).ConfigureAwait(false);
             return JsonConvert.DeserializeObject<List<CategoryDTO>>(content);
         }
 
-        public async Task<GameDTO> StartGame(string category)
+        public async Task<GameDTO> StartGame(int categoryId, int nrQuestions)
         {
-            string uri = $"{_baseUrl}/game/start/{category}";
-            var res = await _httpClient.PostAsync(uri, new StringContent("")).ConfigureAwait(false);
+            string uri = $"{baseUrl}/game/start/{categoryId}/{nrQuestions}";
+            var res = await httpClient.PostAsync(uri, new StringContent("")).ConfigureAwait(false);
             var textData = await res.Content.ReadAsStringAsync();
             if (res.IsSuccessStatusCode)
             {
@@ -43,11 +43,11 @@ namespace QBox.Api.Client
 
         }
 
-        public async Task<GameResultDTO> PostResult(int gameId, List<AnswerDTO> answers)
+        public async Task<GameResultDTO> PostResult(int gameId, IEnumerable<AnswerDTO> answers)
         {
-            string uri = $"{_baseUrl}/game/{gameId}";
+            string uri = $"{baseUrl}/game/{gameId}";
             var content = JObject.FromObject(answers).ToString();
-            var res = await _httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
+            var res = await httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")).ConfigureAwait(false);
             var response = await res.Content.ReadAsStringAsync();
             if (res.IsSuccessStatusCode)
             {
@@ -57,6 +57,28 @@ namespace QBox.Api.Client
             var errorMessage = ParseErrorResponse(response);
             throw new Exception(errorMessage);
         }
+
+        public async Task<QuestionDTO> GetQuestion(int gameId, int questionNr)
+        {
+            string uri = $"{baseUrl}/game/{gameId}/{questionNr}";
+            var content = await httpClient.GetStringAsync(uri).ConfigureAwait(false);
+            return JsonConvert.DeserializeObject<QuestionDTO>(content);
+        }
+
+        public async Task SaveAnswer(int gameId, int questionNr, int selectedAnswer)
+        {
+            string uri = $"{baseUrl}/game/answer/{gameId}/{questionNr}/{selectedAnswer}";
+            var res = await httpClient.PostAsync(uri, new StringContent("", Encoding.UTF8, "application/json")).ConfigureAwait(false);
+            var response = await res.Content.ReadAsStringAsync();
+            if (res.IsSuccessStatusCode)
+            {
+                return;
+            }
+
+            var errorMessage = ParseErrorResponse(response);
+            throw new Exception(errorMessage);
+        }
+
         //public async Task<HttpResponseMessage> PostContent(WebContentDTO webContent)
         //{
         //    string uri = _baseUrl + "/webcontent/";
