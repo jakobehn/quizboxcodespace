@@ -6,6 +6,6 @@
     [UserId]             NVARCHAR (128) NOT NULL,
     [EndTime]            DATETIME       NOT NULL,
     CONSTRAINT [PK_Highscore] PRIMARY KEY CLUSTERED ([Id] ASC),
-    CONSTRAINT [FK_Highscore_Category] FOREIGN KEY ([Id]) REFERENCES [dbo].[Category] ([Id])
+    CONSTRAINT [FK_Highscore_Category] FOREIGN KEY ([CategoryId]) REFERENCES [dbo].[Category] ([Id])
 );
 

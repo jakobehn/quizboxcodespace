@@ -40,8 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnswerDTO.cs" />
     <Compile Include="CategoryDTO.cs" />
+    <Compile Include="GameDTO.cs" />
+    <Compile Include="GameResultDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionChoiceDTO.cs" />
+    <Compile Include="QuestionDTO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

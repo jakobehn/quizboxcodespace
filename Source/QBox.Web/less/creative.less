@@ -346,3 +346,103 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: @theme-dark;
 }
+
+list-group {
+    & > div:nth-child(even) {
+        background-color: #f3f3f3;
+    }
+
+    & > a.last {
+        font-weight: bold;
+        padding-bottom: 0;
+        padding-top: 10px;
+        background-color: white;
+        cursor: pointer;
+
+        p {
+            text-align: center;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .list-group-item-heading {
+        padding-bottom: 2px;
+        border-bottom: 1px solid silver;
+
+        .approve-btn-link {
+            padding: 0 5px 0 5px;
+            margin-bottom: 5px;
+            /*
+  padding: 0 5px 0 5px;
+  line-height: 1.8em;
+  vertical-align: text-bottom;
+  display: inline-block;
+  font-size: 75%;
+            */
+        }
+
+        & > b {
+            white-space: nowrap;
+        }
+
+        & > span.label {
+            font-size: 60%;
+            position: relative;
+            top: -2px;
+            padding-bottom: 2px;
+        }
+
+        & > small {
+            font-size: 70%;
+            position: absolute;
+            right: 16px;
+            top: 15px;
+
+            & > span:before {
+                content: ', ';
+            }
+
+            @media (max-width: 780px) {
+                display: block;
+                position: static;
+                right: auto;
+
+                &:before {
+                    font-family: FontAwesome;
+                    content: '\f0da'; // caret-right
+                    padding-right: 2px;
+                }
+
+                & > span {
+                    display: inline;
+
+                    &:before {
+                        content: ', ';
+                    }
+
+                    @media (max-width: 440px) {
+                        display: block;
+
+                        &:before {
+                            content: '';
+                            padding-left: 7px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .list-group-item-text {
+        & > span {
+            white-space: nowrap;
+        }
+
+        b {
+            white-space: normal;
+        }
+    }
+}

@@ -29,6 +29,26 @@ namespace QBox.Api.Client
             return JsonConvert.DeserializeObject<List<CategoryDTO>>(content);
         }
 
+        public async Task<List<ScoreDTO>> GetHighscore()
+        {
+            string uri = $"{baseUrl}/highscore";
+            var content = await httpClient.GetStringAsync(uri).ConfigureAwait(false);
+            return JsonConvert.DeserializeObject<List<ScoreDTO>>(content);
+        }
+
+        public async Task PostHighScore(int gameId, string user)
+        {
+            string uri = $"{baseUrl}/highscore/{gameId}/{user}";
+
+            var res = await httpClient.PostAsync(uri, new StringContent("")).ConfigureAwait(false);
+            var textData = await res.Content.ReadAsStringAsync();
+            if (!res.IsSuccessStatusCode)
+            {
+                var errorMessage = ParseErrorResponse(textData);
+                throw new Exception(errorMessage);
+            }
+        }
+
         public async Task<GameDTO> StartGame(int categoryId, int nrQuestions)
         {
             string uri = $"{baseUrl}/game/start/{categoryId}/{nrQuestions}";

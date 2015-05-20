@@ -11,5 +11,8 @@ namespace QBox.Api.Client
         Task<QuestionDTO> GetQuestion(int gameId, int questionNr);
         Task SaveAnswer(int gameId, int questionNr, int selectedAnswer);
         Task<GameResultDTO> FinishGame(int gameId);
+
+        Task<List<ScoreDTO>> GetHighscore();
+        Task PostHighScore(int gameId, string user);
     }
 }

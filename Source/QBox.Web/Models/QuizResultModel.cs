@@ -1,24 +1,27 @@
-﻿using QBox.Api.DTO;
+using System;
+using System.Threading.Tasks;
+using QBox.Api.DTO;
 
 namespace QBox.Web.Models
 {
-    public class QuizAnswer
-    {
-        public int Id { get; set; }
-        public string AnswerText { get; set; }
-    }
-
     public class QuizResultModel
     {
+        public QuizResultModel()
+        {
+        }
+
         public QuizResultModel(GameResultDTO result)
         {
             TotalNrQuestions = result.TotalNrQuestions;
             NrCorrectAnswers = result.CorrectNrAnswers;
             Verdict = result.ScoreMessage;
+            GameId = result.GameId;
         }
 
         public int TotalNrQuestions { get; set; }
         public int NrCorrectAnswers { get; set; }
         public string Verdict { get; set; }
+        public string Name { get; set; }
+        public int GameId { get; set; }
     }
 }

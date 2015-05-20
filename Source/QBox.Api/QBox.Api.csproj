@@ -138,6 +138,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Controllers\HighscoreController.cs" />
     <Compile Include="Database\Answer.cs">
       <DependentUpon>QuizBox.tt</DependentUpon>
     </Compile>

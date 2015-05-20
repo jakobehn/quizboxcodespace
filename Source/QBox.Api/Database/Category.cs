@@ -19,6 +19,7 @@ namespace QBox.Api.Database
         {
             this.Game = new HashSet<Game>();
             this.Question = new HashSet<Question>();
+            this.Highscore = new HashSet<Highscore>();
         }
     
         public int Id { get; set; }
@@ -27,8 +28,9 @@ namespace QBox.Api.Database
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Game> Game { get; set; }
-        public virtual Highscore Highscore { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Question> Question { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Highscore> Highscore { get; set; }
     }
 }

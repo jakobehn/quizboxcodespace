@@ -98,8 +98,10 @@ namespace QBox.Api.Controllers
                 var result = new GameResultDTO()
                 {
                     GameId = gameId,
+                    CategoryId = game.CategoryId,
                     TotalNrQuestions = totalNrQuestions,
-                    CorrectNrAnswers = nrCorrectAnswers
+                    CorrectNrAnswers = nrCorrectAnswers,
+                    StartTime = game.Start
                 };
                 result.ScoreMessage = GetScoreMessage((float)result.CorrectNrAnswers / (float)result.TotalNrQuestions);
                 return result;

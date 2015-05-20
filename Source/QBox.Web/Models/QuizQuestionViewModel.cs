@@ -15,7 +15,7 @@ namespace QBox.Web.Models
         public int QuestionNr { get; set; }
         public int QuestionsTotalNr { get; set; }
 
-        public List<QuizAnswer> Answers { get; set; }
+        public List<QuizAnswerModel> Answers { get; set; }
 
         public int SelectedAnswer { get; set; }
     }

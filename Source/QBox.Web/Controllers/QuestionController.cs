@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -39,11 +40,11 @@ namespace QBox.Web.Controllers
                     QuestionsTotalNr = q.TotalNrQuestions,
                     GameId = gameId 
                 };
-                questionModel.Answers = new List<QuizAnswer>();
+                questionModel.Answers = new List<QuizAnswerModel>();
                 foreach (var a in q.Choices)
                 {
                     questionModel.Answers.Add(
-                        new QuizAnswer()
+                        new QuizAnswerModel()
                         {
                             Id = a.Id,
                             AnswerText = a.Text
@@ -74,9 +75,14 @@ namespace QBox.Web.Controllers
 
         [HttpPost]
         [Route("PostScore")]
-        public ActionResult PostScore()
+        public async Task<ActionResult> PostScore(QuizResultModel model)
         {
-            return View();
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            await apiClient.PostHighScore(model.GameId, model.Name);
+            return RedirectToAction("Index", "Highscore");
         }
     }
 }
