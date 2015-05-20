@@ -90,6 +90,19 @@ else
     Write-Warning "Found no files."
 }
 
+function Set-XmlElementsTextValue(
+    [xml]$XmlDocument,
+    [string]$ElementPath,
+    [string]$TextValue)
+{
+	$node = Get-XmlNode -XmlDocument $XmlDocument -NodePath $ElementPath
+	# If the node exists, update its value.
+	if ($node)
+	{
+		$node.InnerText = $TextValue
+	}
+}
+
 # Apply the version to the .sqlproj property files
 $files = gci $Env:BUILD_SOURCESDIRECTORY -recurse | 
 	?{ $_.Extension -eq ".sqlproj" } | 
