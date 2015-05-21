@@ -52,3 +52,8 @@ $destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\QBox.Api_Package\"
 Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
 Copy-Item -Verbose $sourcePath $destinationPath -Recurse
 
+$sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\**\*.dacpac"
+$destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\QBox.Database\"
+Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
+Copy-Item -Verbose $sourcePath $destinationPath -Recurse
+
