@@ -1,6 +1,4 @@
-﻿USE [QuizBox]
-GO
-IF( NOT EXISTS (SELECT * FROM [dbo].[Category])) 
+﻿IF( NOT EXISTS (SELECT * FROM [dbo].[Category])) 
 BEGIN
 SET IDENTITY_INSERT [dbo].[Category] ON 
 INSERT [dbo].[Category] ([Id], [Name], [Description]) VALUES (1, N'Sports', NULL)
