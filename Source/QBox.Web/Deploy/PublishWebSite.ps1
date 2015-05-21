@@ -1,16 +1,3 @@
-function CreateWebSite([string]$site)
-{
-	Write-Verbose -verbose "Checking if $site already exists"
-	if( Test-AzureName -Website "$site")
-	{
-		Write-Verbose -verbose "Site $site already exists"
-	}
-	else
-	{
-		Write-Verbose -verbose "Creating $site"
-		New-AzureWebsite -Name "$site" -Location "North Europe"
-	}
-}
 
 function PublishWebSite([string]$deployCmd, [string]$pubUrl, [string]$usr, [string]$pwd)
 {
@@ -23,9 +10,6 @@ function PublishWebSite([string]$deployCmd, [string]$pubUrl, [string]$usr, [stri
 
 $startTime = Get-Date
 Write-Verbose -Verbose "Starting deployment at $startTime"
-
-CreateWebSite "$siteName"
-
 
 Write-Verbose -Verbose 'Setting environment specific variables'
 
