@@ -32,16 +32,11 @@ Write-Verbose -Verbose 'Setting environment specific variables'
 $paramFiles=get-childitem "$applicationPath" "*.SetParameters.xml" -rec -Verbose
 foreach ($file in $paramFiles)
 {
-	(Get-Content $file.PSPath) | 
-	Foreach-Object {
-		$_ -replace "__APIURL__", "$APIURL"
-		$_ -replace "__DBTargetServer__", "$DBTargetServer"
-		$_ -replace "__DBDatabase__", "$DBDatabase"
-		$_ -replace "__DBUserName__", "$DBUserName"
-		$_ -replace "__DBPassword__", "$DBPassword"
-
-	} | 
-	Set-Content $file.PSPath
+	(Get-Content $file.PSPath) | Foreach-Object { $_ -replace "__APIURL__", "$APIURL" } | Set-Content $file.PSPath
+	(Get-Content $file.PSPath) | Foreach-Object { $_ -replace "__DBTargetServer__", "$DBTargetServer" } | Set-Content $file.PSPath
+	(Get-Content $file.PSPath) | Foreach-Object { $_ -replace "__DBDatabase__", "$DBDatabase" } | Set-Content $file.PSPath
+	(Get-Content $file.PSPath) | Foreach-Object { $_ -replace "__DBUserName__", "$DBUserName" } | Set-Content $file.PSPath
+	(Get-Content $file.PSPath) | Foreach-Object { $_ -replace "__DBPassword__", "$DBPassword" } | Set-Content $file.PSPath
 }
 
 PublishWebSite "$publishProfile.deploy.cmd" $publishUrl $publishUser $publishPassword
