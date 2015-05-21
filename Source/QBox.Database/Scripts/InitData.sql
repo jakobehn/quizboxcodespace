@@ -1,5 +1,7 @@
 ﻿USE [QuizBox]
 GO
+IF( NOT EXISTS (SELECT * FROM [dbo].[Category])) 
+BEGIN
 SET IDENTITY_INSERT [dbo].[Category] ON 
 INSERT [dbo].[Category] ([Id], [Name], [Description]) VALUES (1, N'Sports', NULL)
 INSERT [dbo].[Category] ([Id], [Name], [Description]) VALUES (2, N'Politics', NULL)
@@ -244,3 +246,4 @@ INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (179 ,45,
 INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (180 ,45, N'System.Float', 0)
 
 SET IDENTITY_INSERT [dbo].[Answer] OFF
+END
