@@ -27,6 +27,7 @@
                     <label for="name">Namn:</label>
                     <input type="text" class="form-control" id="name" name="name">
                 </div>
+                @Html.ValidationMessageFor(m => m.Name)
                 <div class="form-group">
                     <button type="submit" class="btn btn-lg btn-info">Post score</button>
                     <a class="btn btn-info btn-lg btn-newgame" href="/Category">New game</a>

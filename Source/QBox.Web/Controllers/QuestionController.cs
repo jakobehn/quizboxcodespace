@@ -79,7 +79,7 @@ namespace QBox.Web.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("Index", model);
             }
             await apiClient.PostHighScore(model.GameId, model.Name);
             return RedirectToAction("Index", "Highscore");

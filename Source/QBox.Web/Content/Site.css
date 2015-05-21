@@ -84,13 +84,18 @@ textarea {
 
 .highscore {
     font-size: medium;
+    background-color: white;
+    border: 0px;
+    border-color: red;
 }
 /* For small screen */
 .highscore .row:nth-child(even){
-  background-color: bisque;
+  background-color: aliceblue;
+    border: 0px;
 }
 .highscore .row:nth-child(odd){
-  background-color: beige;
+  background-color: white;
+  border: 0px;
 }
 
 .quiz-radio {

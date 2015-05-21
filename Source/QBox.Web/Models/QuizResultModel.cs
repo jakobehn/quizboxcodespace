@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using QBox.Api.DTO;
 
@@ -21,6 +22,7 @@ namespace QBox.Web.Models
         public int TotalNrQuestions { get; set; }
         public int NrCorrectAnswers { get; set; }
         public string Verdict { get; set; }
+        [Required]
         public string Name { get; set; }
         public int GameId { get; set; }
     }
