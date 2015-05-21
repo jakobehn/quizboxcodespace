@@ -32,9 +32,15 @@ Write-Verbose -Verbose 'Setting environment specific variables'
 $paramFiles=get-childitem "$applicationPath" "*.SetParameters.xml" -rec -Verbose
 foreach ($file in $paramFiles)
 {
-	Write-Verbose -Verbose ("Updating token __APIURL__ in file " + $file.PSPath + " with $APIURL")
 	(Get-Content $file.PSPath) | 
-	Foreach-Object {$_ -replace "__APIURL__", "$APIURL"} | 
+	Foreach-Object {
+		$_ -replace "__APIURL__", "$APIURL"
+		$_ -replace "__DBTargetServer__", "$DBTargetServer"
+		$_ -replace "__DBDatabase__", "$DBDatabase"
+		$_ -replace "__DBUserName__", "$DBUserName"
+		$_ -replace "__DBPassword__", "$DBPassword"
+
+	} | 
 	Set-Content $file.PSPath
 }
 
