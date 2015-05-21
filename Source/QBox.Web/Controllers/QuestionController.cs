@@ -1,10 +1,7 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using QBox.Api.Client;
-using QBox.Api.DTO;
 using QBox.Web.Models;
 
 namespace QBox.Web.Controllers
@@ -67,7 +64,6 @@ namespace QBox.Web.Controllers
             {
                 return View("Index", model);
             }
-            //TODO: Store answer on backend
             await apiClient.SaveAnswer(model.GameId, model.QuestionNr, model.SelectedAnswer);
 
             return RedirectToAction("Index", new {category = model.Category, questionNr = model.QuestionNr + 1, gameId = model.GameId});
