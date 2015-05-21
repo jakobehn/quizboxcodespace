@@ -52,8 +52,13 @@ $destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\QBox.Api_Package\"
 Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
 Copy-Item -Verbose $sourcePath $destinationPath -Recurse
 
+$dacpacDestinationPath = Join-Path $Env:TF_BUILD_BINARIESDIRECTORY "QBox.Database\"
+
+if (-not [IO.Directory]::Exists($dacpacDestinationPath) )
+{
+		[IO.Directory]::CreateDirectory($dacpacDestinationPath) | Out-Null
+}
 $sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Database\bin\release\*.dacpac"
-$destinationPath = "$Env:TF_BUILD_BINARIESDIRECTORY\QBox.Database"
-Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $destinationPath)
-Copy-Item -Verbose $sourcePath $destinationPath -Recurse
+Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $dacpacDestinationPath)
+Copy-Item -Verbose $sourcePath $dacpacDestinationPath -Recurse
 
