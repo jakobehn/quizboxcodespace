@@ -1,3 +1,4 @@
+#test comment
 function CreateBinDirectory()
 {
 	# If binary output directory exists, make sure it is empty
