@@ -259,6 +259,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Deploy\CopyDeploymentArtifacts.ps1" />
+    <Content Include="Deploy\DeployDatabase.ps1" />
     <None Include="Properties\PublishProfiles\CreatePackage.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -58,6 +58,12 @@ if (-not [IO.Directory]::Exists($dacpacDestinationPath) )
 {
 		[IO.Directory]::CreateDirectory($dacpacDestinationPath) | Out-Null
 }
+
+$sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Web\Deploy\DeployDatabase.ps1"
+Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $dacpacDestinationPath)
+Copy-Item -Verbose $sourcePath $destinationPath -Recurse
+
+
 $sourcePath = "$Env:TF_BUILD_SOURCESDIRECTORY\Source\QBox.Database\bin\release\*.dacpac"
 Write-Verbose -Verbose ("Copying ps1 files " + $sourcePath + " to " + $dacpacDestinationPath)
 Copy-Item -Verbose $sourcePath $dacpacDestinationPath -Recurse
