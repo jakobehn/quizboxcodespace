@@ -25,13 +25,13 @@ namespace QBox.Api.Controllers
         }
 
         [HttpPost]
-        [Route("start/{categoryid}/{nrquestions}")]
-        public GameDTO StartNewGame(int categoryId, int nrQuestions)
+        [Route("start/{category}/{nrquestions}")]
+        public GameDTO StartNewGame(string category, int nrQuestions)
         {
             int gameId;
             using (var ctx = new QuizBoxContext())
             {
-                var selectedCategory = ctx.Category.FirstOrDefault(c => c.Id == categoryId);
+                var selectedCategory = ctx.Category.FirstOrDefault(c => c.Name == category);
                 var newGame = new Game()
                 {
                     Category = selectedCategory,
@@ -39,7 +39,8 @@ namespace QBox.Api.Controllers
                     UserId = "1234567890",
                 };
 
-                var questionsInGame = ctx.Question.Where(q => q.Category.Id == categoryId).Take(nrQuestions).ToList();
+                var questionsInGame = ctx.Question.Where(q => q.Category.Id == selectedCategory.Id).AsEnumerable().OrderBy(
+                    q => Guid.NewGuid()).Take(5).ToList();
                 newGame.GameQuestion = new List<GameQuestion>();
                 for (int i = 1; i <= questionsInGame.Count(); i++)
                 {

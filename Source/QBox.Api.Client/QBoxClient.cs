@@ -49,9 +49,9 @@ namespace QBox.Api.Client
             }
         }
 
-        public async Task<GameDTO> StartGame(int categoryId, int nrQuestions)
+        public async Task<GameDTO> StartGame(string category, int nrQuestions)
         {
-            string uri = $"{baseUrl}/game/start/{categoryId}/{nrQuestions}";
+            string uri = $"{baseUrl}/game/start/{category}/{nrQuestions}";
             var res = await httpClient.PostAsync(uri, new StringContent("")).ConfigureAwait(false);
             var textData = await res.Content.ReadAsStringAsync();
             if (res.IsSuccessStatusCode)

@@ -19,8 +19,8 @@ namespace QBox.Web.Controllers
             this.apiClient = apiClient;
         }
 
-        [Route("{category}/{questionNr?}")]
-        public ActionResult Index(int category, int questionNr=1, int gameId=0)
+        [Route("{category}/{gameId?}/{questionNr?}")]
+        public ActionResult Index(string category, int gameId = 0, int questionNr=1 )
         {
             if (questionNr == 1)
             {
