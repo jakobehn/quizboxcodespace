@@ -9,6 +9,7 @@ namespace QBox.Api.UnitTests
         [TestMethod]
         public void TestMethod1()
         {
+            //Yes
         }
     }
 }
