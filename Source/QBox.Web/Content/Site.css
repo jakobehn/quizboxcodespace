@@ -88,6 +88,10 @@ textarea {
     border: 0px;
     border-color: red;
 }
+
+.highscore .badge {
+    font-size: large;
+}
 /* For small screen */
 .highscore .row:nth-child(even){
   background-color: aliceblue;

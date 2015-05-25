@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="well">
             <div class="row-centered">
                 <h2>Top 10 QuizBox scores</button></h2>
@@ -14,23 +14,27 @@
         @{
             int i = 1;
         }
-        <div class="well highscore">
-            <div class="list-group ">
-                @foreach (var score in Model.Scores)
-                {
-                    <div class="row list-group-item">
-                        <div class="col-md-1">@i.</div>
-                        <div class="col-sm-7 badge">@score.ScorePercent %</div>
-                        <div class="col-sm-4">@score.User</div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="well highscore">
+                    <div class="list-group ">
+                        @foreach (var score in Model.Scores)
+                        {
+                            <div class="row list-group-item">
+                                <div class="col-md-1">@i.</div>
+                                <div class="col-sm-4 badge">@score.ScorePercent %</div>
+                                <div class="col-sm-7">@score.User</div>
+                            </div>
+                            i = i + 1;
+                        }
                     </div>
-                    i = i + 1;
-                }
-            </div>
 
-            <div class="form-group row-centered">
-                <a class="btn btn-info btn-lg" href="/">Home</a>
-            </div>
+                    <div class="form-group row-centered">
+                        <a class="btn btn-info btn-lg" href="/">Home</a>
+                    </div>
 
+                </div>
+            </div>
         </div>
     </div>
     </div>

@@ -5,11 +5,11 @@ SET IDENTITY_INSERT [dbo].[Category] ON
 
 INSERT [dbo].[Category] ([Id], [Name], [Description]) VALUES (1, N'Sports', NULL)
 
-INSERT [dbo].[Category] ([Id], [Name], [Description]) VALUES (2, N'Politics', NULL)
+INSERT [dbo].[Category] ([Id], [Name], [Description]) VALUES (2, N'Food', NULL)
 
 INSERT [dbo].[Category] ([Id], [Name], [Description]) VALUES (4, N'Entertainment', NULL)
 
-INSERT [dbo].[Category] ([Id], [Name], [Description]) VALUES (5, N'Geography', NULL)
+INSERT [dbo].[Category] ([Id], [Name], [Description]) VALUES (5, N'Music', NULL)
 
 INSERT [dbo].[Category] ([Id], [Name], [Description]) VALUES (6, N'American trivia', NULL)
 
@@ -116,9 +116,7 @@ INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (47, 6, N'When did t
 
 INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (48, 6, N'In the Roy Rogers -Dale Evans Museum, you will find Roy and Dales stuffed horses. Roy''s horse was named Trigger, which was Dales horse?')
 
-INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (49, 6, N'The
-
- Daniel Boon museum at the home where he died can best be described how?')
+INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (49, 6, N'The Daniel Boon museum at the home where he died can best be described how?')
 
 INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (50, 6, N'Which of the following items was owned by the fewest U.S. homes in 1990?')
 
@@ -151,6 +149,17 @@ INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (63, 4, N'Twyla Thar
 INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (64, 4, N'Whose autobiography was called Back In The Saddle Again?')
 
 INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (65, 4, N'What play revived on Broadway in 1988, starred Jason Robards and Colleen Dewhurst?')
+
+INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (66, 2, N'Which of the following vegetables is not one of the ingredients of V-8 juice?')
+
+INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (67, 2, N'What is the main ingredient in vichyssoise?')
+
+INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (68, 2, N'What country produces the most potatoes?')
+
+INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (69, 5, N'What did "Weird Al" Yankovic call his album that contained a parody of a song from Michael Jacksons album BAD?')
+INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (70, 5, N'What band leader was known as "the King of Swing"?')
+INSERT [dbo].[Question] ([Id], [CategoryId], [Text]) VALUES (71, 5, N'Which one of these four Australian terms can be found in the lyrics of the song "Waltzing Matilda" is a tree?')
+
 
 SET IDENTITY_INSERT [dbo].[Question] OFF
 
@@ -664,6 +673,39 @@ INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (253, 65,
 INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (254, 65, N'Long Day''s Journey Into Night ', 0)
 
 INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (255, 65, N'A Moon for the Misbegotten', 0)
+
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (256, 66, N'Beet', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (257, 66, N'Carrot', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (258, 66, N'Spinach', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (259, 66, N'Cabbage', 1)
+
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (260, 67, N'Lima beans', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (261, 67, N'Clams', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (262, 67, N'Tomatoes', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (263, 67, N'Potatoes', 1)
+
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (264, 68, N'China', 1)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (265, 68, N'United States', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (266, 68, N'Ireland', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (267, 68, N'Russia', 0)
+
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (268, 69, N'Baddest', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (269, 69, N'Even worse', 1)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (270, 69, N'Badder', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (271, 69, N'Good', 0)
+
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (272, 70, N'Tommy Dorsey', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (273, 70, N'Benny Goodman', 1)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (274, 70, N'Guy Lombardo', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (275, 70, N'Glenn Miller', 0)
+
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (276, 71, N'billabong', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (277, 71, N'coolibah ', 1)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (278, 71, N'jumbuck', 0)
+INSERT [dbo].[Answer] ([Id], [QuestionId], [Text], [IsCorrect]) VALUES (279, 71, N'tucker-bag', 0)
+
+
+
 
 SET IDENTITY_INSERT [dbo].[Answer] OFF
 

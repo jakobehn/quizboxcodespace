@@ -36,7 +36,7 @@ namespace QBox.Api.Controllers
                 var game = ctx.Game.First(g => g.Id == gameId);
                 int totalNrQuestions = game.GameQuestion.Count();
                 int nrCorrectAnswers = game.GameQuestion.Count(q => q.Answer.IsCorrect);
-                var scorePercent = (double)nrCorrectAnswers / (double)totalNrQuestions;
+                var scorePercent = ((double) nrCorrectAnswers/(double)totalNrQuestions)*100;
 
                 ctx.Highscore.Add(new Highscore()
                 {
