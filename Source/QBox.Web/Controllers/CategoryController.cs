@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 using QBox.Api.Client;
 using QBox.Web.Models;
@@ -38,6 +39,13 @@ namespace QBox.Web.Controllers
             return RedirectToAction("Index", "Question", new {category=selectedCategory});
         }
 
+        [HttpPost]
+        public async Task<ActionResult> Random()
+        {
+            var allCategories = await apiClient.GetCategories();
+            var selectedCategory = allCategories[new Random().Next(0, allCategories.Count - 1)].Name;
+            return RedirectToAction("Index", "Question", new { category = selectedCategory });
+        }
     }
 
 }
