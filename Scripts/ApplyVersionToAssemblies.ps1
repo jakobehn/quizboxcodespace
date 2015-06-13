@@ -1,9 +1,9 @@
 [CmdletBinding()]
 
 param(
-	[Parameter(Mandatory=$True,Position=1)]
+	[Parameter(Mandatory=$True)]
 	[string]$sourcesDirectory,
-	[Parameter(Mandatory=$True,Position=2)]
+	[Parameter(Mandatory=$True)]
 	[string]$buildNumber
 )
 
