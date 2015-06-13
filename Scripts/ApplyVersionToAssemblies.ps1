@@ -11,8 +11,8 @@ param(
 # and then apply it to the assemblies
 $versionRegex = "\d+\.\d+\.\d+\.\d+"
 
-Write-Verbose "Sources Directory: $sourcesDirectory"
-Write-Verbose "Build Number: $buildNumber"
+Write-Verbose -Verbose "Sources Directory: $sourcesDirectory"
+Write-Verbose -Verbose "Build Number: $buildNumber"
 
 # Get and validate the version data
 $versionData = [regex]::matches($buildNumber,$versionRegex)
@@ -31,7 +31,7 @@ switch($versionData.Count)
       }
 }
 $newVersion = $versionData[0]
-Write-Verbose "Version: $newVersion"
+Write-Verbose -Verbose "Version: $newVersion"
 
 # Apply the version to the assembly property files
 $files = gci $sourcesDirectory -recurse -include "*Properties*","My Project" | 
@@ -39,18 +39,18 @@ $files = gci $sourcesDirectory -recurse -include "*Properties*","My Project" |
     foreach { gci -Path $_.FullName -Recurse -include AssemblyInfo.* }
 if($files)
 {
-    Write-Verbose "Will apply $newVersion to $($files.count) files."
+    Write-Verbose -Verbose "Will apply $newVersion to $($files.count) files."
 
     foreach ($file in $files) {
         $filecontent = Get-Content($file)
         attrib $file -r
         $filecontent -replace $versionRegex, $newVersion | Out-File $file
-        Write-Verbose "$file.FullName - version applied"
+        Write-Verbose -Verbose "$file.FullName - version applied"
     }
 }
 else
 {
-    Write-Warning "Found no files."
+    Write-Warning -Verbose "Found no files."
 }
 
 function Set-XmlElementsTextValue(
@@ -72,7 +72,7 @@ $files = gci $sourcesDirectory -recurse |
 	foreach { gci -Path $_.FullName -Recurse -include *.sqlproj }
 if($files)
 {
-	Write-Verbose "Will apply $newVersion to $($files.count) .sqlproj files."
+	Write-Verbose -Verbose "Will apply $newVersion to $($files.count) .sqlproj files."
 	
 	foreach ($file in $files) {			
 		if(-not $Disable)
@@ -80,12 +80,12 @@ if($files)
 			$sqlProject = Get-Content $file 
 			$sqlProject = $sqlProject -replace "\<DacVersion\>(\d+)\.(\d+)\.(\d+)\.(\d+)\<\/DacVersion\>", "<DacVersion>$newVersion</DacVersion>" 
 			Set-Content $file -Value $sqlProject 
-			Write-Verbose "$file.FullName - version applied"
+			Write-Verbose -Verbose "$file.FullName - version applied"
 		}
 	}
 }
 else
 {
-	Write-Warning "Found no .sqlproj files."
+	Write-Warning -Verbose "Found no .sqlproj files."
 }
 
