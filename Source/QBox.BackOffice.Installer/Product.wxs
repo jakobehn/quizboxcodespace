@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?define VERSION=!(bind.FileVersion.QBox.BackOffice.exe)?>
+<?define VERSION=!(bind.FileVersion.QBoxBackOfficeExe)?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 
