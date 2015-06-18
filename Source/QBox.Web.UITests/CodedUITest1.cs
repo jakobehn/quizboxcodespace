@@ -24,7 +24,7 @@ namespace QBox.Web.UITests
 
         [TestMethod]
         [Ignore]
-        public void CodedUITestMethod1()
+        public void LoginUserAndSelectNewQuiz()
         {
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
         }

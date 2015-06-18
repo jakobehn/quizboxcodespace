@@ -4,10 +4,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace QBox.Api.IntegrationTests
 {
     [TestClass]
-    public class UnitTest1
+    public class IntegrationTests
     {
         [TestMethod]
-        public void TestMethod1()
+        public void ImportQuestionsFromExcel()
         {
         }
     }

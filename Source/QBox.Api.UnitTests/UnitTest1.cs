@@ -4,37 +4,41 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace QBox.Api.UnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class ApiTests
     {
         [TestMethod]
-        public void TestMethod1()
+        [Priority(2)]
+        public void CreateQuizShouldStoreCorrectly()
         {
             //Yes
         }
         [TestMethod]
-        public void TestMethod2()
+        [Priority(2)]
+        public void ReomveQuizShouldDeleteFromCollection()
         {
             //Yes
         }
         [TestMethod]
-        public void TestMethod3()
+        public void AddDuplicateQuizShouldFail()
         {
             //Yes
         }
         [TestMethod]
-        public void TestMethod4()
+        public void PostTopHighscoreShouldStoreScoreAtTop()
         {
             //Yes
         }
         [TestMethod]
-        public void TestMethod5()
+        [Priority(1)]
+        public void LoginWithInvalidCredentialsShouldFail()
         {
             //Yes
         }
         [TestMethod]
-        public void TestMethod6()
+        [Priority(1)]
+        public void LogoutShouldClearCookie()
         {
-            //Yes
+            Assert.Fail("");//Yes
         }
     }
 }
