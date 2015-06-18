@@ -11,5 +11,20 @@ namespace QBox.Api.UnitTests
         {
             //Yes
         }
+        [TestMethod]
+        public void TestMethod2()
+        {
+            //Yes
+        }
+        [TestMethod]
+        public void TestMethod3()
+        {
+            //Yes
+        }
+        [TestMethod]
+        public void TestMethod4()
+        {
+            //Yes
+        }
     }
 }

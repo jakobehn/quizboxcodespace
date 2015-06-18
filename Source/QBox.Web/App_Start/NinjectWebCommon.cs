@@ -1,3 +1,4 @@
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 using QBox.Api.Client;
 
 [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(QBox.Web.App_Start.NinjectWebCommon), "Start")]
@@ -8,7 +9,6 @@ namespace QBox.Web.App_Start
     using System;
     using System.Web;
 
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Ninject;
     using Ninject.Web.Common;
