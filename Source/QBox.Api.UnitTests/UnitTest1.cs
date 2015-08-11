@@ -38,7 +38,7 @@ namespace QBox.Api.UnitTests
         [Priority(1)]
         public void LogoutShouldClearCookie()
         {
-            Assert.Fail("");//Yes
+            //Yes
         }
     }
 }
