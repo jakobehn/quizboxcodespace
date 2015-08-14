@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22907.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QBox.Web", "QBox.Web\QBox.Web.csproj", "{29B65D89-B538-4ACF-9E12-07782F7E5898}"
 EndProject
@@ -37,6 +37,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{2F1FD2D8-F3E4-496E-8C72-516A3446E9AD}"
 	ProjectSection(SolutionItems) = preProject
 		..\Scripts\ApplyVersionToAssemblies.ps1 = ..\Scripts\ApplyVersionToAssemblies.ps1
+		..\Scripts\BeginSonarQube.ps1 = ..\Scripts\BeginSonarQube.ps1
 	EndProjectSection
 EndProject
 Global
