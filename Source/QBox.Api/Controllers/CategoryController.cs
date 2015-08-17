@@ -23,5 +23,12 @@ namespace QBox.Api.Controllers
                     }).ToList();
             }
         }
+
+        public string SomeMethod()
+        {
+            return "42";
+        }
     }
+
+    
 }

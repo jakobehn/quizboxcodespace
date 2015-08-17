@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using QBox.Api.Controllers;
 
 namespace QBox.Api.UnitTests
 {
@@ -39,6 +40,13 @@ namespace QBox.Api.UnitTests
         public void LogoutShouldClearCookie()
         {
             //Yes
+        }
+
+        [TestMethod]
+        public void SomeMethodTest()
+        {
+            var controller = new CategoryController();
+            Assert.AreEqual("42", controller.SomeMethod());
         }
     }
 }
