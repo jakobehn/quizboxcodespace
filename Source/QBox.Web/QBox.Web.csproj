@@ -244,7 +244,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="parameters.xml" />
     <Content Include="Scripts\ai.0.15.0-build41087.js" />
     <Content Include="Scripts\ai.0.15.0-build41087.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -292,6 +291,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\PublishProfiles\CreatePackage.pubxml" />
+    <None Include="Properties\PublishProfiles\quizbox-dev - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -366,6 +366,10 @@
     <ProjectReference Include="..\QBox.Api.DTO\QBox.Api.DTO.csproj">
       <Project>{3EF78755-D6CC-4581-8B23-E02E692E2F99}</Project>
       <Name>QBox.Api.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QBox.Logging\QBox.Logging.csproj">
+      <Project>{310AB497-5952-4DE2-9311-D760685A960A}</Project>
+      <Name>QBox.Logging</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

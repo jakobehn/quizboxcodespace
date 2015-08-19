@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using QBox.Api.Client;
+using QBox.Logging;
 using QBox.Web.Models;
 
 namespace QBox.Web.Controllers
@@ -36,6 +38,12 @@ namespace QBox.Web.Controllers
             }
 
             string selectedCategory = Convert.ToString(form[0]);
+            //var properties = new Dictionary<string, string>
+            //{
+            //    {"Category", selectedCategory}
+            //};
+            Logger.Event(selectedCategory);
+
             return RedirectToAction("Index", "Question", new {category=selectedCategory});
         }
 

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 using QBox.Api.Client;
+using QBox.Logging;
 using QBox.Web.Models;
 
 namespace QBox.Web.Controllers
@@ -77,6 +78,8 @@ namespace QBox.Web.Controllers
             {
                 return View("Index", model);
             }
+            Logger.Event("PostHighscore");
+
             await apiClient.PostHighScore(model.GameId, model.Name);
             return RedirectToAction("Index", "Highscore");
         }
