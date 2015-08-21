@@ -38,10 +38,6 @@ namespace QBox.Web.Controllers
             }
 
             string selectedCategory = Convert.ToString(form[0]);
-            //var properties = new Dictionary<string, string>
-            //{
-            //    {"Category", selectedCategory}
-            //};
             Logger.Event(selectedCategory);
 
             return RedirectToAction("Index", "Question", new {category=selectedCategory});
@@ -52,6 +48,7 @@ namespace QBox.Web.Controllers
         {
             var allCategories = await apiClient.GetCategories();
             var selectedCategory = allCategories[new Random().Next(0, allCategories.Count - 1)].Name;
+            Logger.Event("randomCategory");
             return RedirectToAction("Index", "Question", new { category = selectedCategory });
         }
     }

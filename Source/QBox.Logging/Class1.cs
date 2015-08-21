@@ -1,21 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Security.AccessControl;
 using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
 using QBox.Logging.Properties;
 
 namespace QBox.Logging
 {
+    public class QuiBoxContextInitializer : IContextInitializer
+    {
+        public void Initialize(TelemetryContext context)
+        {
+            context.Properties["environment"] = Properties.Settings.Default.CurrentEnvironment;
+        }
+    }
     public class Logger
     {
         private static TelemetryClient TelemetryClient { get; set; }
 
         static Logger()
         {
-            TelemetryClient = new TelemetryClient
+            TelemetryClient = new TelemetryClient(new TelemetryConfiguration()
+            {
+                ContextInitializers = { new QuiBoxContextInitializer()}
+            })
             {
                 InstrumentationKey = Settings.Default.InstrumentationKey
             };
+            TelemetryClient.Context.Component.Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         public static void PageView(string page)

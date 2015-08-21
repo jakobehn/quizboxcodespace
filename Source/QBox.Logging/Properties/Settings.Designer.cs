@@ -31,5 +31,14 @@ namespace QBox.Logging.Properties {
                 return ((string)(this["InstrumentationKey"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Dev")]
+        public string CurrentEnvironment {
+            get {
+                return ((string)(this["CurrentEnvironment"]));
+            }
+        }
     }
 }
