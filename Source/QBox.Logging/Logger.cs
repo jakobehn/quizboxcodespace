@@ -9,23 +9,13 @@ using QBox.Logging.Properties;
 
 namespace QBox.Logging
 {
-    public class QuiBoxContextInitializer : IContextInitializer
-    {
-        public void Initialize(TelemetryContext context)
-        {
-            context.Properties["environment"] = Properties.Settings.Default.CurrentEnvironment;
-        }
-    }
-    public class Logger
+    public static class Logger
     {
         private static TelemetryClient TelemetryClient { get; set; }
 
         static Logger()
         {
-            TelemetryClient = new TelemetryClient(new TelemetryConfiguration()
-            {
-                ContextInitializers = { new QuiBoxContextInitializer()}
-            })
+            TelemetryClient = new TelemetryClient()
             {
                 InstrumentationKey = Settings.Default.InstrumentationKey
             };
