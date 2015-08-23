@@ -28,7 +28,7 @@ namespace QBox.Web.UITests
         }
 
         [TestMethod]
-
+        [Ignore]
         public void StartGameAnswerAllQuestionsAndPostAnswer()
         {
             var homePage = new HomePage(driver);
