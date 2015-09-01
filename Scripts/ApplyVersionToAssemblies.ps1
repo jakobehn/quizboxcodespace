@@ -104,7 +104,7 @@ if($files)
 		if(-not $Disable)
 		{
 			$sqlProject = Get-Content $file 
-			$sqlProject = $sqlProject -replace "android:versionCode=""(\d+)""", "android:versionCode=""$buildRevision"""
+			$sqlProject = $sqlProject -replace "android:versionCode=""(\d+)""", "android:versionCode=""$androidVersion"""
 			$sqlProject = $sqlProject -replace "android:versionName=""(\d+)""", "android:versionName=""$newVersion"""
 			Set-Content $file -Value $sqlProject 
 			Write-Verbose -Verbose "$file.FullName - version applied"
