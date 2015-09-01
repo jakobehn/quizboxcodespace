@@ -89,3 +89,30 @@ else
 	Write-Warning -Verbose "Found no .sqlproj files."
 }
 
+# Apply the version to the android manifest property files
+$files = gci $sourcesDirectory -recurse | 
+	?{ $_.Extension -eq ".xml" } | 
+	foreach { gci -Path $_.FullName -Recurse -include *AndroidManifest.xml }
+if($files)
+
+{
+	$androidVersion = $newVersion.ToString().Replace(".", "")
+
+	Write-Verbose -Verbose "Will apply $newVersion and $androidVersion to $($files.count) Android Manifest files."
+	
+	foreach ($file in $files) {			
+		if(-not $Disable)
+		{
+			$sqlProject = Get-Content $file 
+			$sqlProject = $sqlProject -replace "android:versionCode=""(\d+)""", "android:versionCode=""$buildRevision"""
+			$sqlProject = $sqlProject -replace "android:versionName=""(\d+)""", "android:versionName=""$newVersion"""
+			Set-Content $file -Value $sqlProject 
+			Write-Verbose -Verbose "$file.FullName - version applied"
+		}
+	}
+}
+else
+{
+	Write-Warning -Verbose "Found no Android Manifest files."
+}
+
