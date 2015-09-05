@@ -1,1 +1,1 @@
-$(Agent.ReleaseDirectory)\drop\qbox.api.deploy.cmd /Y
+qbox.api.deploy.cmd /Y
