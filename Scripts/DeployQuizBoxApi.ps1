@@ -5,10 +5,10 @@ param(
 	[string]$workingDirectory
 )
 
-if( $workingDirectoru)
+if( $workingDirectory)
 {
-	Write-Verbose -Verbose "Setting working directory to " + $workingDirectory
+	Write-Verbose -Verbose ("Setting working directory to " + $workingDirectory)
 	Set-Location $workingDirectory
 }
 
-qbox.api.deploy.cmd /Y
+.\QBox.Api.deploy.cmd /Y
