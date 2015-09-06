@@ -36,6 +36,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{2F1F
 	ProjectSection(SolutionItems) = preProject
 		..\Scripts\ApplyVersionToAssemblies.ps1 = ..\Scripts\ApplyVersionToAssemblies.ps1
 		..\Scripts\BeginSonarQube.ps1 = ..\Scripts\BeginSonarQube.ps1
+		..\Scripts\DeployDatabase.ps1 = ..\Scripts\DeployDatabase.ps1
 		..\Scripts\DeployQuizBoxApi.ps1 = ..\Scripts\DeployQuizBoxApi.ps1
 	EndProjectSection
 EndProject
