@@ -283,11 +283,6 @@
     <Content Include="less\creative.less" />
     <Content Include="less\mixins.less" />
     <Content Include="less\variables.less" />
-    <Content Include="Deploy\PublishWebSite.ps1">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Deploy\CopyDeploymentArtifacts.ps1" />
-    <Content Include="Deploy\DeployDatabase.ps1" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
