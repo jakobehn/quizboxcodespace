@@ -28,7 +28,7 @@ namespace QBox.Web.UITests
         }
 
         [TestMethod]
-        [Ignore]
+        //[Ignore]
         public void StartGameAnswerAllQuestionsAndPostAnswer()
         {
             var homePage = new HomePage(driver);
@@ -39,7 +39,7 @@ namespace QBox.Web.UITests
         }
 
         [TestMethod]
-        [Ignore]
+        //[Ignore]
         public void LoginUserAndSelectNewQuiz()
         {
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
