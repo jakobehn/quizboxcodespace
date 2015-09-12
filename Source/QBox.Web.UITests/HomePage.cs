@@ -12,9 +12,9 @@ namespace QBox.Web.UITests
             this.driver = driver;
         }
 
-        public void GoToHome()
+        public void GoToHome(string url)
         {
-            baseURL = Properties.Settings.Default.StartURL;
+            baseURL = url;
             driver.Navigate().GoToUrl(baseURL);
         }
 

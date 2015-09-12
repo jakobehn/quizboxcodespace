@@ -50,16 +50,17 @@ namespace QBox.Web.UITests
 
         // You can use the following additional attributes as you write your tests:
         private IWebDriver driver;
-        private string baseURL;
+        //private string baseURL;
 
         ////Use TestInitialize to run code before running each test 
         [TestInitialize()]
         public void MyTestInitialize()
         {
+            var url = TestContext.Properties["webAppUrl"].ToString();
             driver = new ChromeDriver();
             driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 10));
             var page = new HomePage(driver);
-            page.GoToHome();
+            page.GoToHome(url);
         }
 
         private IEnumerable<IWebDriver> Drivers()
