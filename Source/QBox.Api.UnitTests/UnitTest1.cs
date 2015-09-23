@@ -7,12 +7,24 @@ namespace QBox.Api.UnitTests
     [TestClass]
     public class ApiTests
     {
+        private TestContext testContextInstance;
+
+        public TestContext TestContext
+        {
+            get { return testContextInstance; }
+            set { testContextInstance = value; }
+        }
+
         [TestMethod]
         [Priority(2)]
         public void CreateQuizShouldStoreCorrectly()
         {
             //Yes
+            var quizId = 123;
+            var quizStatus = "OK";
+            TestContext.WriteLine("Quiz {0} updated to {1}.", quizId, quizStatus);
         }
+
         [TestMethod]
         [Priority(2)]
         public void ReomveQuizShouldDeleteFromCollection()
