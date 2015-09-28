@@ -37,9 +37,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{2F1FD2D8-F3E4-496E-8C72-516A3446E9AD}"
 	ProjectSection(SolutionItems) = preProject
 		..\Scripts\ApplyVersionToAssemblies.ps1 = ..\Scripts\ApplyVersionToAssemblies.ps1
-		..\Scripts\BeginSonarQube.ps1 = ..\Scripts\BeginSonarQube.ps1
 		..\Scripts\DeployDatabase.ps1 = ..\Scripts\DeployDatabase.ps1
 		..\Scripts\DeployQuizBoxApi.ps1 = ..\Scripts\DeployQuizBoxApi.ps1
+		..\Scripts\DeployQuizBoxBackOffice.ps1 = ..\Scripts\DeployQuizBoxBackOffice.ps1
 		..\Scripts\DeployQuizBoxWeb.ps1 = ..\Scripts\DeployQuizBoxWeb.ps1
 	EndProjectSection
 EndProject
@@ -1579,7 +1579,6 @@ Global
 		{DC217E26-89D4-4061-8B3C-2D300C342CC8}.Debug|Android.Build.0 = Debug|Any CPU
 		{DC217E26-89D4-4061-8B3C-2D300C342CC8}.Debug|Android.Deploy.0 = Debug|Any CPU
 		{DC217E26-89D4-4061-8B3C-2D300C342CC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC217E26-89D4-4061-8B3C-2D300C342CC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC217E26-89D4-4061-8B3C-2D300C342CC8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{DC217E26-89D4-4061-8B3C-2D300C342CC8}.Debug|ARM.ActiveCfg = Debug|ARM
 		{DC217E26-89D4-4061-8B3C-2D300C342CC8}.Debug|ARM.Build.0 = Debug|ARM
@@ -1793,7 +1792,6 @@ Global
 		{E553CAA1-775C-409B-8AA7-57CBB9730B59}.Debug|Android.Build.0 = Debug|Any CPU
 		{E553CAA1-775C-409B-8AA7-57CBB9730B59}.Debug|Android.Deploy.0 = Debug|Any CPU
 		{E553CAA1-775C-409B-8AA7-57CBB9730B59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E553CAA1-775C-409B-8AA7-57CBB9730B59}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E553CAA1-775C-409B-8AA7-57CBB9730B59}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{E553CAA1-775C-409B-8AA7-57CBB9730B59}.Debug|ARM.ActiveCfg = Debug|Any CPU
 		{E553CAA1-775C-409B-8AA7-57CBB9730B59}.Debug|ARM.Build.0 = Debug|Any CPU
