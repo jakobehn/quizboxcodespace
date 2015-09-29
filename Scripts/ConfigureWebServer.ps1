@@ -15,6 +15,7 @@ Configuration QuizBoxApiWebSite
 		{
 			Ensure = "Present" 
 			Name = "Web-Asp-Net45"
+			DependsOn = "[WindowsFeature]WebServerRole"
 		}
 
 		xWebAppPool QuizBoxApiAppPool
@@ -22,7 +23,7 @@ Configuration QuizBoxApiWebSite
 			Ensure = "Present"
 			Name = "QuizBoxApi"
 			State = "Started"
-			DependsOn = "[WindowsFeature]WebServerRole"
+			DependsOn = "[WindowsFeature]AspNet45"
 		}
 
 
@@ -39,7 +40,7 @@ Configuration QuizBoxApiWebSite
 				Port                  = 80
 			}  
  
-			DependsOn = "[WindowsFeature]WebServerRole"
+			DependsOn = "QuizBoxApiAppPool"
 		}
    }
 }
