@@ -26,6 +26,12 @@ Configuration QuizBoxApiWebSite
 			DependsOn = "[WindowsFeature]AspNet45"
 		}
 
+		File WebSiteRoot {
+            Type = 'Directory'
+            DestinationPath = $DestinationPath
+            Ensure = "Present"
+			DependsOn = "[xWebAppPool]QuizBoxApiAppPool"
+        }
 
 		xWebsite QuizBoxApiSite
 		{
@@ -40,7 +46,7 @@ Configuration QuizBoxApiWebSite
 				Port                  = 80
 			}  
  
-			DependsOn = "[xWebAppPool]QuizBoxApiAppPool"
+			DependsOn = "[File]WebSiteRoot"
 		}
    }
 }
