@@ -40,7 +40,7 @@ Configuration QuizBoxApiWebSite
 				Port                  = 80
 			}  
  
-			DependsOn = "QuizBoxApiAppPool"
+			DependsOn = "[xWebAppPool]QuizBoxApiAppPool"
 		}
    }
 }
