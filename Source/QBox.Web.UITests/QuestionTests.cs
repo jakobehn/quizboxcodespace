@@ -31,11 +31,19 @@ namespace QBox.Web.UITests
         //[Ignore]
         public void StartGameAnswerAllQuestionsAndPostAnswer()
         {
-            var homePage = new HomePage(driver);
-            var questionPage = homePage.StartNewGame();
-            questionPage.SelectFirstCategory();
-            questionPage.AnswerFirstQuestion();
-            homePage = questionPage.PostHighScore("Test Name");
+            var url = TestContext.Properties["webAppUrl"].ToString();
+            foreach (var driver in Drivers())
+            {
+                driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 10));
+
+                var homePage = new HomePage(driver);
+                homePage.GoToHome(url);
+                var questionPage = homePage.StartNewGame();
+                questionPage.SelectFirstCategory();
+                questionPage.AnswerFirstQuestion();
+                homePage = questionPage.PostHighScore("Test Name");
+                driver.Quit();
+            }
         }
 
         [TestMethod]
@@ -49,18 +57,15 @@ namespace QBox.Web.UITests
 
 
         // You can use the following additional attributes as you write your tests:
-        private IWebDriver driver;
+        private IEnumerable<IWebDriver> drivers;
         //private string baseURL;
 
         ////Use TestInitialize to run code before running each test 
         [TestInitialize()]
         public void MyTestInitialize()
         {
-            var url = TestContext.Properties["webAppUrl"].ToString();
-            driver = new ChromeDriver();
-            driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 10));
-            var page = new HomePage(driver);
-            page.GoToHome(url);
+
+
         }
 
         private IEnumerable<IWebDriver> Drivers()
@@ -68,8 +73,8 @@ namespace QBox.Web.UITests
             return new List<IWebDriver>
             {
                 new ChromeDriver(),
-                //new FirefoxDriver(),
-                //new InternetExplorerDriver()
+                new FirefoxDriver(),
+                new InternetExplorerDriver()
             };
         }
 
@@ -79,7 +84,10 @@ namespace QBox.Web.UITests
         {
             try
             {
-                driver.Quit();
+                //foreach (var driver in drivers)
+                //{
+                //    driver.Quit();
+                //}
             }
             catch (Exception)
             {

@@ -18,6 +18,13 @@ Configuration QuizBoxApiWebSite
 			DependsOn = "[WindowsFeature]WebServerRole"
 		}
 
+		WindowsFeature WebMgmtConsole
+        {
+            Name = "Web-Mgmt-Console"
+            Ensure = "Present"
+            DependsOn = "[WindowsFeature]WebServerRole"
+        }
+
 		xWebAppPool QuizBoxApiAppPool
 		{
 			Ensure = "Present"
