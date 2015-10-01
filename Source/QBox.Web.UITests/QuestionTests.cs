@@ -47,11 +47,29 @@ namespace QBox.Web.UITests
         }
 
         [TestMethod]
-        //[Ignore]
         public void LoginUserAndSelectNewQuiz()
         {
-            // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
+            Assert.IsTrue(true);
         }
+
+        [TestMethod]
+        public void LoginUserWithInvalidCredentials()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void LoginUser()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void ViewHighScore()
+        {
+            Assert.IsTrue(true);
+        }
+
 
         #region Additional test attributes
 
