@@ -33,8 +33,6 @@ namespace QBox.Web.UITests
             questionPage.SelectFirstCategory();
             questionPage.AnswerFirstQuestion();
             homePage = questionPage.PostHighScore("Test Name");
-            driver.Quit();
-
         }
 
         [TestMethod]
@@ -99,7 +97,7 @@ namespace QBox.Web.UITests
             try
             {
                 if (driver != null)
-                    driver.Close();
+                    driver.Quit();
             }
             catch (Exception)
             {
