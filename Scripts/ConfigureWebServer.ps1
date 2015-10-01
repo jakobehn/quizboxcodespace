@@ -1,3 +1,4 @@
+
 Configuration QuizBoxApiWebSite
 {
 	Import-DSCResource -ModuleName xWebAdministration
