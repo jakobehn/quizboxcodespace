@@ -3,5 +3,6 @@
   <!-- Parameters used by tests at runtime -->
   <TestRunParameters>
     <Parameter name="webAppUrl" value="http://localhost:1156/" />
+    <Parameter name="browserType" value="firefox" />
   </TestRunParameters>
 </RunSettings>

@@ -1,20 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Windows.Input;
-using System.Windows.Forms;
-using System.Drawing;
-using Microsoft.VisualStudio.TestTools.UITesting;
+using System.ComponentModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.VisualStudio.TestTools.UITest.Extension;
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
-
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
-using OpenQA.Selenium.Support.UI;
 
 namespace QBox.Web.UITests
 {
@@ -23,27 +14,27 @@ namespace QBox.Web.UITests
     [DeploymentItem("IEDriverServer.exe")]
     public class QuestionTests
     {
+        private IWebDriver driver;
+
         public QuestionTests()
         {
         }
 
         [TestMethod]
-        //[Ignore]
         public void StartGameAnswerAllQuestionsAndPostAnswer()
         {
             var url = TestContext.Properties["webAppUrl"].ToString();
-            foreach (var driver in Drivers())
-            {
-                driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 10));
 
-                var homePage = new HomePage(driver);
-                homePage.GoToHome(url);
-                var questionPage = homePage.StartNewGame();
-                questionPage.SelectFirstCategory();
-                questionPage.AnswerFirstQuestion();
-                homePage = questionPage.PostHighScore("Test Name");
-                driver.Quit();
-            }
+            driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 10));
+
+            var homePage = new HomePage(driver);
+            homePage.GoToHome(url);
+            var questionPage = homePage.StartNewGame();
+            questionPage.SelectFirstCategory();
+            questionPage.AnswerFirstQuestion();
+            homePage = questionPage.PostHighScore("Test Name");
+            driver.Quit();
+
         }
 
         [TestMethod]
@@ -82,18 +73,23 @@ namespace QBox.Web.UITests
         [TestInitialize()]
         public void MyTestInitialize()
         {
-
-
-        }
-
-        private IEnumerable<IWebDriver> Drivers()
-        {
-            return new List<IWebDriver>
+            var browserType= TestContext.Properties["browserType"].ToString();
+            switch (browserType)
             {
-                new ChromeDriver(),
-                new FirefoxDriver(),
-                new InternetExplorerDriver()
-            };
+                case "chrome":
+                    driver = new ChromeDriver();
+                    break;
+                case "ie":
+                    driver = new InternetExplorerDriver();
+                    break;
+                case "firefox":
+                    driver = new FirefoxDriver();
+                    break;
+                default:
+                    throw new ArgumentException("Invalid browserType: " + browserType);
+
+            }
+
         }
 
         ////Use TestCleanup to run code after each test has run
@@ -102,10 +98,8 @@ namespace QBox.Web.UITests
         {
             try
             {
-                //foreach (var driver in drivers)
-                //{
-                //    driver.Quit();
-                //}
+                if (driver != null)
+                    driver.Close();
             }
             catch (Exception)
             {
