@@ -1,3 +1,8 @@
+# Copy DSC modules into system modules folder
+$customModulesDirectory = Join-Path $env:SystemDrive "\Program Files\WindowsPowerShell\Modules"
+$customModuleSrc = Join-Path $applicationPath "xWebAdministration"
+
+Copy-Item -Verbose -Force -Recurse -Path $customModuleSrc -Destination $customModulesDirectory
 
 Configuration QuizBoxApiWebSite
 {
@@ -19,11 +24,11 @@ Configuration QuizBoxApiWebSite
 		}
 
 		WindowsFeature WebMgmtConsole
-        {
-            Name = "Web-Mgmt-Console"
-            Ensure = "Present"
-            DependsOn = "[WindowsFeature]WebServerRole"
-        }
+		{
+			Name = "Web-Mgmt-Console"
+			Ensure = "Present"
+			DependsOn = "[WindowsFeature]WebServerRole"
+		}
 
 		xWebAppPool QuizBoxApiAppPool
 		{
@@ -33,12 +38,13 @@ Configuration QuizBoxApiWebSite
 			DependsOn = "[WindowsFeature]AspNet45"
 		}
 
-		File WebSiteRoot {
-            Type = 'Directory'
-            DestinationPath = $DestinationPath
-            Ensure = "Present"
+		File WebSiteRoot 
+		{
+			Type = 'Directory'
+			DestinationPath = $DestinationPath
+			Ensure = "Present"
 			DependsOn = "[xWebAppPool]QuizBoxApiAppPool"
-        }
+		}
 
 		xWebsite QuizBoxApiSite
 		{
