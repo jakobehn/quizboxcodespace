@@ -1,13 +1,6 @@
 
 Configuration QuizBoxApiWebSite
 {
-	    [CmdletBinding()] 
-		param
-	( 
-			[Parameter(Mandatory=$true, Position=0)] 
-			[string]$DestinationPath 
-		) 
-
 	Import-DSCResource -ModuleName xWebAdministration
 
 	Node $env:COMPUTERNAME
