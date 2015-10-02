@@ -43,6 +43,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{2F1F
 		..\Scripts\DeployQuizBoxBackOffice.ps1 = ..\Scripts\DeployQuizBoxBackOffice.ps1
 		..\Scripts\DeployQuizBoxWeb.ps1 = ..\Scripts\DeployQuizBoxWeb.ps1
 		..\Scripts\InstallModules.ps1 = ..\Scripts\InstallModules.ps1
+		..\Scripts\SwapDeploymentSlots.ps1 = ..\Scripts\SwapDeploymentSlots.ps1
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QBox.Logging", "QBox.Logging\QBox.Logging.csproj", "{310AB497-5952-4DE2-9311-D760685A960A}"
