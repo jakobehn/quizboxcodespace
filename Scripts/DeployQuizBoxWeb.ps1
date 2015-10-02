@@ -9,5 +9,9 @@ param(
 	[string]$password
 )
 
+Write-Verbose -Verbose "publishUrl: $publishUrl"
+Write-Verbose -Verbose "userName: $userName"
+Write-Verbose -Verbose "password: $password"
+
 .\QBox.Web.deploy.cmd /Y "/M:$publishUrl" /u:$userName /p:$password /a:Basic
 
