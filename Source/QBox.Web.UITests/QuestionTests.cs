@@ -29,7 +29,10 @@ namespace QBox.Web.UITests
         [TestMethod]
         public void IEStartGameAnswerAllQuestionsAndPostAnswer()
         {
-            driver = new InternetExplorerDriver();
+            driver = new InternetExplorerDriver(new InternetExplorerOptions()
+            {
+                IgnoreZoomLevel = true
+            });
             StartGameAnswerAllQuestionsAndPostAnswer();
         }
 
