@@ -21,12 +21,29 @@ namespace QBox.Web.UITests
         }
 
         [TestMethod]
-        public void StartGameAnswerAllQuestionsAndPostAnswer()
+        public void ChromeStartGameAnswerAllQuestionsAndPostAnswer()
         {
-            var url = TestContext.Properties["webAppUrl"].ToString();
+            driver = new ChromeDriver();
+            StartGameAnswerAllQuestionsAndPostAnswer();
+        }
+        [TestMethod]
+        public void IEStartGameAnswerAllQuestionsAndPostAnswer()
+        {
+            driver = new InternetExplorerDriver();
+            StartGameAnswerAllQuestionsAndPostAnswer();
+        }
 
+        [TestMethod]
+        public void FireFoxStartGameAnswerAllQuestionsAndPostAnswer()
+        {
+            driver = new FirefoxDriver();
+            StartGameAnswerAllQuestionsAndPostAnswer();
+        }
+
+        private void StartGameAnswerAllQuestionsAndPostAnswer()
+        {
             driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 10));
-
+            var url = TestContext.Properties["webAppUrl"].ToString();            
             var homePage = new HomePage(driver);
             homePage.GoToHome(url);
             var questionPage = homePage.StartNewGame();
@@ -36,25 +53,76 @@ namespace QBox.Web.UITests
         }
 
         [TestMethod]
-        public void LoginUserAndSelectNewQuiz()
+        public void ChromeLoginUserAndSelectNewQuiz()
         {
             Assert.IsTrue(true);
         }
 
         [TestMethod]
-        public void LoginUserWithInvalidCredentials()
+        public void ChromeLoginUserWithInvalidCredentials()
         {
             Assert.IsTrue(true);
         }
 
         [TestMethod]
-        public void LoginUser()
+        public void ChromeLoginUser()
         {
             Assert.IsTrue(true);
         }
 
         [TestMethod]
-        public void ViewHighScore()
+        public void ChromeViewHighScore()
+        {
+            Assert.IsTrue(true);
+        }
+
+
+
+        [TestMethod]
+        public void IELoginUserAndSelectNewQuiz()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void IELoginUserWithInvalidCredentials()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void IELoginUser()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void IEViewHighScore()
+        {
+            Assert.IsTrue(true);
+        }
+
+
+        [TestMethod]
+        public void FireFoxLoginUserAndSelectNewQuiz()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void FireFoxLoginUserWithInvalidCredentials()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void FireFoxLoginUser()
+        {
+            Assert.IsTrue(true);
+        }
+
+        [TestMethod]
+        public void FireFoxViewHighScore()
         {
             Assert.IsTrue(true);
         }
@@ -71,23 +139,6 @@ namespace QBox.Web.UITests
         [TestInitialize()]
         public void MyTestInitialize()
         {
-            var browserType= TestContext.Properties["browserType"].ToString();
-            switch (browserType)
-            {
-                case "chrome":
-                    driver = new ChromeDriver();
-                    break;
-                case "ie":
-                    driver = new InternetExplorerDriver();
-                    break;
-                case "firefox":
-                    driver = new FirefoxDriver();
-                    break;
-                default:
-                    throw new ArgumentException("Invalid browserType: " + browserType);
-
-            }
-
         }
 
         ////Use TestCleanup to run code after each test has run
