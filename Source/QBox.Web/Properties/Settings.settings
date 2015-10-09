@@ -8,5 +8,8 @@
     <Setting Name="StartUrl" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://localhost:1156</Value>
     </Setting>
+    <Setting Name="InstrumentationKey" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">sadffd</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

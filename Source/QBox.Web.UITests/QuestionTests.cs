@@ -6,6 +6,7 @@ using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 
 namespace QBox.Web.UITests
 {
@@ -31,7 +32,8 @@ namespace QBox.Web.UITests
         {
             driver = new InternetExplorerDriver(new InternetExplorerOptions()
             {
-                IgnoreZoomLevel = true
+                IgnoreZoomLevel = true,
+                IntroduceInstabilityByIgnoringProtectedModeSettings = true
             });
             StartGameAnswerAllQuestionsAndPostAnswer();
         }

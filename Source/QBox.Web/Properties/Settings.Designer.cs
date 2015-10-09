@@ -40,5 +40,14 @@ namespace QBox.Web.Properties {
                 return ((string)(this["StartUrl"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sadffd")]
+        public string InstrumentationKey {
+            get {
+                return ((string)(this["InstrumentationKey"]));
+            }
+        }
     }
 }

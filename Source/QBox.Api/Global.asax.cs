@@ -15,6 +15,9 @@ namespace QBox.Api
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
+            Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration.Active.InstrumentationKey =
+    Properties.Settings.Default.InstrumentationKey;
         }
     }
 }

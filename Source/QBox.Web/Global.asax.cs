@@ -18,6 +18,9 @@ namespace QBox.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             RegisterGlobalFilters(GlobalFilters.Filters);
+
+            Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration.Active.InstrumentationKey =
+                Properties.Settings.Default.InstrumentationKey;
         }
 
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
