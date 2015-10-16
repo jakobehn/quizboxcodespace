@@ -10,7 +10,7 @@
             <h2>Let's play a new Quiz Game!</h2>
         </div>
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <h4>Start by selecting a category:</h4>
                 <div class="form-group">
                     @using (Html.BeginForm("Start", "Category", FormMethod.Post, new { role = "form" }))
@@ -27,18 +27,7 @@
                     }
                 </div>
             </div>
-            <div class="col-md-4">
-                <h4>Or, select one for me!</h4>
-                <div class="form-group">
-                    @using (Html.BeginForm("Random", "Category", FormMethod.Post, new { role = "form" }))
-                    {
-                        <button type="submit" class="btn">
-                            <img src="~/Content/Images/selectrandom.jpeg" class="img img-circle" width="128px">
-                        </button>
-                    }
-                </div>
 
-            </div>
         </div>
 
     </div>

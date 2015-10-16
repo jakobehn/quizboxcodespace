@@ -43,14 +43,6 @@ namespace QBox.Web.Controllers
             return RedirectToAction("Index", "Question", new {category=selectedCategory});
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Random()
-        {
-            var allCategories = await apiClient.GetCategories();
-            var selectedCategory = allCategories[new Random().Next(0, allCategories.Count - 1)].Name;
-            Logger.Event("randomCategory");
-            return RedirectToAction("Index", "Question", new { category = selectedCategory });
-        }
     }
 
 }
