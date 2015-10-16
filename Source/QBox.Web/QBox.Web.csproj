@@ -234,6 +234,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\creative.css" />
     <Content Include="Content\Images\Logo.jpg" />
+    <Content Include="Content\Images\selectrandom.jpeg" />
     <Content Include="Content\Images\small-logo.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="font-awesome\css\font-awesome.css" />
