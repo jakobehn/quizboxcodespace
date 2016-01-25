@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium;
@@ -38,12 +37,6 @@ namespace QBox.Web.UITests
             StartGameAnswerAllQuestionsAndPostAnswer();
         }
 
-//        [TestMethod]
-        public void FireFoxStartGameAnswerAllQuestionsAndPostAnswer()
-        {
-            driver = new FirefoxDriver();
-            StartGameAnswerAllQuestionsAndPostAnswer();
-        }
 
         private void StartGameAnswerAllQuestionsAndPostAnswer()
         {
@@ -108,29 +101,6 @@ namespace QBox.Web.UITests
         }
 
 
-        [TestMethod]
-        public void FireFoxLoginUserAndSelectNewQuiz()
-        {
-            Assert.IsTrue(true);
-        }
-
-        [TestMethod]
-        public void FireFoxLoginUserWithInvalidCredentials()
-        {
-            Assert.IsTrue(true);
-        }
-
-        [TestMethod]
-        public void FireFoxLoginUser()
-        {
-            Assert.IsTrue(true);
-        }
-
-        [TestMethod]
-        public void FireFoxViewHighScore()
-        {
-            Assert.IsTrue(true);
-        }
 
 
         #region Additional test attributes
