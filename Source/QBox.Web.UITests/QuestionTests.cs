@@ -38,7 +38,7 @@ namespace QBox.Web.UITests
             StartGameAnswerAllQuestionsAndPostAnswer();
         }
 
-        [TestMethod]
+//        [TestMethod]
         public void FireFoxStartGameAnswerAllQuestionsAndPostAnswer()
         {
             driver = new FirefoxDriver();
