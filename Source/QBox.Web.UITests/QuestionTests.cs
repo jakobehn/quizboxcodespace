@@ -10,8 +10,8 @@ using OpenQA.Selenium.Remote;
 namespace QBox.Web.UITests
 {
     [TestClass]
-    //[DeploymentItem("chromedriver.exe")]
-    //[DeploymentItem("IEDriverServer.exe")]
+    [DeploymentItem("chromedriver.exe")]
+    [DeploymentItem("IEDriverServer.exe")]
     public class QuestionTests
     {
         private IWebDriver driver;
@@ -23,19 +23,19 @@ namespace QBox.Web.UITests
         [TestMethod]
         public void ChromeStartGameAnswerAllQuestionsAndPostAnswer()
         {
-            //driver = new ChromeDriver();
-            //StartGameAnswerAllQuestionsAndPostAnswer();
+            driver = new ChromeDriver();
+            StartGameAnswerAllQuestionsAndPostAnswer();
             Assert.IsTrue(true);
         }
         [TestMethod]
         public void IEStartGameAnswerAllQuestionsAndPostAnswer()
         {
-            //driver = new InternetExplorerDriver(new InternetExplorerOptions()
-            //{
-            //    IgnoreZoomLevel = true,
-            //    IntroduceInstabilityByIgnoringProtectedModeSettings = true
-            //});
-            //StartGameAnswerAllQuestionsAndPostAnswer();
+            driver = new InternetExplorerDriver(new InternetExplorerOptions()
+            {
+                IgnoreZoomLevel = true,
+                IntroduceInstabilityByIgnoringProtectedModeSettings = true
+            });
+            StartGameAnswerAllQuestionsAndPostAnswer();
             Assert.IsTrue(true);
         }
 
