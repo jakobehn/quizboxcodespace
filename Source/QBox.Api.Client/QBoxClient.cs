@@ -36,9 +36,9 @@ namespace QBox.Api.Client
             return JsonConvert.DeserializeObject<List<ScoreDTO>>(content);
         }
 
-        public async Task PostHighScore(int gameId, string user)
+        public async Task PostHighScore(int gameId, string user, int age)
         {
-            string uri = $"{baseUrl}/highscore/{gameId}/{user}";
+            string uri = $"{baseUrl}/highscore/{gameId}/{user}/{age}";
 
             var res = await httpClient.PostAsync(uri, new StringContent("")).ConfigureAwait(false);
             var textData = await res.Content.ReadAsStringAsync();

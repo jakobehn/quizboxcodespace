@@ -30,5 +30,6 @@ namespace QBox.Api.DTO
         public double ScorePercent { get; set; }
         public int Duration { get; set; }
         public string User { get; set; }
+        public int Age { get; set; }
     }
 }

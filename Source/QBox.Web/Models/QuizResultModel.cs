@@ -24,6 +24,7 @@ namespace QBox.Web.Models
         public string Verdict { get; set; }
         [Required]
         public string Name { get; set; }
+        public int Age { get; set; }
         public int GameId { get; set; }
     }
 }
