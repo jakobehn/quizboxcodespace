@@ -20,6 +20,7 @@ namespace QBox.Api.Database
         public int TimeElapsedSeconds { get; set; }
         public string UserId { get; set; }
         public System.DateTime EndTime { get; set; }
+        public Nullable<int> Age { get; set; }
     
         public virtual Category Category { get; set; }
     }

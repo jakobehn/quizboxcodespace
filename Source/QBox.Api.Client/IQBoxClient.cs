@@ -13,6 +13,6 @@ namespace QBox.Api.Client
         Task<GameResultDTO> FinishGame(int gameId);
 
         Task<List<ScoreDTO>> GetHighscore();
-        Task PostHighScore(int gameId, string user);
+        Task PostHighScore(int gameId, string user, int? age);
     }
 }
