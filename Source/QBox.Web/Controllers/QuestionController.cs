@@ -80,7 +80,7 @@ namespace QBox.Web.Controllers
             }
             Logger.Event("PostHighscore");
 
-            await apiClient.PostHighScore(model.GameId, model.Name);
+            await apiClient.PostHighScore(model.GameId, model.Name, model.Age);
             return RedirectToAction("Index", "Highscore");
         }
     }

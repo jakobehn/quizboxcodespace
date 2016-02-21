@@ -22,14 +22,15 @@ namespace QBox.Api.Controllers
                         CategoryName = c.Category.Name,
                         CategoryId = c.Category.Id,
                         ScorePercent = c.ScorePercent,
-                        Duration = c.TimeElapsedSeconds
+                        Duration = c.TimeElapsedSeconds,
+                        Age = c.Age
                     }).OrderByDescending(c => c.ScorePercent).ThenBy(c => c.Duration).Take(10).ToList();
             }
         }
 
         [HttpPost]
-        [Route("{gameid}/{user}")]
-        public void Post(int gameId, string user)
+        [Route("{gameid}/{user}/{age:int?}")]
+        public void Post(int gameId, string user, int? age=null)
         {
             using (var ctx = new QuizBoxContext())
             {
@@ -44,7 +45,8 @@ namespace QBox.Api.Controllers
                     ScorePercent = scorePercent,
                     EndTime = DateTime.Now,
                     TimeElapsedSeconds = (DateTime.Now - game.Start).Seconds,
-                    UserId = user
+                    UserId = user,
+                    Age = age
                 }
                     );
                 ctx.SaveChanges();
