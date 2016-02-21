@@ -28,8 +28,12 @@ namespace QBox.Logging
         }
         public static void Event(string eventName, IDictionary<string, string> properties = null)
         {
+            TelemetryClient.InstrumentationKey = Settings.Default.InstrumentationKey;
             if (properties == null)
+            {
+
                 TelemetryClient.TrackEvent(eventName);
+            }
             else
             {
                 TelemetryClient.TrackEvent(eventName, properties, null);
