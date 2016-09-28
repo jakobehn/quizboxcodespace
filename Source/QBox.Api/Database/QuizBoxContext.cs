@@ -8,5 +8,6 @@ namespace QBox.Api.Database
 {
     public partial class QuizBoxContext
     {
+
     }
 }

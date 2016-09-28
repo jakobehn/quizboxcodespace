@@ -297,11 +297,13 @@
     </Content>
     <None Include="Properties\PublishProfiles\CreatePackage.pubxml" />
     <None Include="Properties\PublishProfiles\localhost.pubxml" />
+    <None Include="Properties\PublishProfiles\qboxweb - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\quizbox-dev - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\quizbox-prod - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\quizbox-prod - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\quizbox-prod - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\quizbox-prod - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\quizboxweb - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

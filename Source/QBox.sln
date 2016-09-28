@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QBox.Web", "QBox.Web\QBox.Web.csproj", "{29B65D89-B538-4ACF-9E12-07782F7E5898}"
 EndProject
@@ -13,14 +13,13 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "QBox.Database", "QBox.Datab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QBox.Web.UnitTests", "QBox.Web.UnitTests\QBox.Web.UnitTests.csproj", "{C1DA7B3A-5973-4B07-8F74-CBF30FB0EBFD}"
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "QBox.BackOffice.Installer", "QBox.BackOffice.Installer\QBox.BackOffice.Installer.wixproj", "{BB574AE9-48F8-4421-9662-BE88C67B6CCB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QBox.Web.UITests", "QBox.Web.UITests\QBox.Web.UITests.csproj", "{BD44C478-F5B7-4941-9051-7ADBD1A6653B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QBox.Web.LoadTests", "QBox.Web.LoadTests\QBox.Web.LoadTests.csproj", "{4966F26A-3E31-43C7-BC71-C8B72D9D3A71}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E77A723-5CAC-4C80-8535-D4EF4A36E7F5}"
 	ProjectSection(SolutionItems) = preProject
+		Cloud.testsettings = Cloud.testsettings
 		CodeCoverage.runsettings = CodeCoverage.runsettings
 		CustomRules.ruleset = CustomRules.ruleset
 		Local.testsettings = Local.testsettings
@@ -60,10 +59,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MobileApp", "MobileApp", "{
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		QBox.App\QBox.App\QBox.App.projitems*{e553caa1-775c-409b-8aa7-57cbb9730b59}*SharedItemsImports = 4
 		QBox.App\QBox.App\QBox.App.projitems*{5643ce46-5969-4278-858e-529f6963720b}*SharedItemsImports = 4
 		QBox.App\QBox.App\QBox.App.projitems*{72d6a44f-a2e0-47d3-ae49-b6e83f48aaaa}*SharedItemsImports = 13
 		QBox.App\QBox.App\QBox.App.projitems*{dc217e26-89d4-4061-8b3c-2d300c342cc8}*SharedItemsImports = 4
+		QBox.App\QBox.App\QBox.App.projitems*{e553caa1-775c-409b-8aa7-57cbb9730b59}*SharedItemsImports = 4
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Android = Ad-Hoc|Android
@@ -692,87 +691,6 @@ Global
 		{C1DA7B3A-5973-4B07-8F74-CBF30FB0EBFD}.Release|Windows-x86.Build.0 = Release|Any CPU
 		{C1DA7B3A-5973-4B07-8F74-CBF30FB0EBFD}.Release|x86.ActiveCfg = Release|Any CPU
 		{C1DA7B3A-5973-4B07-8F74-CBF30FB0EBFD}.Release|x86.Build.0 = Release|Any CPU
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Android.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Android.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Any CPU.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Any CPU.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|ARM.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|ARM.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|iOS.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|iOS.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|iPhone.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|iPhone.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|iPhoneSimulator.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows Phone (Universal).ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows Phone (Universal).Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows Phone 8.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows Phone 8.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows-AnyCPU.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows-AnyCPU.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows-ARM.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows-ARM.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows-x64.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows-x64.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows-x86.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|Windows-x86.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|x86.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Ad-Hoc|x86.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Android.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Android.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Any CPU.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Any CPU.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|ARM.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|ARM.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|iOS.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|iOS.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|iPhone.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|iPhone.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|iPhoneSimulator.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|iPhoneSimulator.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows Phone (Universal).ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows Phone (Universal).Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows Phone 8.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows Phone 8.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows-AnyCPU.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows-AnyCPU.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows-ARM.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows-ARM.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows-x64.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows-x64.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows-x86.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|Windows-x86.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|x86.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.AppStore|x86.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|Android.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|ARM.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|iOS.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|iPhone.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|iPhoneSimulator.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|Windows Phone (Universal).ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|Windows Phone 8.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|Windows-AnyCPU.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|Windows-ARM.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|Windows-x64.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|Windows-x86.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|x86.ActiveCfg = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Debug|x86.Build.0 = Debug|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|Android.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|Any CPU.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|Any CPU.Build.0 = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|ARM.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|iOS.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|iPhone.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|iPhoneSimulator.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|Windows Phone (Universal).ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|Windows Phone 8.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|Windows-AnyCPU.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|Windows-ARM.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|Windows-x64.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|Windows-x86.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|x86.ActiveCfg = Release|x86
-		{BB574AE9-48F8-4421-9662-BE88C67B6CCB}.Release|x86.Build.0 = Release|x86
 		{BD44C478-F5B7-4941-9051-7ADBD1A6653B}.Ad-Hoc|Android.ActiveCfg = Release|Any CPU
 		{BD44C478-F5B7-4941-9051-7ADBD1A6653B}.Ad-Hoc|Android.Build.0 = Release|Any CPU
 		{BD44C478-F5B7-4941-9051-7ADBD1A6653B}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU

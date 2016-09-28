@@ -260,7 +260,8 @@
     </Content>
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\CreatePackage.pubxml" />
-    <None Include="Properties\PublishProfiles\quizbox-api-dev - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\qboxapi - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\quizboxapi - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -274,6 +275,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

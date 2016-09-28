@@ -20,13 +20,22 @@ namespace QBox.Web.Controllers
 
         public ActionResult Index()
         {
-            var allCategories = apiClient.GetCategories().Result;
-            var model = new QuizCategoriesViewModel
+            try
             {
-                Categories = allCategories.Select(
-                    c => new QuizCategoryViewModel() {Id = c.Id, Name = c.Name, Description = c.Description}).ToList()
-            };
-            return View(model);
+                var allCategories = apiClient.GetCategories().Result;
+                var model = new QuizCategoriesViewModel
+                {
+                    Categories = allCategories.Select(
+                        c => new QuizCategoryViewModel() { Id = c.Id, Name = c.Name, Description = c.Description }).ToList()
+                };
+                return View(model);
+            }
+            catch( Exception ex)
+            {
+                Response.Write(ex.ToString());
+                Response.End();
+            }
+            return null;
         }
 
         [HttpPost]

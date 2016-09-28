@@ -43,7 +43,7 @@ namespace QBox.Web.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("sadffd")]
+        [global::System.Configuration.DefaultSettingValueAttribute("6dce58cb-183a-4787-8f1b-0efc6b957cba")]
         public string InstrumentationKey {
             get {
                 return ((string)(this["InstrumentationKey"]));
