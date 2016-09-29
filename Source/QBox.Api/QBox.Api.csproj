@@ -260,8 +260,6 @@
     </Content>
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\CreatePackage.pubxml" />
-    <None Include="Properties\PublishProfiles\qboxapi - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\quizboxapi - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

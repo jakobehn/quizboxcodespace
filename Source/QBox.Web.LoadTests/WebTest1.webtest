@@ -1,0 +1,663 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebTest Name="WebTest1" Id="37b1794e-a718-455a-9704-b8c2920ed765" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest1.97a5e1c0-42d1-4890-bcbd-e2c63e768745.rec.webtestresult" ResultsLocale="">
+  <Items>
+    <Request Method="GET" Guid="3fa89f9a-b7a5-4e4d-ac25-6e140fcf5bcb" Version="1.1" Url="http://qboxweb.azurewebsites.net/" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <DependentRequests>
+        <Request Method="GET" Guid="64acc1ff-8e29-448f-a1ea-3f1e61729804" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nmFp2sMiApZm5Dx7NpSTOZk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="57ad5ae1-43ef-4fba-9fee-623e8d4f2493" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/RFda8w1V0eDZheqfcyQ4EHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="e0999272-f8cb-49a0-8c13-b7f24765ed73" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nnl4twXkwp3_u9ZoePkT564.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="e9f1b6e1-542c-4dba-a2f1-40b708fe5748" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6ngi3Hume1-TKjJz2lX0jYjo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="ce8954ce-a757-4beb-91c2-da7d98406f0c" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIG0Xvi9kvVpeKmlONF1xhUs.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="bc02a3fa-7633-42f6-afcc-472df8ca7b9b" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/So5lHxHT37p2SS4-t60SlHpumDtkw9GHrrDfd7ZnWpU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="f71fec9b-476f-42f0-9e4d-7a7415313090" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIL0qgHI2SEqiJszC-CVc3gY.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="0904b3a3-906d-4caf-baae-76e3f4387472" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIFrTzzUNIOd7dbe75kBQ0MM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="6692352d-300f-41a7-a720-6d2ef6cb3483" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="1a2b19a7-aea8-4e8e-abba-fafc0866dcec" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="cf3090e7-f4b8-4d9e-8f9d-e17aa3d612e9" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="32da5ac3-e1d3-49f0-80b8-a1737b9cb329" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="b7e83a1d-8b63-4a9f-80bd-67ad1280d795" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/EInbV5DfGHOiMmvb1Xr-hnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="a6784aee-82b3-4bb5-adee-52a251c84497" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxh_xHqYgAV9Bl_ZQbYUxnQU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="e1849e32-ec8d-4fa9-a5ab-a5f853ca92e3" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="c516c125-63e0-4c24-bb0d-735373a793c7" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxn5HxGBcBvicCpTp6spHfNo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="270a21e0-e379-4bbc-bb8b-a44c7634800a" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxjqR_3kx9_hJXbbyU8S6IN0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="5bf2ae64-2a07-4e76-b7d7-27dbd58b8feb" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxkCDe67GEgBv_HnyvHTfdew.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+      </DependentRequests>
+    </Request>
+    <Request Method="GET" Guid="5fdbb37a-e074-46ee-ad0b-9b3fda74d025" Version="1.1" Url="http://qboxweb.azurewebsites.net/Category" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <DependentRequests>
+        <Request Method="GET" Guid="feca3a0e-086d-4602-86c3-eed402d653ba" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nmFp2sMiApZm5Dx7NpSTOZk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="dfec29fe-8852-4ddf-97f5-1aabee166835" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/RFda8w1V0eDZheqfcyQ4EHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="bf55c75d-089a-4a30-b634-ca26a0b3e806" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nnl4twXkwp3_u9ZoePkT564.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="4cc3f1f7-6708-4d46-840f-23086beec231" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6ngi3Hume1-TKjJz2lX0jYjo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="5672bdff-29e1-41c3-a6d7-34de10fb1fb5" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIG0Xvi9kvVpeKmlONF1xhUs.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="cc449df4-d555-480a-81a4-92c72f35ac18" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/So5lHxHT37p2SS4-t60SlHpumDtkw9GHrrDfd7ZnWpU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="13e90e46-6109-412e-b903-1cae33438cb2" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIL0qgHI2SEqiJszC-CVc3gY.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="aac4c653-9c04-4521-811f-0d4c75e042e7" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIFrTzzUNIOd7dbe75kBQ0MM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="7692d072-d277-4a40-8fd9-d7729679a029" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="c740d3e3-c4d4-4fa8-961c-783339207f05" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="4786c8a4-7147-4ab8-9157-f8343303a1c1" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="7ae3adfc-1be4-40d6-bb21-ef7fbed8ab20" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="3a40068b-34d8-48d1-ab86-4861ac134464" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/EInbV5DfGHOiMmvb1Xr-hnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="2285674e-25ea-4d1d-81cb-919cbf56b5e4" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxh_xHqYgAV9Bl_ZQbYUxnQU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="947883f1-233e-4f81-912c-37b2b4200056" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="b634c23d-0882-47af-8346-6ea3581e6f15" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxn5HxGBcBvicCpTp6spHfNo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="ce5a44ae-037e-4a08-a194-8c45ff7a3878" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxjqR_3kx9_hJXbbyU8S6IN0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="c64720a1-7422-4942-81cd-bac0b1a567c6" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxkCDe67GEgBv_HnyvHTfdew.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+          </Headers>
+        </Request>
+      </DependentRequests>
+      <Headers>
+        <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+      </Headers>
+      <CorrelationExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam2.1" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="StartsWith" Value="lue=&quot;" />
+            <RuleParameter Name="EndsWith" Value="&quot; nam" />
+            <RuleParameter Name="Index" Value="0" />
+            <RuleParameter Name="IgnoreCase" Value="False" />
+            <RuleParameter Name="UseRegularExpression" Value="False" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+          </RuleParameters>
+        </ExtractionRule>
+      </CorrelationExtractionRules>
+    </Request>
+    <Request Method="POST" Guid="564adadc-ef90-4b7e-8977-7d4e4b9d7909" Version="1.1" Url="http://qboxweb.azurewebsites.net/Question/Sports" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://qboxweb.azurewebsites.net/Question/Sports" ReportingName="" IgnoreHttpStatusCode="False">
+      <DependentRequests>
+        <Request Method="GET" Guid="3d50cc6a-fd6b-44db-97bf-76e3428a0366" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nmFp2sMiApZm5Dx7NpSTOZk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="1862c2ec-f2cf-4b8e-b504-558a400f79df" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/RFda8w1V0eDZheqfcyQ4EHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="c226df22-5f4f-4c88-a39c-dc6f24862caf" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nnl4twXkwp3_u9ZoePkT564.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="39137fcb-465e-48fa-b2a1-a7af82a8e973" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6ngi3Hume1-TKjJz2lX0jYjo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="db3d6668-b8ef-4665-9706-0d15d05c1500" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIG0Xvi9kvVpeKmlONF1xhUs.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="817086e0-d676-418b-ab25-e4a45d711662" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/So5lHxHT37p2SS4-t60SlHpumDtkw9GHrrDfd7ZnWpU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="d13c4b88-6089-4c52-9cef-95ee58eafd79" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIL0qgHI2SEqiJszC-CVc3gY.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="7aa404e4-b06b-4c6c-b234-84af56e619e5" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIFrTzzUNIOd7dbe75kBQ0MM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="63237a61-53d9-42bf-be98-b6a0050409ee" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="200eeb19-5e28-4a0c-9a94-3ec74b85260f" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="d345df10-f724-4c72-9b65-d6748f169542" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="b291a965-c422-4cdf-9600-7968c176eb98" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="ea96d08d-1a21-4cc1-8e57-0990cd255133" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/EInbV5DfGHOiMmvb1Xr-hnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="592964a5-3d3e-4859-89ac-ec6ef38957de" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxh_xHqYgAV9Bl_ZQbYUxnQU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="bd32ec63-36e8-4380-a0d8-79cee707b70c" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="cedb2585-e23e-4ae0-9735-900ee2fbbc12" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxn5HxGBcBvicCpTp6spHfNo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="5c59c8a2-e3ca-46ef-9195-8713d1024924" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxjqR_3kx9_hJXbbyU8S6IN0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="7baf05d4-3812-418e-a45e-200e495b3d8c" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxkCDe67GEgBv_HnyvHTfdew.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+          </Headers>
+        </Request>
+      </DependentRequests>
+      <Headers>
+        <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Category" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <CorrelationExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractFormField, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam1.SelectedAnswer" DisplayName="" Description="">
+          <RuleParameters>
+            <RuleParameter Name="Name" Value="SelectedAnswer" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+            <RuleParameter Name="Required" Value="False" />
+            <RuleParameter Name="Index" Value="1" />
+          </RuleParameters>
+        </ExtractionRule>
+      </CorrelationExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="1" Value="Sports" RecordedValue="Sports" CorrelationBinding="{{FormPostParam2.1}}" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="POST" Guid="4df2a4d5-6cd9-4357-9792-953f10f1d3de" Version="1.1" Url="http://qboxweb.azurewebsites.net/Question/PostAnswer" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://qboxweb.azurewebsites.net/Question/Sports/{{$HIDDEN1.GameId}}/2" ReportingName="" IgnoreHttpStatusCode="False">
+      <DependentRequests>
+        <Request Method="GET" Guid="85c60d9a-c6fc-4b60-84b4-63d237410737" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nmFp2sMiApZm5Dx7NpSTOZk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="bd5f7bab-639a-4675-bd79-6d859d7c96b2" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/RFda8w1V0eDZheqfcyQ4EHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="7992ffbc-93df-4578-ac2c-a7c24625c550" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nnl4twXkwp3_u9ZoePkT564.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="a7bba0ab-8689-47d9-bab6-c483ed5506ad" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6ngi3Hume1-TKjJz2lX0jYjo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="28479339-3c71-4cd2-8ebb-69e759d19578" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIG0Xvi9kvVpeKmlONF1xhUs.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="b1d3d284-0526-41a0-b55f-a1d4d43c5944" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/So5lHxHT37p2SS4-t60SlHpumDtkw9GHrrDfd7ZnWpU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="0c2dbf6f-a7e5-42e9-9541-82aa48ec2cc5" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIL0qgHI2SEqiJszC-CVc3gY.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="580dd693-4227-486e-889b-1ffb7263e00b" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIFrTzzUNIOd7dbe75kBQ0MM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="c365d19e-e394-4535-8ac9-8e0bd0a65650" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="c225ae77-41ac-4fa6-99c0-c007bf64c8b7" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="3f7f4f9e-1182-4ec4-b51e-8d179c50905d" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="fb6d03f0-23eb-4bfd-965c-f81476582d3a" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="30ecf25b-1722-45e6-946c-cdf4972d77a0" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/EInbV5DfGHOiMmvb1Xr-hnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="643cf316-ae53-48fe-9516-96ec267cb35d" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxh_xHqYgAV9Bl_ZQbYUxnQU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="a31dd3d5-bb65-4faf-9c24-abba06dc47fe" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="3ca28cde-9ea6-418f-ad3b-4366104263e2" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxn5HxGBcBvicCpTp6spHfNo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="89f2fe91-0ed9-45c8-8cc0-ae3451031e15" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxjqR_3kx9_hJXbbyU8S6IN0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="f0a58ed8-ee02-4da4-beb6-4d64abe8db4b" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxkCDe67GEgBv_HnyvHTfdew.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+          </Headers>
+        </Request>
+      </DependentRequests>
+      <Headers>
+        <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports" />
+      </Headers>
+      <ExtractionRules>
+        <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
+          <RuleParameters>
+            <RuleParameter Name="Required" Value="True" />
+            <RuleParameter Name="HtmlDecode" Value="True" />
+          </RuleParameters>
+        </ExtractionRule>
+      </ExtractionRules>
+      <FormPostHttpBody>
+        <FormPostParameter Name="Id" Value="{{$HIDDEN1.Id}}" RecordedValue="170" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="QuestionNr" Value="{{$HIDDEN1.QuestionNr}}" RecordedValue="1" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="QuestionsTotalNr" Value="{{$HIDDEN1.QuestionsTotalNr}}" RecordedValue="1" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="GameId" Value="{{$HIDDEN1.GameId}}" RecordedValue="42" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="Category" Value="{{$HIDDEN1.Category}}" RecordedValue="Sports" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="SelectedAnswer" Value="2" RecordedValue="2" CorrelationBinding="{{FormPostParam1.SelectedAnswer}}" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="POST" Guid="4bd9eee6-102c-4e5b-aa41-33bf9e72d954" Version="1.1" Url="http://qboxweb.azurewebsites.net/Question/PostScore" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="http://qboxweb.azurewebsites.net/Highscore" ReportingName="" IgnoreHttpStatusCode="False">
+      <DependentRequests>
+        <Request Method="GET" Guid="d4db8ee4-b22c-4cab-b7e4-e9f26fdd8e03" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nmFp2sMiApZm5Dx7NpSTOZk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="7520d41f-6316-45ab-a714-53e230d39a30" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/RFda8w1V0eDZheqfcyQ4EHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="dede9dbb-7dad-47c6-b4f6-aba95bafcc37" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nnl4twXkwp3_u9ZoePkT564.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="32d482f4-8569-4f3e-ae46-0d24d451d84d" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6ngi3Hume1-TKjJz2lX0jYjo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="65b5ee93-9e6d-4166-a919-93c6fbc392b1" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIG0Xvi9kvVpeKmlONF1xhUs.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="2e75da00-5061-48a0-826c-07643af69c27" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/So5lHxHT37p2SS4-t60SlHpumDtkw9GHrrDfd7ZnWpU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="c0712815-f37e-41a9-99bc-a19d396a145e" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIL0qgHI2SEqiJszC-CVc3gY.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="3801be3b-73ae-45a3-a759-b2ad753be2d1" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIFrTzzUNIOd7dbe75kBQ0MM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="b03c4391-8469-4c81-96dd-e6de564cea20" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="2cff25ce-f7a2-47e1-aa42-0cee9569a2e7" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="7879c239-85b0-4869-8907-f2d654fb0216" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="e356ad3f-9eb5-471f-995e-2ab83db6e8e9" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="a661a52c-cd82-4422-b330-d42505e7ae13" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/EInbV5DfGHOiMmvb1Xr-hnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="91dfe0ab-35eb-458f-b86d-688a578a1bff" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxh_xHqYgAV9Bl_ZQbYUxnQU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="17fc3ecf-687c-4a36-ae20-f22d0e16e597" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="831e7c90-658f-4420-bb89-28266c85bc7f" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxn5HxGBcBvicCpTp6spHfNo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="c99b1ebc-25f9-4f2c-af0d-c3e171133f5d" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxjqR_3kx9_hJXbbyU8S6IN0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="f05bbd0b-433a-4b5e-a2fb-753275d9b87c" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxkCDe67GEgBv_HnyvHTfdew.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+          </Headers>
+        </Request>
+      </DependentRequests>
+      <Headers>
+        <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Question/Sports/42/2" />
+      </Headers>
+      <FormPostHttpBody>
+        <FormPostParameter Name="GameId" Value="{{$HIDDEN1.GameId}}" RecordedValue="42" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="name" Value="{{Users.User.Name}}" RecordedValue="hello" CorrelationBinding="" UrlEncode="True" />
+        <FormPostParameter Name="age" Value="{{Users.User.Age}}" RecordedValue="123" CorrelationBinding="" UrlEncode="True" />
+      </FormPostHttpBody>
+    </Request>
+    <Request Method="GET" Guid="d54179cb-a36f-45d1-8eee-3cfd465df69b" Version="1.1" Url="http://qboxweb.azurewebsites.net/" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+      <DependentRequests>
+        <Request Method="GET" Guid="2bba145b-2480-456d-976e-9ea478f3668b" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nmFp2sMiApZm5Dx7NpSTOZk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="bf5a376d-cb20-462d-9a76-146e43712769" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/RFda8w1V0eDZheqfcyQ4EHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="76752b02-84f3-4805-adea-90b181d9f76e" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6nnl4twXkwp3_u9ZoePkT564.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="df7bfaad-f3f9-4990-92d3-48e80650115b" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/ZvcMqxEwPfh2qDWBPxn6ngi3Hume1-TKjJz2lX0jYjo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="af720716-ca21-46c5-86b9-3f3309e1d56b" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIG0Xvi9kvVpeKmlONF1xhUs.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="1b839eb5-38cd-4781-a387-a77988b8a4d9" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/So5lHxHT37p2SS4-t60SlHpumDtkw9GHrrDfd7ZnWpU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="f0ede019-3e92-4cdd-8efe-7d12832bd6cc" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIL0qgHI2SEqiJszC-CVc3gY.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="5b2f5d93-d74a-43d7-bb08-e2cf42081cf4" Version="1.1" Url="http://fonts.gstatic.com/s/merriweather/v13/EYh7Vl4ywhowqULgRdYwIFrTzzUNIOd7dbe75kBQ0MM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="edcfcd34-1c1f-4bcc-9ce0-7831669dbd1a" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="f668c0d4-3f79-48e9-a8c3-8df3832036bd" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="de14f7d5-a158-4e5f-abb4-ce94ab1f92e0" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="d7201566-1f8a-4bfa-969f-4bba82a2046a" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/k3k702ZOKiLJc3WVjuplzHhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="fe57ea4b-cd93-4c44-9c56-a8f7a48acf8f" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/EInbV5DfGHOiMmvb1Xr-hnhCUOGz7vYGh680lGh-uXM.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="694e256c-080e-435d-bce4-6ca57e74f780" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxh_xHqYgAV9Bl_ZQbYUxnQU.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="5ba22c29-692c-40d1-8a1d-00874af19594" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/xjAJXh38I15wypJXxuGMBobN6UDyHWBl620a-IRfuBk.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="d76bb8fc-d320-4728-a3b7-6edbe717a1f6" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxn5HxGBcBvicCpTp6spHfNo.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="33c8f205-435e-485f-bfb1-21ac358fb002" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxjqR_3kx9_hJXbbyU8S6IN0.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+        <Request Method="GET" Guid="bf85773e-2ae7-4cfd-8ad4-8cd6a7181821" Version="1.1" Url="http://fonts.gstatic.com/s/opensans/v13/PRmiXeptR36kaC0GEAetxkCDe67GEgBv_HnyvHTfdew.woff" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+          <Headers>
+            <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/" />
+          </Headers>
+        </Request>
+      </DependentRequests>
+      <Headers>
+        <Header Name="Referer" Value="http://qboxweb.azurewebsites.net/Highscore" />
+      </Headers>
+    </Request>
+  </Items>
+  <DataSources>
+    <DataSource Name="Categories" Provider="Microsoft.VisualStudio.TestTools.DataSource.XML" Connection="|DataDirectory|\Categories.xml">
+      <Tables>
+        <DataSourceTable Name="Category" SelectColumns="SelectAllColumns" AccessMethod="Sequential" />
+      </Tables>
+    </DataSource>
+    <DataSource Name="Users" Provider="Microsoft.VisualStudio.TestTools.DataSource.XML" Connection="|DataDirectory|\USers.xml">
+      <Tables>
+        <DataSourceTable Name="User" SelectColumns="SelectOnlyBoundColumns" AccessMethod="Sequential" />
+      </Tables>
+    </DataSource>
+  </DataSources>
+  <ValidationRules>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response Time Goal" Description="Validates that the response time for the request is less than or equal to the response time goal as specified on the request.  Response time goals of zero will be ignored." Level="Low" ExectuionOrder="AfterDependents">
+      <RuleParameters>
+        <RuleParameter Name="Tolerance" Value="0" />
+      </RuleParameters>
+    </ValidationRule>
+    <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidateResponseUrl, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response URL" Description="Validates that the response URL after redirects are followed is the same as the recorded response URL.  QueryString parameters are ignored." Level="High" ExectuionOrder="BeforeDependents">
+      <RuleParameters>
+        <RuleParameter Name="IgnoreCase" Value="False" />
+      </RuleParameters>
+    </ValidationRule>
+  </ValidationRules>
+</WebTest>
