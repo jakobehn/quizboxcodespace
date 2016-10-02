@@ -50,7 +50,9 @@
     "webSiteName": {
       "type": "string"
     },
-
+    "backendWebSiteName": {
+      "type": "string"
+    },
     "collation": {
       "type": "string",
       "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
@@ -165,20 +167,7 @@
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       },
       "resources": [
-        {
-          "apiVersion": "2015-08-01",
-          "type": "config",
-          "name": "connectionstrings",
-          "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('webSiteName'))]"
-          ],
-          "properties": {
-            "DefaultConnection": {
-              "value": "[concat('Data Source=tcp:', reference(concat('Microsoft.Sql/servers/', parameters('databaseServer'))).fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('databaseName'), ';User Id=', parameters('administratorLogin'), '@', parameters('databaseServer'), ';Password=', parameters('administratorLoginPassword'), ';')]",
-              "type": "SQLServer"
-            }
-          }
-        }
+        
       ]
     },
     {
@@ -398,6 +387,23 @@
       "properties": {
         "ApplicationId": "[parameters('webSiteName')]"
       }
-    }
+    },
+      {
+          "name": "[parameters('backendWebSiteName')]",
+          "type": "Microsoft.Web/sites",
+          "location": "[resourceGroup().location]",
+          "apiVersion": "2015-08-01",
+          "dependsOn": [
+              "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+          ],
+          "tags": {
+              "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource",
+              "displayName": "quizboxtestapi"
+          },
+          "properties": {
+              "name": "[variables('quizboxtestapiName')]",
+              "serverFarmId": "[resourceId('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+          }
+      }
   ]
 }
