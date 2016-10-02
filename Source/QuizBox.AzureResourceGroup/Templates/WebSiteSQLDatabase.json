@@ -400,10 +400,10 @@
               "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource",
               "displayName": "quizboxtestapi"
           },
-          "properties": {
-              "name": "[variables('quizboxtestapiName')]",
-              "serverFarmId": "[resourceId('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
-          }
+        "properties": {
+          "name": "[parameters('backendWebSiteName')]",
+          "serverFarmId": "[resourceId('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
+        }
       }
   ]
 }
