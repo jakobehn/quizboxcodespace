@@ -2,11 +2,10 @@
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "environment": {
+    "hostingPlanName": {
       "type": "string",
-      "minLength": 2
+      "minLength": 1
     },
-
     "skuName": {
       "type": "string",
       "defaultValue": "F1",
@@ -36,11 +35,23 @@
         "description": "Describes plan's instance count"
       }
     },
-    "databaseLogin": {
+    "administratorLogin": {
       "type": "string"
     },
-    "databasePassword": {
+    "administratorLoginPassword": {
       "type": "securestring"
+    },
+    "databaseName": {
+      "type": "string"
+    },
+    "databaseServer": {
+      "type": "string"
+    },
+    "webSiteName": {
+      "type": "string"
+    },
+    "backendWebSiteName": {
+      "type": "string"
     },
     "collation": {
       "type": "string",
@@ -77,11 +88,7 @@
     }
   },
   "variables": {
-    "sqlserverName": "[concat(concat(resourceGroup().name,'sqlserver'), uniqueString(resourceGroup().id))]",
-    "hostingPlanName": "[concat(resourceGroup().name, 'HostingPlan')]",
-    "webSiteName": "[concat(resourceGroup().name, uniqueString(resourceGroup().id))]",
-    "backendWebSiteName": "[concat(concat(resourceGroup().name,'Api'), uniqueString(resourceGroup().id))]",
-    "databaseName": "[resourceGroup().name]"
+    "sqlserverName": "[concat(parameters('databaseServer'), uniqueString(resourceGroup().id))]"
   },
 
   "resources": [
@@ -94,12 +101,12 @@
       },
       "apiVersion": "2014-04-01-preview",
       "properties": {
-        "administratorLogin": "[parameters('databaseLogin')]",
-        "administratorLoginPassword": "[parameters('databasePassword')]"
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
       },
       "resources": [
         {
-          "name": "[variables('databaseName')]",
+          "name": "[parameters('databaseName')]",
           "type": "databases",
           "location": "[resourceGroup().location]",
           "tags": {
@@ -133,7 +140,7 @@
     },
     {
       "apiVersion": "2015-08-01",
-      "name": "[variables('hostingPlanName')]",
+      "name": "[parameters('hostingPlanName')]",
       "type": "Microsoft.Web/serverfarms",
       "location": "[resourceGroup().location]",
       "tags": {
@@ -144,63 +151,45 @@
         "capacity": "[parameters('skuCapacity')]"
       },
       "properties": {
-        "name": "[variables('hostingPlanName')]"
+        "name": "[parameters('hostingPlanName')]"
       }
     },
     {
       "apiVersion": "2015-08-01",
-      "name": "[variables('webSiteName')]",
+      "name": "[parameters('webSiteName')]",
       "type": "Microsoft.Web/sites",
       "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[concat('Microsoft.Web/serverFarms/', variables('hostingPlanName'))]"
+        "[concat('Microsoft.Web/serverFarms/', parameters('hostingPlanName'))]"
       ],
       "tags": {
-        "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]": "empty",
-        "displayName": "QuizBoxWeb"
+        "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "empty",
+        "displayName": "Website"
       },
       "properties": {
-        "name": "[variables('webSiteName')]",
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]"
+        "name": "[parameters('webSiteName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       },
       "resources": [
 
       ]
     },
     {
-      "name": "[variables('backendWebSiteName')]",
+      "name": "[parameters('backendWebSiteName')]",
       "type": "Microsoft.Web/sites",
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-08-01",
       "dependsOn": [
-        "[concat('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]"
+        "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
       ],
       "tags": {
-        "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]": "Resource",
-        "displayName": "QuizBoxApi"
+        "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource",
+        "displayName": "quizboxtestapi"
       },
       "properties": {
-        "name": "[variables('backendWebSiteName')]",
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]"
+        "name": "[parameters('backendWebSiteName')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
       }
     }
-  ],
-  "outputs": {
-    "sqlservername": {
-      "type": "string",
-      "value": "[variables('sqlserverName')]"
-    },
-    "databasename": {
-      "type": "string",
-      "value": "[variables('databaseName')]"
-    },
-    "webSiteName": {
-      "type": "string",
-      "value": "[variables('webSiteName')]"
-    },
-    "backendWebSiteName": {
-      "type": "string",
-      "value": "[variables('backendWebSiteName')]"
-    }
-  }
+  ]
 }
