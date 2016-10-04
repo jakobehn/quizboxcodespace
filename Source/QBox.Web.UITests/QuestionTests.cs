@@ -6,6 +6,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
+using Microsoft.Win32;
 
 namespace QBox.Web.UITests
 {
@@ -30,10 +31,13 @@ namespace QBox.Web.UITests
         [TestMethod]
         public void IEStartGameAnswerAllQuestionsAndPostAnswer()
         {
+            //InternetExplorerHelper.SetZoom100();
             driver = new InternetExplorerDriver(new InternetExplorerOptions()
             {
                 IgnoreZoomLevel = true,
-                IntroduceInstabilityByIgnoringProtectedModeSettings = true
+                IntroduceInstabilityByIgnoringProtectedModeSettings = true,
+                EnableNativeEvents = false
+
             });
             StartGameAnswerAllQuestionsAndPostAnswer();
             Assert.IsTrue(true);
@@ -152,4 +156,6 @@ namespace QBox.Web.UITests
         }
         private TestContext testContextInstance;
     }
+
+
 }

@@ -20,6 +20,11 @@ namespace QBox.Web.UITests
 
         public void AnswerFirstQuestion()
         {
+            var elements = driver.FindElements(By.CssSelector(".quiz-radio"));
+            foreach( var el in elements)
+            {
+                System.Console.WriteLine(el.TagName + el.Text);
+            }
             var query = driver.FindElements(By.CssSelector(".quiz-radio")).First();
             query.Click();
 
