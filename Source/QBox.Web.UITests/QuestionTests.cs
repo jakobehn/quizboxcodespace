@@ -31,7 +31,6 @@ namespace QBox.Web.UITests
         [TestMethod]
         public void IEStartGameAnswerAllQuestionsAndPostAnswer()
         {
-            //InternetExplorerHelper.SetZoom100();
             driver = new InternetExplorerDriver(new InternetExplorerOptions()
             {
                 IgnoreZoomLevel = true,
@@ -46,8 +45,9 @@ namespace QBox.Web.UITests
 
         private void StartGameAnswerAllQuestionsAndPostAnswer()
         {
-            driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 0, 10));
-            var url = TestContext.Properties["webAppUrl"].ToString();            
+            //driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 10, 0));
+            var url = TestContext.Properties["webAppUrl"].ToString();     
+                   
             var homePage = new HomePage(driver);
             homePage.GoToHome(url);
             var questionPage = homePage.StartNewGame();
@@ -97,7 +97,7 @@ namespace QBox.Web.UITests
         [TestMethod]
         public void IELoginUser()
         {
-            Assert.IsTrue(true);
+            Assert.IsTrue(false);
         }
 
         [TestMethod]

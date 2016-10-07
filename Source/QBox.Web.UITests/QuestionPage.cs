@@ -14,7 +14,8 @@ namespace QBox.Web.UITests
 
         public void SelectFirstCategory()
         {
-            var query = driver.FindElements(By.CssSelector(".btn-category")).First();
+            var elements = driver.FindElements(By.CssSelector(".btn-category"));
+            var query = elements.First();
             query.Click();
         }
 
