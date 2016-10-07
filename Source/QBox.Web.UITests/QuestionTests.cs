@@ -97,7 +97,7 @@ namespace QBox.Web.UITests
         [TestMethod]
         public void IELoginUser()
         {
-            Assert.IsTrue(true);
+            Assert.IsTrue(false);
         }
 
         [TestMethod]
