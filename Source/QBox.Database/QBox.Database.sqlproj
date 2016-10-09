@@ -27,6 +27,7 @@
     <DefaultFilegroup>PRIMARY</DefaultFilegroup>
     <DacVersion>0.0.0.0</DacVersion>
     <DacDescription>Local build</DacDescription>
+    <GenerateCreateScript>True</GenerateCreateScript>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
