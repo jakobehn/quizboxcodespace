@@ -24,7 +24,7 @@ namespace QBox.Api.Controllers
                         ScorePercent = c.ScorePercent,
                         Duration = c.TimeElapsedSeconds,
                         Age = c.Age
-                    }).OrderByDescending(c => c.ScorePercent).ThenBy(c => c.Duration).Take(10).ToList();
+                    }).OrderByDescending(c => c.ScorePercent).ThenByDescending(c => c.Id).Take(10).ToList();
             }
         }
 

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <WebTest Name="RunGeekQuiz" Id="1756e811-95cf-4ded-b7cd-676f7152e923" Owner="" Priority="2147483647" Enabled="True" CssProjectStructure="" CssIteration="" Timeout="0" WorkItemIds="" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010" Description="" CredentialUserName="" CredentialPassword="" PreAuthenticate="True" Proxy="default" StopOnError="False" RecordedResultFile="WebTest1.fb4ec3f7-b23e-4f6e-95c3-0e295ce31d8b.rec.webtestresult" ResultsLocale="">
   <Items>
-    <Request Method="GET" Guid="cbe5109a-4476-49e4-bb1b-2abc467a3381" Version="1.1" Url="https://qboxweb.azurewebsites.net/" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
-    <Request Method="GET" Guid="41594f50-a18d-4d67-b1c1-a4827f3db4ee" Version="1.1" Url="https://qboxweb.azurewebsites.net/Category" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+    <Request Method="GET" Guid="cbe5109a-4476-49e4-bb1b-2abc467a3381" Version="1.1" Url="{{webserver}}/" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False" />
+    <Request Method="GET" Guid="41594f50-a18d-4d67-b1c1-a4827f3db4ee" Version="1.1" Url="{{webserver}}/Category" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
       <Headers>
-        <Header Name="Referer" Value="https://qboxweb.azurewebsites.net/" />
+        <Header Name="Referer" Value="{{webserver}}/" />
       </Headers>
       <CorrelationExtractionRules>
         <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="FormPostParam6.7" DisplayName="" Description="">
@@ -20,9 +20,9 @@
         </ExtractionRule>
       </CorrelationExtractionRules>
     </Request>
-    <Request Method="POST" Guid="88c92e6b-dab7-497c-a937-5daeddb1d36f" Version="1.1" Url="https://qboxweb.azurewebsites.net/Category/Start" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://qboxweb.azurewebsites.net/Question/Geek" ReportingName="" IgnoreHttpStatusCode="False">
+    <Request Method="POST" Guid="88c92e6b-dab7-497c-a937-5daeddb1d36f" Version="1.1" Url="{{webserver}}/Category/Start" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="{{webserver}}/Question/Geek" ReportingName="" IgnoreHttpStatusCode="False">
       <Headers>
-        <Header Name="Referer" Value="https://qboxweb.azurewebsites.net/Category" />
+        <Header Name="Referer" Value="{{webserver}}/Category" />
       </Headers>
       <ExtractionRules>
         <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
@@ -44,9 +44,9 @@
         <FormPostParameter Name="7" Value="Geek" RecordedValue="Geek" CorrelationBinding="{{FormPostParam6.7}}" UrlEncode="True" />
       </FormPostHttpBody>
     </Request>
-    <Request Method="POST" Guid="00a7cc56-7257-491b-991b-0b1734e200fa" Version="1.1" Url="https://qboxweb.azurewebsites.net/Question/PostAnswer" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://qboxweb.azurewebsites.net/Question/Geek/1016/2" ReportingName="" IgnoreHttpStatusCode="False">
+    <Request Method="POST" Guid="00a7cc56-7257-491b-991b-0b1734e200fa" Version="1.1" Url="{{webserver}}/Question/PostAnswer" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="{{webserver}}/Question/Geek/1016/2" ReportingName="" IgnoreHttpStatusCode="False">
       <Headers>
-        <Header Name="Referer" Value="https://qboxweb.azurewebsites.net/Question/Geek" />
+        <Header Name="Referer" Value="{{webserver}}/Question/Geek" />
       </Headers>
       <ExtractionRules>
         <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
@@ -73,9 +73,9 @@
         <FormPostParameter Name="SelectedAnswer" Value="{{FormPostParam5.SelectedAnswer}}" RecordedValue="85" CorrelationBinding="{{FormPostParam5.SelectedAnswer}}" UrlEncode="True" />
       </FormPostHttpBody>
     </Request>
-    <Request Method="POST" Guid="fc4a53bc-b0b4-443b-a42b-d8930e44e905" Version="1.1" Url="https://qboxweb.azurewebsites.net/Question/PostAnswer" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://qboxweb.azurewebsites.net/Question/Geek/1016/3" ReportingName="" IgnoreHttpStatusCode="False">
+    <Request Method="POST" Guid="fc4a53bc-b0b4-443b-a42b-d8930e44e905" Version="1.1" Url="{{webserver}}/Question/PostAnswer" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="{{webserver}}/Question/Geek/1016/3" ReportingName="" IgnoreHttpStatusCode="False">
       <Headers>
-        <Header Name="Referer" Value="https://qboxweb.azurewebsites.net/Question/Geek/1016/2" />
+        <Header Name="Referer" Value="{{webserver}}/Question/Geek/1016/2" />
       </Headers>
       <ExtractionRules>
         <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
@@ -102,9 +102,9 @@
         <FormPostParameter Name="SelectedAnswer" Value="{{FormPostParam4.SelectedAnswer}}" RecordedValue="137" CorrelationBinding="{{FormPostParam4.SelectedAnswer}}" UrlEncode="True" />
       </FormPostHttpBody>
     </Request>
-    <Request Method="POST" Guid="ad1d88af-4188-441a-839b-b35e64162892" Version="1.1" Url="https://qboxweb.azurewebsites.net/Question/PostAnswer" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://qboxweb.azurewebsites.net/Question/Geek/1016/4" ReportingName="" IgnoreHttpStatusCode="False">
+    <Request Method="POST" Guid="ad1d88af-4188-441a-839b-b35e64162892" Version="1.1" Url="{{webserver}}/Question/PostAnswer" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="{{webserver}}/Question/Geek/1016/4" ReportingName="" IgnoreHttpStatusCode="False">
       <Headers>
-        <Header Name="Referer" Value="https://qboxweb.azurewebsites.net/Question/Geek/1016/3" />
+        <Header Name="Referer" Value="{{webserver}}/Question/Geek/1016/3" />
       </Headers>
       <ExtractionRules>
         <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
@@ -131,9 +131,9 @@
         <FormPostParameter Name="SelectedAnswer" Value="{{FormPostParam3.SelectedAnswer}}" RecordedValue="133" CorrelationBinding="{{FormPostParam3.SelectedAnswer}}" UrlEncode="True" />
       </FormPostHttpBody>
     </Request>
-    <Request Method="POST" Guid="a2ad57c1-5a5d-40fc-8b42-7a7f265d8a03" Version="1.1" Url="https://qboxweb.azurewebsites.net/Question/PostAnswer" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://qboxweb.azurewebsites.net/Question/Geek/1016/5" ReportingName="" IgnoreHttpStatusCode="False">
+    <Request Method="POST" Guid="a2ad57c1-5a5d-40fc-8b42-7a7f265d8a03" Version="1.1" Url="{{webserver}}/Question/PostAnswer" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="{{webserver}}/Question/Geek/1016/5" ReportingName="" IgnoreHttpStatusCode="False">
       <Headers>
-        <Header Name="Referer" Value="https://qboxweb.azurewebsites.net/Question/Geek/1016/4" />
+        <Header Name="Referer" Value="{{webserver}}/Question/Geek/1016/4" />
       </Headers>
       <ExtractionRules>
         <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
@@ -160,9 +160,9 @@
         <FormPostParameter Name="SelectedAnswer" Value="{{FormPostParam2.SelectedAnswer}}" RecordedValue="177" CorrelationBinding="{{FormPostParam2.SelectedAnswer}}" UrlEncode="True" />
       </FormPostHttpBody>
     </Request>
-    <Request Method="POST" Guid="936973a9-e1f0-46f5-8fec-28c787e79f8e" Version="1.1" Url="https://qboxweb.azurewebsites.net/Question/PostAnswer" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://qboxweb.azurewebsites.net/Question/Geek/1016/6" ReportingName="" IgnoreHttpStatusCode="False">
+    <Request Method="POST" Guid="936973a9-e1f0-46f5-8fec-28c787e79f8e" Version="1.1" Url="{{webserver}}/Question/PostAnswer" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="{{webserver}}/Question/Geek/1016/6" ReportingName="" IgnoreHttpStatusCode="False">
       <Headers>
-        <Header Name="Referer" Value="https://qboxweb.azurewebsites.net/Question/Geek/1016/5" />
+        <Header Name="Referer" Value="{{webserver}}/Question/Geek/1016/5" />
       </Headers>
       <ExtractionRules>
         <ExtractionRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ExtractHiddenFields, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" VariableName="1" DisplayName="Extract Hidden Fields" Description="Extract all hidden fields from the response and place them into the test context.">
@@ -181,21 +181,24 @@
         <FormPostParameter Name="SelectedAnswer" Value="{{FormPostParam1.SelectedAnswer}}" RecordedValue="57" CorrelationBinding="{{FormPostParam1.SelectedAnswer}}" UrlEncode="True" />
       </FormPostHttpBody>
     </Request>
-    <Request Method="POST" Guid="6a30af07-895e-4b52-85bf-24b7f9f78c41" Version="1.1" Url="https://qboxweb.azurewebsites.net/Question/PostScore" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="https://qboxweb.azurewebsites.net/Highscore" ReportingName="" IgnoreHttpStatusCode="False">
+    <Request Method="POST" Guid="6a30af07-895e-4b52-85bf-24b7f9f78c41" Version="1.1" Url="{{webserver}}/Question/PostScore" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="{{webserver}}/Highscore" ReportingName="" IgnoreHttpStatusCode="False">
       <Headers>
-        <Header Name="Referer" Value="https://qboxweb.azurewebsites.net/Question/Geek/1016/6" />
+        <Header Name="Referer" Value="{{webserver}}/Question/Geek/1016/6" />
       </Headers>
       <FormPostHttpBody>
         <FormPostParameter Name="GameId" Value="{{$HIDDEN1.GameId}}" RecordedValue="1016" CorrelationBinding="" UrlEncode="True" />
         <FormPostParameter Name="name" Value="loadtest" RecordedValue="loadtest" CorrelationBinding="" UrlEncode="True" />
       </FormPostHttpBody>
     </Request>
-    <Request Method="GET" Guid="2ca93855-5e08-4e71-8be2-e9e014775b2b" Version="1.1" Url="https://qboxweb.azurewebsites.net/" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
+    <Request Method="GET" Guid="2ca93855-5e08-4e71-8be2-e9e014775b2b" Version="1.1" Url="{{webserver}}/" ThinkTime="0" Timeout="300" ParseDependentRequests="True" FollowRedirects="True" RecordResult="True" Cache="False" ResponseTimeGoal="0" Encoding="utf-8" ExpectedHttpStatusCode="0" ExpectedResponseUrl="" ReportingName="" IgnoreHttpStatusCode="False">
       <Headers>
-        <Header Name="Referer" Value="https://qboxweb.azurewebsites.net/Highscore" />
+        <Header Name="Referer" Value="{{webserver}}/Highscore" />
       </Headers>
     </Request>
   </Items>
+  <ContextParameters>
+    <ContextParameter Name="webserver" Value="https://quizboxtestxx.azurewebsites.net" />
+  </ContextParameters>
   <ValidationRules>
     <ValidationRule Classname="Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleResponseTimeGoal, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" DisplayName="Response Time Goal" Description="Validates that the response time for the request is less than or equal to the response time goal as specified on the request.  Response time goals of zero will be ignored." Level="Low" ExectuionOrder="AfterDependents">
       <RuleParameters>

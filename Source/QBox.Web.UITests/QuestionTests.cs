@@ -45,7 +45,6 @@ namespace QBox.Web.UITests
 
         private void StartGameAnswerAllQuestionsAndPostAnswer()
         {
-            //driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(0, 10, 0));
             var url = TestContext.Properties["webAppUrl"].ToString();     
                    
             var homePage = new HomePage(driver);
@@ -53,7 +52,7 @@ namespace QBox.Web.UITests
             var questionPage = homePage.StartNewGame();
             questionPage.SelectFirstCategory();
             questionPage.AnswerFirstQuestion();
-            homePage = questionPage.PostHighScore("Test Name");
+            homePage = questionPage.PostHighScore(TestContext.TestName);
         }
 
         [TestMethod]
