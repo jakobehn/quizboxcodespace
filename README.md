@@ -1,11 +1,4 @@
-# QBox Development Info
+The one and only QuizBox sample application.
 
-To build this solution you will need Visual Studio 2015 RC including the Visual Studio Tools for Apache Cordova.
-
-
-
-For information about installing the Apacha Cordove tools, check out this link: https://msdn.microsoft.com/en-us/library/dn757054.aspx
-
-
-![](/Source/QBox.Web/Content/Images/Logo.jpg)]
+Get to a copy of our book ![https://www.amazon.com/Continuous-Delivery-Visual-Studio-2015/dp/1484212738](Continuous Delivery with Visual Studio ALM 2015) if you want the details how to build and deploy this sample.
 
