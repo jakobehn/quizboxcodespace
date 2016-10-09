@@ -41,10 +41,12 @@ Configuration QuizBoxApiWebSite
 			DependsOn = "[xWebAppPool]QuizBoxApiAppPool"
 		}
 
-		xWebsite RemoveDefaultWebSite
+		xWebsite StopDefaultSite
 		{
-			Ensure = "Absent"
+			Ensure = "Present"
 			Name = "Default Web Site"
+			PhysicalPath = "C:\inetpub\wwwroot"
+			State = "Stopped"
 			DependsOn = "[File]WebSiteRoot"
 		}
 
@@ -61,7 +63,7 @@ Configuration QuizBoxApiWebSite
 				Port                  = 80
 			}  
  
-			DependsOn = "[xWebsite]RemoveDefaultWebSite"
+			DependsOn = "[xWebsite]StopDefaultSite"
 		}
    }
 }
