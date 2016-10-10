@@ -23,6 +23,7 @@ namespace QBox.Web.UITests
         }
 
         [TestMethod]
+        [TestCategory("UI")]
         public void ChromeStartGameAnswerAllQuestionsAndPostAnswer()
         {
             driver = new ChromeDriver();
@@ -30,6 +31,7 @@ namespace QBox.Web.UITests
             Assert.IsTrue(true);
         }
         [TestMethod]
+        [TestCategory("UI")]
         public void IEStartGameAnswerAllQuestionsAndPostAnswer()
         {
             driver = new InternetExplorerDriver(new InternetExplorerOptions()
@@ -61,24 +63,28 @@ namespace QBox.Web.UITests
         }
 
         [TestMethod]
+        [TestCategory("UI")]
         public void ChromeLoginUserAndSelectNewQuiz()
         {
             Assert.IsTrue(true);
         }
 
         [TestMethod]
+        [TestCategory("UI")]
         public void ChromeLoginUserWithInvalidCredentials()
         {
             Assert.IsTrue(true);
         }
 
         [TestMethod]
+        [TestCategory("UI")]
         public void ChromeLoginUser()
         {
             Assert.IsTrue(true);
         }
 
         [TestMethod]
+        [TestCategory("UI")]
         public void ChromeViewHighScore()
         {
             Assert.IsTrue(true);
@@ -87,24 +93,28 @@ namespace QBox.Web.UITests
 
 
         [TestMethod]
+        [TestCategory("UI")]
         public void IELoginUserAndSelectNewQuiz()
         {
             Assert.IsTrue(true);
         }
 
         [TestMethod]
+        [TestCategory("UI")]
         public void IELoginUserWithInvalidCredentials()
         {
             Assert.IsTrue(true);
         }
 
         [TestMethod]
+        [TestCategory("UI")]
         public void IELoginUser()
         {
             Assert.IsTrue(true);
         }
 
         [TestMethod]
+        [TestCategory("UI")]
         public void IEViewHighScore()
         {
             Assert.IsTrue(true);

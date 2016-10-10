@@ -16,7 +16,6 @@ namespace QBox.Api.UnitTests
         }
 
         [TestMethod]
-        [Priority(2)]
         public void CreateQuizShouldStoreCorrectly()
         {
             //Yes
@@ -26,7 +25,6 @@ namespace QBox.Api.UnitTests
         }
 
         [TestMethod]
-        [Priority(2)]
         public void ReomveQuizShouldDeleteFromCollection()
         {
             //Yes
@@ -42,13 +40,11 @@ namespace QBox.Api.UnitTests
             //Yes
         }
         [TestMethod]
-        [Priority(1)]
         public void LoginWithInvalidCredentialsShouldFail()
         {
             //Yes
         }
         [TestMethod]
-        [Priority(1)]
         public void LogoutShouldClearCookie()
         {
             //Yes

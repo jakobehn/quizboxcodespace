@@ -3,13 +3,12 @@ using OpenQA.Selenium;
 
 namespace QBox.Web.UITests
 {
-    public class QuestionPage
+    public class QuestionPage : SeleniumPage
     {
-        private readonly IWebDriver driver;
 
         public QuestionPage(IWebDriver driver)
+            :base(driver)
         {
-            this.driver = driver;
         }
 
         public void SelectFirstCategory()
@@ -44,4 +43,6 @@ namespace QBox.Web.UITests
             return new HighScorePage(driver);
         }
     }
+
+
 }
