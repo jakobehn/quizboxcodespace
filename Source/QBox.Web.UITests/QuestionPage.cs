@@ -33,7 +33,7 @@ namespace QBox.Web.UITests
             query.Click();
         }
 
-        public HomePage PostHighScore(string userName)
+        public HighScorePage PostHighScore(string userName)
         {
             var query = driver.FindElements(By.Id("name")).First();
             query.SendKeys(userName);
@@ -41,7 +41,7 @@ namespace QBox.Web.UITests
             query = driver.FindElements(By.Id("postScore")).First();
             query.Click();
 
-            return new HomePage(driver);
+            return new HighScorePage(driver);
         }
     }
 }

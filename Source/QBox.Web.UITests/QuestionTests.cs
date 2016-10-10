@@ -7,6 +7,7 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Remote;
 using Microsoft.Win32;
+using System.Linq;
 
 namespace QBox.Web.UITests
 {
@@ -42,17 +43,21 @@ namespace QBox.Web.UITests
             Assert.IsTrue(true);
         }
 
-
         private void StartGameAnswerAllQuestionsAndPostAnswer()
         {
-            var url = TestContext.Properties["webAppUrl"].ToString();     
-                   
+            var url = TestContext.Properties["webAppUrl"].ToString();
+            var user = "TestRun " + DateTime.Now.Millisecond;
+
+
             var homePage = new HomePage(driver);
             homePage.GoToHome(url);
             var questionPage = homePage.StartNewGame();
             questionPage.SelectFirstCategory();
             questionPage.AnswerFirstQuestion();
-            homePage = questionPage.PostHighScore(TestContext.TestName);
+            var highScorePage = questionPage.PostHighScore(user);
+
+            var leader = highScorePage.GetHighScoreList().First();
+            Assert.AreEqual(user, leader);
         }
 
         [TestMethod]

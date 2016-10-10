@@ -20,11 +20,11 @@
                     <div class="list-group ">
                         @foreach (var score in Model.Scores)
                         {
-                            <div class="row list-group-item">
+                            <div class="row list-group-item entry">
                                 <div class="col-md-1">@i.</div>
                                 <div class="col-sm-4 badge">@score.ScorePercent %</div>
-                                <div class="col-sm-6">@score.User</div>
-                                <div class="col-sm-1">@score.Age</div>
+                                <div class="col-sm-6 user">@score.User</div>
+                                <div class="col-sm-1 age">@score.Age</div>
                             </div>
                             i = i + 1;
                         }

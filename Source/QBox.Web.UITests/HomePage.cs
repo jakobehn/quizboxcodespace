@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace QBox.Web.UITests
 {
@@ -24,6 +26,22 @@ namespace QBox.Web.UITests
             query.Click();
 
             return new QuestionPage(driver);
+        }
+    }
+
+    public class HighScorePage
+    {
+        private readonly IWebDriver driver;
+
+        public HighScorePage(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
+        public IEnumerable<string> GetHighScoreList()
+        {
+            var highScores = driver.FindElements(By.ClassName("user"));
+            return highScores.Select(hs => hs.Text);
         }
     }
 }
