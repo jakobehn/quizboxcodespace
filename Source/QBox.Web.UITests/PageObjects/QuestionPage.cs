@@ -25,7 +25,7 @@ namespace QBox.Web.UITests
             {
                 System.Console.WriteLine(el.TagName + el.Text);
             }
-            var query = driver.FindElements(By.CssSelector(".quiz-radio")).First();
+            var query = driver.FindElements(By.CssSelector(".quiz-radio"))[1];
             query.Click();
 
             query = driver.FindElements(By.CssSelector(".btn-answer")).First();
