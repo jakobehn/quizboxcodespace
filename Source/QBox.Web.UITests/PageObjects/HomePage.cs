@@ -19,7 +19,7 @@ namespace QBox.Web.UITests
 
         public QuestionPage StartNewGame()
         {
-            IWebElement query = driver.FindElement(By.Id("startGame"));
+            IWebElement query = GetElementWhenVisible(By.Id("startGame"));
             query.Click();
 
             return new QuestionPage(driver);

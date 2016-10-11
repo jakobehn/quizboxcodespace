@@ -13,7 +13,7 @@ namespace QBox.Web.UITests
 
         public IEnumerable<string> GetHighScoreList()
         {
-            var highScores = driver.FindElements(By.ClassName("user"));
+            var highScores = GetElementsWhenVisible(By.ClassName("user"));
             return highScores.Select(hs => hs.Text);
         }
     }
