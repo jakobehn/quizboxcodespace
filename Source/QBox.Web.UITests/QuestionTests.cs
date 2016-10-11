@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
-using Microsoft.Win32;
 using System.Linq;
 
 namespace QBox.Web.UITests
@@ -26,30 +23,23 @@ namespace QBox.Web.UITests
         [TestCategory("UI")]
         public void ChromeStartGameAnswerAllQuestionsAndPostAnswer()
         {
-            driver = new ChromeDriver();
-            StartGameAnswerAllQuestionsAndPostAnswer();
-            Assert.IsTrue(true);
+            driver = GetChromeDriver();
+            var result = StartGameAnswerAllQuestionsAndPostAnswer();
+            Assert.IsTrue(result);
         }
         [TestMethod]
         [TestCategory("UI")]
         public void IEStartGameAnswerAllQuestionsAndPostAnswer()
         {
-            driver = new InternetExplorerDriver(new InternetExplorerOptions()
-            {
-                IgnoreZoomLevel = true,
-                IntroduceInstabilityByIgnoringProtectedModeSettings = true,
-                EnableNativeEvents = false
-
-            });
-            StartGameAnswerAllQuestionsAndPostAnswer();
-            Assert.IsTrue(true);
+            driver = GetIEDriver();
+            var result = StartGameAnswerAllQuestionsAndPostAnswer();
+            Assert.IsTrue(result);
         }
 
-        private void StartGameAnswerAllQuestionsAndPostAnswer()
+        private bool StartGameAnswerAllQuestionsAndPostAnswer()
         {
             var url = TestContext.Properties["webAppUrl"].ToString();
             var user = "TestRun " + DateTime.Now.Millisecond;
-
 
             var homePage = new HomePage(driver);
             homePage.GoToHome(url);
@@ -59,7 +49,7 @@ namespace QBox.Web.UITests
             var highScorePage = questionPage.PostHighScore(user);
 
             var leader = highScorePage.GetHighScoreList().First();
-            Assert.AreEqual(user, leader);
+            return user == leader;
         }
 
         [TestMethod]
@@ -120,6 +110,24 @@ namespace QBox.Web.UITests
             Assert.IsTrue(true);
         }
 
+
+        private IWebDriver GetChromeDriver()
+        {
+            var options = new ChromeOptions();
+            options.AddArgument("--start-maximized");
+            return new ChromeDriver(options);
+        }
+
+        private IWebDriver GetIEDriver()
+        {
+            return new InternetExplorerDriver(new InternetExplorerOptions()
+            {
+                IgnoreZoomLevel = true,
+                IntroduceInstabilityByIgnoringProtectedModeSettings = true,
+                EnableNativeEvents = false
+
+            });
+        }
 
 
 
