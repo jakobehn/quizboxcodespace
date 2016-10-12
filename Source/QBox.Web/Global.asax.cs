@@ -20,7 +20,7 @@ namespace QBox.Web
             RegisterGlobalFilters(GlobalFilters.Filters);
 
             Microsoft.ApplicationInsights.Extensibility.TelemetryConfiguration.Active.InstrumentationKey =
-                Properties.Settings.Default.InstrumentationKey;
+                QBox.Logging.Properties.Settings.Default.InstrumentationKey;
         }
 
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
