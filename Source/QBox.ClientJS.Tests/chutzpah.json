@@ -1,0 +1,20 @@
+﻿{
+  "Compile": {
+    "Mode": "External",
+    "Extensions": [ ".ts" ],
+    "ExtensionsWithNoOutput": [ ".d.ts" ]
+  },
+  "References": [
+    {
+        "Path": "../QBox.ClientJS",
+        "Includes": [ "*.ts" ],
+        "Excludes": [ "*.d.ts" ]
+    }
+  ],
+  "Tests": [
+    {
+      "Includes": [ "*tests.ts" ],
+      "Excludes": [ "*.d.ts" ]
+    }
+  ]
+}

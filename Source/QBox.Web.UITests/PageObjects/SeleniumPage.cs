@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace QBox.Web.UITests
+namespace QBox.Web.UITests.PageObjects
 {
     public abstract class SeleniumPage
     {

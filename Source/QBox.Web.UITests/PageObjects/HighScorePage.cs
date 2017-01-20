@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace QBox.Web.UITests
+namespace QBox.Web.UITests.PageObjects
 {
     public class HighScorePage : SeleniumPage
     {

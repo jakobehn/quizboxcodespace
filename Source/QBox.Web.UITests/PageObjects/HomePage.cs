@@ -1,6 +1,7 @@
-﻿using OpenQA.Selenium;
+﻿using System;
+using OpenQA.Selenium;
 
-namespace QBox.Web.UITests
+namespace QBox.Web.UITests.PageObjects
 {
     public class HomePage : SeleniumPage
     {
@@ -17,12 +18,20 @@ namespace QBox.Web.UITests
             driver.Navigate().GoToUrl(baseURL);
         }
 
-        public QuestionPage StartNewGame()
+        public CategoryPage StartNewGame()
         {
             IWebElement query = GetElementWhenVisible(By.Id("startGame"));
             query.Click();
 
-            return new QuestionPage(driver);
+            return new CategoryPage(driver);
+        }
+
+        internal HighScorePage GoToHighscorePage()
+        {
+            IWebElement query = GetElementWhenVisible(By.Id("highscore"));
+            query.Click();
+
+            return new HighScorePage(driver);
         }
     }
 

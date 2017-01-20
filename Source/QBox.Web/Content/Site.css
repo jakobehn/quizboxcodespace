@@ -9,6 +9,10 @@
     padding-right: 15px;
 }
 
+.quizbox-jumbo {
+    padding:20px !important;
+}
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */

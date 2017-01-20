@@ -8,7 +8,7 @@
     <div class="col-md-12">
         <div class="well">
             <div class="row-centered">
-                <h2>Question <code>@Model.QuestionNr</code> of <code>@Model.QuestionsTotalNr</code> in category <button class="btn btn-lg btn-info">@Model.Category</button></h2>
+                <h2>Question <code>@Model.QuestionNr</code> of <code>@Model.QuestionsTotalNr</code> in category <button class="btn btn-lg btn-info" id="questioncategory">@Model.Category</button></h2>
             </div>
         </div>
         @using (Html.BeginForm("PostAnswer", "Question", FormMethod.Post, new { role = "form" }))
@@ -29,9 +29,9 @@
                         @foreach (var a in Model.Answers)
                         {
                             <div class="radio">
-                                <label>
+                                <label class="quiz-radio-container">
                                     @Html.RadioButtonFor(m => m.SelectedAnswer, a.Id, new {@class="quiz-radio"})
-                                    @Html.Label(a.Id.ToString(), a.AnswerText)
+                                    @Html.Label(a.Id.ToString(), a.AnswerText, new { @class = "quiz-radio-label" })
                                 </label>
                             </div>
                         }

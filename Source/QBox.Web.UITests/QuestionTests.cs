@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium;
 using System.Linq;
+using QBox.Web.UITests.PageObjects;
 
 namespace QBox.Web.UITests
 {
@@ -14,50 +14,39 @@ namespace QBox.Web.UITests
     public class QuestionTests
     {
         private IWebDriver driver;
-
-        public QuestionTests()
-        {
-        }
+        private string url;
 
         [TestMethod]
         [TestCategory("UI")]
         public void ChromeStartGameAnswerAllQuestionsAndPostAnswer()
         {
             driver = GetChromeDriver();
-            var result = StartGameAnswerAllQuestionsAndPostAnswer();
-            Assert.IsTrue(result);
+            StartGameAnswerAllQuestionsAndPostAnswer();
         }
+
         [TestMethod]
         [TestCategory("UI")]
         public void IEStartGameAnswerAllQuestionsAndPostAnswer()
         {
             driver = GetIEDriver();
-            var result = StartGameAnswerAllQuestionsAndPostAnswer();
-            Assert.IsTrue(result);
+            StartGameAnswerAllQuestionsAndPostAnswer();
         }
 
-        private bool StartGameAnswerAllQuestionsAndPostAnswer()
+        private void StartGameAnswerAllQuestionsAndPostAnswer()
         {
-            var url = TestContext.Properties["webAppUrl"].ToString();
             var user = "TestRun " + DateTime.Now.Millisecond;
 
-            var homePage = new HomePage(driver);
-            homePage.GoToHome(url);
-            var questionPage = homePage.StartNewGame();
-            questionPage.SelectFirstCategory();
-            questionPage.AnswerFirstQuestion();
-            var highScorePage = questionPage.PostHighScore(user);
+            var highScorePage =
+                GoToHomePage()
+                    .StartNewGame()
+                    .SelectCategory("SPORTS")
+                    .Answer("Germany")
+                    .PostHighScore(user);
 
             var leader = highScorePage.GetHighScoreList().First();
-            return user == leader;
+            Assert.IsTrue(user == leader);
         }
 
-        [TestMethod]
-        [TestCategory("UI")]
-        public void ChromeLoginUserAndSelectNewQuiz()
-        {
-            Assert.IsTrue(true);
-        }
 
         [TestMethod]
         [TestCategory("UI")]
@@ -77,16 +66,87 @@ namespace QBox.Web.UITests
         [TestCategory("UI")]
         public void ChromeViewHighScore()
         {
-            Assert.IsTrue(true);
+            driver = GetChromeDriver();
+            GoToHighscorePage();
         }
-
-
 
         [TestMethod]
         [TestCategory("UI")]
-        public void IELoginUserAndSelectNewQuiz()
+        public void IEViewHighScore()
         {
-            Assert.IsTrue(true);
+            driver = GetIEDriver();
+            GoToHighscorePage();
+        }
+
+        private void GoToHighscorePage()
+        {
+            var highScores = GoToHomePage()
+                .GoToHighscorePage()
+                .GetHighScoreList();
+
+            Assert.IsTrue(highScores.Any());
+        }
+
+        [TestMethod]
+        [TestCategory("UI")]
+        public void IESelectRandomCategory()
+        {
+            driver = GetIEDriver();
+            SelectRandomCategory();
+        }
+
+        [TestMethod]
+        [TestCategory("UI")]
+        public void ChromeSelectRandomCategory()
+        {
+            driver = GetChromeDriver();
+            SelectRandomCategory();
+        }
+
+
+        private void SelectRandomCategory()
+        {
+            var questionPage = GoToHomePage()
+                .StartNewGame()
+                .SelectRandomCategory();
+
+            Assert.IsTrue(!String.IsNullOrEmpty(questionPage.Category));
+        }
+
+        [TestMethod]
+        [TestCategory("UI")]
+        public void IESelectCategory()
+        {
+            driver = GetIEDriver();
+            SelectCategory();
+        }
+
+        [TestMethod]
+        [TestCategory("UI")]
+        public void ChromeSelectCategory()
+        {
+            driver = GetChromeDriver();
+            SelectCategory();
+        }
+
+
+        private void SelectCategory()
+        {
+            string category = "FOOD";
+
+            var questionPage = GoToHomePage()
+                .StartNewGame()
+                .SelectCategory(category);
+
+            Assert.AreEqual(questionPage.Category, category);
+        }
+
+        private HomePage GoToHomePage()
+        {
+            var homePage = new HomePage(driver);
+            homePage.GoToHome(url);
+
+            return homePage;
         }
 
         [TestMethod]
@@ -103,18 +163,11 @@ namespace QBox.Web.UITests
             Assert.IsTrue(true);
         }
 
-        [TestMethod]
-        [TestCategory("UI")]
-        public void IEViewHighScore()
-        {
-            Assert.IsTrue(true);
-        }
-
-
         private IWebDriver GetChromeDriver()
         {
             var options = new ChromeOptions();
             options.AddArgument("--start-maximized");
+            options.AddArguments("chrome.switches", "--disable-extensions");
             return new ChromeDriver(options);
         }
 
@@ -129,19 +182,13 @@ namespace QBox.Web.UITests
             });
         }
 
-
-
         #region Additional test attributes
-
-
-        // You can use the following additional attributes as you write your tests:
-        private IEnumerable<IWebDriver> drivers;
-        //private string baseURL;
 
         ////Use TestInitialize to run code before running each test 
         [TestInitialize()]
         public void MyTestInitialize()
         {
+            url = TestContext.Properties["webAppUrl"].ToString();
         }
 
         ////Use TestCleanup to run code after each test has run
@@ -178,6 +225,4 @@ namespace QBox.Web.UITests
         }
         private TestContext testContextInstance;
     }
-
-
 }

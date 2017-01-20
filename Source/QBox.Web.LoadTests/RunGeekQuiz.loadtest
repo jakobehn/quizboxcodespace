@@ -432,7 +432,7 @@
     </CounterSet>
   </CounterSets>
   <RunConfigurations>
-    <RunConfiguration Name="Run Settings1" Description="" ResultsStoreType="Database" TimingDetailsStorage="None" SaveTestLogsOnError="true" SaveTestLogsFrequency="0" MaxErrorDetails="200" MaxErrorsPerType="1000" MaxThresholdViolations="1000" MaxRequestUrlsReported="1000" UseTestIterations="false" RunDuration="60" WarmupTime="10" CoolDownTime="0" TestIterations="100" WebTestConnectionModel="ConnectionPerUser" WebTestConnectionPoolSize="50" SampleRate="5" ValidationLevel="High" SqlTracingConnectString="" SqlTracingConnectStringDisplayValue="" SqlTracingDirectory="" SqlTracingEnabled="false" SqlTracingFileCount="2" SqlTracingRolloverEnabled="true" SqlTracingMinimumDuration="500" RunUnitTestsInAppDomain="true" CoreCount="0" UseMultipleIPs="false" TestAgentConfiguration="Default" AgentDiagnosticsLevel="Warning">
+    <RunConfiguration Name="Run Settings1" Description="" ResultsStoreType="Database" TimingDetailsStorage="None" SaveTestLogsOnError="true" SaveTestLogsFrequency="0" MaxErrorDetails="200" MaxErrorsPerType="1000" MaxThresholdViolations="1000" MaxRequestUrlsReported="1000" UseTestIterations="false" RunDuration="60" WarmupTime="10" CoolDownTime="0" TestIterations="100" WebTestConnectionModel="ConnectionPerUser" WebTestConnectionPoolSize="50" SampleRate="15" ValidationLevel="High" SqlTracingConnectString="" SqlTracingConnectStringDisplayValue="" SqlTracingDirectory="" SqlTracingEnabled="false" SqlTracingFileCount="2" SqlTracingRolloverEnabled="true" SqlTracingMinimumDuration="500" RunUnitTestsInAppDomain="true" CoreCount="0" ResourcesRetentionTimeInMinutes="0" UseMultipleIPs="false" TestAgentConfiguration="Default" AgentDiagnosticsLevel="Warning">
       <CounterSetMappings>
         <CounterSetMapping ComputerName="[CONTROLLER MACHINE]">
           <CounterSetReferences>
@@ -449,6 +449,9 @@
       <LoadGeneratorLocations>
         <GeoLocation Location="Default" Percentage="100" />
       </LoadGeneratorLocations>
+      <ContextParameters>
+        <ContextParameter Name="WebServer" Value="https://quizboxtest888.azurewebsites.net/" />
+      </ContextParameters>
     </RunConfiguration>
   </RunConfigurations>
 </LoadTest>
