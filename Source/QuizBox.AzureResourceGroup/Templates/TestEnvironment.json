@@ -1,0 +1,170 @@
+﻿{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "quizboxtestrigType": {
+            "type": "string",
+            "defaultValue": "Standard_LRS",
+            "allowedValues": [
+                "Standard_LRS",
+                "Standard_ZRS",
+                "Standard_GRS",
+                "Standard_RAGRS",
+                "Premium_LRS"
+            ]
+        },
+        "QuizBoxTestRigName": {
+            "type": "string",
+            "minLength": 1
+        },
+        "QuizBoxTestRigAdminUserName": {
+            "type": "string",
+            "minLength": 1
+        },
+        "QuizBoxTestRigAdminPassword": {
+            "type": "securestring"
+        },
+      "QuizBoxTestRigWindowsOSVersion": {
+        "type": "string",
+        "defaultValue": "Windows-10-N-x64",
+        "allowedValues": [
+          "Windows-10-N-x64"
+        ]
+      }
+    },
+  "variables": {
+    "quizboxtestrigName": "[concat('qbtestrig', uniqueString(resourceGroup().id))]",
+    "quizboxtestrigPrefix": "10.0.0.0/16",
+    "quizboxtestrigSubnet1Name": "Subnet-1",
+    "quizboxtestrigSubnet1Prefix": "10.0.0.0/24",
+    "quizboxtestrigSubnet2Name": "Subnet-2",
+    "quizboxtestrigSubnet2Prefix": "10.0.1.0/24",
+    "QuizBoxTestRigImagePublisher": "MicrosoftVisualStudio",
+    "QuizBoxTestRigImageOffer": "Windows",
+    "QuizBoxTestRigOSDiskName": "QuizBoxTestRigOSDisk",
+    "QuizBoxTestRigVmSize": "Standard_DS1_v2",
+    "QuizBoxTestRigVnetID": "[resourceId('Microsoft.Network/virtualNetworks', 'quizboxtestrig')]",
+    "QuizBoxTestRigSubnetRef": "[concat(variables('QuizBoxTestRigVnetID'), '/subnets/', variables('quizboxtestrigSubnet1Name'))]",
+    "QuizBoxTestRigStorageAccountContainerName": "vhds",
+    "QuizBoxTestRigNicName": "[concat(parameters('QuizBoxTestRigName'), 'NetworkInterface')]"
+  },
+    "resources": [
+        {
+            "name": "[variables('quizboxtestrigName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-06-15",
+            "dependsOn": [ ],
+            "tags": {
+                "displayName": "quizboxtestrig"
+            },
+            "properties": {
+                "accountType": "[parameters('quizboxtestrigType')]"
+            }
+        },
+        {
+            "name": "quizboxtestrig",
+            "type": "Microsoft.Network/virtualNetworks",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2016-03-30",
+            "dependsOn": [ ],
+            "tags": {
+                "displayName": "quizboxtestrig"
+            },
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "[variables('quizboxtestrigPrefix')]"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "[variables('quizboxtestrigSubnet1Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('quizboxtestrigSubnet1Prefix')]"
+                        }
+                    },
+                    {
+                        "name": "[variables('quizboxtestrigSubnet2Name')]",
+                        "properties": {
+                            "addressPrefix": "[variables('quizboxtestrigSubnet2Prefix')]"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[variables('QuizBoxTestRigNicName')]",
+            "type": "Microsoft.Network/networkInterfaces",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2016-03-30",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', 'quizboxtestrig')]"
+            ],
+            "tags": {
+                "displayName": "QuizBoxTestRigNic"
+            },
+            "properties": {
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "properties": {
+                            "privateIPAllocationMethod": "Dynamic",
+                            "subnet": {
+                                "id": "[variables('QuizBoxTestRigSubnetRef')]"
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "[parameters('QuizBoxTestRigName')]",
+            "type": "Microsoft.Compute/virtualMachines",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-06-15",
+            "dependsOn": [
+                "[resourceId('Microsoft.Storage/storageAccounts', variables('quizboxtestrigName'))]",
+                "[resourceId('Microsoft.Network/networkInterfaces', variables('QuizBoxTestRigNicName'))]"
+            ],
+            "tags": {
+                "displayName": "QuizBoxTestRig"
+            },
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "[variables('QuizBoxTestRigVmSize')]"
+                },
+                "osProfile": {
+                    "computerName": "[parameters('QuizBoxTestRigName')]",
+                    "adminUsername": "[parameters('QuizBoxTestRigAdminUsername')]",
+                    "adminPassword": "[parameters('QuizBoxTestRigAdminPassword')]"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "[variables('QuizBoxTestRigImagePublisher')]",
+                        "offer": "[variables('QuizBoxTestRigImageOffer')]",
+                        "sku": "[parameters('QuizBoxTestRigWindowsOSVersion')]",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "name": "QuizBoxTestRigOSDisk",
+                        "vhd": {
+                            "uri": "[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('quizboxtestrigName')), '2016-01-01').primaryEndpoints.blob, variables('QuizBoxTestRigStorageAccountContainerName'), '/', variables('QuizBoxTestRigOSDiskName'), '.vhd')]"
+                        },
+                        "caching": "ReadWrite",
+                        "createOption": "FromImage"
+                    }
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', variables('QuizBoxTestRigNicName'))]"
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "outputs": {
+    }
+}
