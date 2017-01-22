@@ -40,6 +40,29 @@
       "metadata": {
         "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version."
       }
+    },
+    "location": {
+      "type": "string"
+    },
+    "VSTSAccountName": {
+      "type": "string"
+    },
+    "TeamProject": {
+      "type": "string"
+    },
+    "MachineGroup": {
+      "type": "string"
+    },
+    "AgentName": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "PATToken": {
+      "type": "securestring"
+    },
+    "Tags": {
+      "type": "string",
+      "defaultValue": ""
     }
   },
   "variables": {
@@ -180,6 +203,31 @@
             "enabled": "true",
             "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]"
           }
+        }
+      }
+    },
+    {
+      "name": "[concat(parameters('vmName'),'/TeamServicesAgent')]",
+      "type": "Microsoft.Compute/virtualMachines/extensions",
+      "location": "[parameters('location')]",
+      "apiVersion": "2015-06-15",
+      "dependsOn": [
+        "[resourceId('Microsoft.Compute/virtualMachines', parameters('vmName'))]"
+      ],
+      "properties": {
+        "publisher": "Microsoft.VisualStudio.Services",
+        "type": "TeamServicesAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true,
+        "settings": {
+          "VSTSAccountName": "[parameters('VSTSAccountName')]",
+          "TeamProject": "[parameters('TeamProject')]",
+          "MachineGroup": "[parameters('MachineGroup')]",
+          "AgentName": "[parameters('AgentName')]",
+          "Tags": "[parameters('Tags')]"
+        },
+        "protectedSettings": {
+          "PATToken": "[parameters('PATToken')]"
         }
       }
     }
