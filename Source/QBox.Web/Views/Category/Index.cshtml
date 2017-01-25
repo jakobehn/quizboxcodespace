@@ -27,19 +27,20 @@
                     }
                 </div>
             </div>
-
-            <div class="col-md-4">
-                <h4>Or, select one for me!</h4>
-                <div class="form-group">
-                    @using (Html.BeginForm("Random", "Category", FormMethod.Post, new { role = "form" }))
-                    {
-                        <button type="submit" class="btn" id="randomcategory">
-                            <img src="~/Content/Images/selectrandom.jpeg" class="img img-circle" width="128px">
-                        </button>
-                    }
+            @if (Model.ShowRandomCategory)
+            {
+                <div class="col-md-4">
+                    <h4>Or, select one for me!</h4>
+                    <div class="form-group">
+                        @using (Html.BeginForm("Random", "Category", FormMethod.Post, new {role = "form"}))
+                        {
+                            <button type="submit" class="btn" id="randomcategory">
+                                <img src="~/Content/Images/selectrandom.jpeg" class="img img-circle" width="128px">
+                            </button>
+                        }
+                    </div>
                 </div>
-
-            </div>
+            }
         </div>
 
     </div>

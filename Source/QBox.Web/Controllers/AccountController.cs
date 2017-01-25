@@ -10,7 +10,6 @@ using QBox.Web.Models;
 
 namespace QBox.Web.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -59,6 +58,12 @@ namespace QBox.Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        public void ChangeUser(string userName)
+        {
+            Session["current-user"] = userName;
+            Response.Redirect("/");
+        }
         //
         // POST: /Account/Login
         [HttpPost]

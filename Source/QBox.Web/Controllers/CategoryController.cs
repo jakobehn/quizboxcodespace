@@ -29,11 +29,20 @@ namespace QBox.Web.Controllers
                     Categories = allCategories.Select(
                         c => new QuizCategoryViewModel() { Id = c.Id, Name = c.Name, Description = c.Description }).ToList()
                 };
-                User user = LaunchDarkly.Client.User.WithKey("jakob.ehn");
-                LdClient ldClient = new LdClient("sdk-8293e169-ff75-4bb2-909e-2e34f70b550f");
-                if (ldClient.BoolVariation("random-category", user))
+                var currentUser = Session["current-user"];
+                if (currentUser == null)
                 {
-                    model.ShowRandomCategory = true;
+                    Session["current-user"] = "user1";
+                    currentUser = "user1";
+                }
+                if (currentUser != null)
+                {
+                    User user = LaunchDarkly.Client.User.WithKey(currentUser.ToString());
+                    LdClient ldClient = new LdClient("sdk-180b8261-66eb-4ab3-9458-bbe2f5b896d8");
+                    if (ldClient.BoolVariation("random-category", user))
+                    {
+                        model.ShowRandomCategory = true;
+                    }
                 }
                 return View(model);
             }
