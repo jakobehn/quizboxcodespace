@@ -64,7 +64,7 @@ namespace QBox.Web.UITests
 
         [TestMethod]
         [TestCategory("UI")]
-        public void ChromeViewHighScore()
+        public void ChromeGotoHighScore()
         {
             driver = GetChromeDriver();
             GoToHighscorePage();
@@ -72,7 +72,7 @@ namespace QBox.Web.UITests
 
         [TestMethod]
         [TestCategory("UI")]
-        public void IEViewHighScore()
+        public void IEGotoHighScore()
         {
             driver = GetIEDriver();
             GoToHighscorePage();
