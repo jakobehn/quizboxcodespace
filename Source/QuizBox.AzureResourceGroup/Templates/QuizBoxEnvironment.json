@@ -167,7 +167,16 @@
         "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
       },
       "resources": [
-        
+        {
+          "apiVersion": "2015-08-01",
+          "name": "staging",
+          "type": "slots",
+          "location": "[resourceGroup().location]",
+          "dependsOn": [
+            "[resourceId('Microsoft.Web/Sites', parameters('webSiteName'))]"
+          ],
+          "properties": {}
+        }
       ]
     },
     {
