@@ -29,21 +29,7 @@ namespace QBox.Web.Controllers
                     Categories = allCategories.Select(
                         c => new QuizCategoryViewModel() { Id = c.Id, Name = c.Name, Description = c.Description }).ToList()
                 };
-                var currentUser = Session["current-user"];
-                if (currentUser == null)
-                {
-                    Session["current-user"] = "user1";
-                    currentUser = "user1";
-                }
-                if (currentUser != null)
-                {
-                    User user = LaunchDarkly.Client.User.WithKey(currentUser.ToString());
-                    LdClient ldClient = new LdClient("sdk-180b8261-66eb-4ab3-9458-bbe2f5b896d8");
-                    if (ldClient.BoolVariation("random-category", user))
-                    {
-                        model.ShowRandomCategory = true;
-                    }
-                }
+
                 return View(model);
             }
             catch( Exception ex)
