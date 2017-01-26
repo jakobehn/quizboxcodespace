@@ -29,6 +29,7 @@ namespace QBox.Web.Controllers
                     Categories = allCategories.Select(
                         c => new QuizCategoryViewModel() { Id = c.Id, Name = c.Name, Description = c.Description }).ToList()
                 };
+                model.ShowRandomCategory = true;
 
                 return View(model);
             }
