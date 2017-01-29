@@ -18,6 +18,8 @@ namespace QBox.HitWebApp
                 GetWebContent();
         }
 
+
+
         private static void GetWebContent()
         {
             HttpClient client = new HttpClient();
