@@ -160,7 +160,7 @@
       ],
       "tags": {
         "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "empty",
-        "displayName": "Website"
+        "displayName": "WebSite"
       },
       "properties": {
         "name": "[parameters('webSiteName')]",
@@ -189,7 +189,7 @@
           ],
           "tags": {
               "[concat('hidden-related:', resourceGroup().id, '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]": "Resource",
-              "displayName": "quizboxtestapi"
+              "displayName": "WebAPI"
           },
         "properties": {
           "name": "[parameters('backendWebSiteName')]",
@@ -205,7 +205,7 @@
               "[resourceId('Microsoft.Web/sites', parameters('webSiteName'))]"
           ],
           "tags": {
-              "displayName": "Component QuizBoxAppInsights"
+              "displayName": "Application Insights"
           },
           "properties": {
               "applicationId": "[resourceId('Microsoft.Web/sites', parameters('webSiteName'))]"
