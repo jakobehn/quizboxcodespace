@@ -183,7 +183,7 @@
           "name": "[parameters('backendWebSiteName')]",
           "type": "Microsoft.Web/sites",
           "location": "[resourceGroup().location]",
-          "apiVersion": "2015-08-01",
+      "apiVersion": "2015-08-01",
           "dependsOn": [
               "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]"
           ],
