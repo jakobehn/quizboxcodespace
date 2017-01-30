@@ -34,8 +34,6 @@
     <Content Include="Scripts\Deploy-AzureResourceGroup.ps1" />
     <Content Include="Templates\QuizBoxEnvironment.json" />
     <Content Include="Templates\QuizBoxEnvironment.parameters.json" />
-    <None Include="Templates\QuizBoxTestClient.json" />
-    <None Include="Templates\QuizBoxTestClient.parameters.json" />
   </ItemGroup>
   <Target Name="GetReferenceAssemblyPaths" />
 </Project>
