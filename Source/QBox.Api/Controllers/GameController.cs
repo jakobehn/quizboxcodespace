@@ -115,7 +115,7 @@ namespace QBox.Api.Controllers
                 return "Nailed it!";
             if (scorePercent > 0.7)
                 return "Wow, not bad!";
-            if (scorePercent > 0.65)
+            if (scorePercent > 0.5)
                 return "Not too shabby";
             if (scorePercent > 0.3)
                 return "Pretty lousy, I'd say";
