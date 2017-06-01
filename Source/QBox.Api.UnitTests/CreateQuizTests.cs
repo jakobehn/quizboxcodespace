@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using System.Threading;
+using QBox.Api.Controllers;
 
 namespace QBox.Api.UnitTests
 {
@@ -9,9 +10,12 @@ namespace QBox.Api.UnitTests
     {
 
         [Test]
-        public void CreateQuizShouldStoreCorrectly()
+        public void GetScoreMessageTest()
         {
-            Thread.Sleep(2000);
+            var game = new GameController();
+            var scoreMessage = game.GetScoreMessage(0.6f);
+
+            Assert.AreEqual("Not too shabby", scoreMessage);
         }
 
         [Test]

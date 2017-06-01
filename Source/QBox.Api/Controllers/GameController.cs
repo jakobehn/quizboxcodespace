@@ -109,13 +109,13 @@ namespace QBox.Api.Controllers
             }
         }
 
-        private string GetScoreMessage(float scorePercent)
+        public string GetScoreMessage(float scorePercent)
         {
             if(scorePercent > 0.9 )
                 return "Nailed it!";
             if (scorePercent > 0.7)
                 return "Wow, not bad!";
-            if (scorePercent > 0.5)
+            if (scorePercent > 0.65)
                 return "Not too shabby";
             if (scorePercent > 0.3)
                 return "Pretty lousy, I'd say";
