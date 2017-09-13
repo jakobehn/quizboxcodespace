@@ -53,7 +53,6 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="CreateQuizTests.cs" />
     <Compile Include="HighscoreTests.cs" />
     <Compile Include="PlayerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
