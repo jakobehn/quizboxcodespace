@@ -64,14 +64,6 @@ namespace QBox.Api.UnitTests
             Thread.Sleep(2000);
         }
 
-        [TestMethod]
-        [TestCategory("Integration")]
-        public void CategoryNameShouldBeValid()
-        {
-            var controller = new CategoryController();
-            var res = controller.SomeMethod();
-        }
-
     }
 
 }
