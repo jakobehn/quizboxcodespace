@@ -1,48 +1,47 @@
 ﻿using System.Threading;
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace QBox.Api.UnitTests
 {
-    [TestFixture]
+    [TestClass]
     public class PlayerTests
     {
-        [Test]
-        [Category("Integration")]
+        [TestMethod]
+        [TestCategory("Integration")]
         public void PlayerNameShouldBeValid()
         {
             Thread.Sleep(2000);
         }
 
-        [Test]
-        [Category("Integration")]
+        [TestMethod]
+        [TestCategory("Integration")]
         public void PlayerAgeCanBeChanged()
         {
             Thread.Sleep(2000);
         }
-
-        [Test]
-        [Category("Integration")]
+        [TestMethod]
+        [TestCategory("Integration")]
         public void PlayerNameMustBeUnique()
         {
             Thread.Sleep(2000);
         }
 
-        [Test]
-        [Category("Integration")]
+        [TestMethod]
+        [TestCategory("Integration")]
         public void PlayerAgeCantBeLowerThanZero()
         {
             Thread.Sleep(2000);
         }
 
-        [Test]
-        [Category("Integration")]
+        [TestMethod]
+        [TestCategory("Integration")]
         public void PlayerNameMustContainLettersOnly()
         {
             Thread.Sleep(2000);
         }
 
-        [Test]
-        [Category("Integration")]
+        [TestMethod]
+        [TestCategory("Integration")]
         public void PlayerNameMustBeLocal()
         {
             Thread.Sleep(2000);
