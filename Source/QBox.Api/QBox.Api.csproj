@@ -24,6 +24,7 @@
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <ApplicationInsightsResourceId>/subscriptions/da5ebe2e-3657-4249-a296-e00abdf4180c/resourcegroups/QuizBox-Dev/providers/microsoft.insights/components/QBox.Api</ApplicationInsightsResourceId>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -174,43 +175,21 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HighscoreController.cs" />
-    <Compile Include="Database\Answer.cs">
-      <DependentUpon>QuizBox.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Category.cs">
-      <DependentUpon>QuizBox.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Game.cs">
-      <DependentUpon>QuizBox.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\GameQuestion.cs">
-      <DependentUpon>QuizBox.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Highscore.cs">
-      <DependentUpon>QuizBox.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\Question.cs">
-      <DependentUpon>QuizBox.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\QuizBox.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizBox.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\QuizBox.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizBox.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\QuizBox.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QuizBox.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Database\Answer.cs" />
+    <Compile Include="Database\Category.cs" />
+    <Compile Include="Database\Game.cs" />
+    <Compile Include="Database\GameQuestion.cs" />
+    <Compile Include="Database\Highscore.cs" />
+    <Compile Include="Database\Question.cs" />
     <Compile Include="Database\QuizBoxContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711090844128_Initial.cs" />
+    <Compile Include="Migrations\201711090844128_Initial.Designer.cs">
+      <DependentUpon>201711090844128_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -219,16 +198,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\QuizBox.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuizBox.edmx</DependentUpon>
-      <LastGenOutput>QuizBox.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Database\QuizBox.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>QuizBox.edmx</DependentUpon>
-      <LastGenOutput>QuizBox.cs</LastGenOutput>
-    </Content>
     <Content Include="Global.asax" />
     <Content Include="parameters.xml" />
     <Content Include="scripts\ai.0.15.0-build41087.js" />
@@ -247,17 +216,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <EntityDeploy Include="Database\QuizBox.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>QuizBox.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Database\QuizBox.edmx.diagram">
-      <DependentUpon>QuizBox.edmx</DependentUpon>
-    </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
     <None Include="Project_Readme.html" />
     <None Include="Properties\PublishProfiles\CreatePackage.pubxml" />
     <None Include="Properties\Settings.settings">
@@ -276,6 +242,11 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201711090844128_Initial.resx">
+      <DependentUpon>201711090844128_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

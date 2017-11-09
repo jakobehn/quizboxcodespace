@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  qbox.web:
+    image: qbox.web
+    build:
+      context: .\QBox.Web
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - qbox.api
+  qbox.api:
+    image: qbox.api
+    ports:
+      - "81:80"
+    expose:
+      - "81"
+    build:
+      context: .\QBox.Api
+      dockerfile: Dockerfile
+    depends_on:
+      - sqlserver
+  sqlserver:
+    image: microsoft/mssql-server-windows-developer
+    ports:
+      - "15785:1433"
+    environment:
+      sa_password: "1qaz2WSX3edc"
+      ACCEPT_EULA: "Y"

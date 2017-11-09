@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  qbox.web:
+    ports:
+      - "80"
+  qbox.api:
+    ports:
+      - "80"
+networks:
+  default:
+    external:
+      name: nat
+
