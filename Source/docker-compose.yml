@@ -2,27 +2,27 @@ version: '3'
 
 services:
 
-  qbox.web:
-    image: qbox.web
+  qbox-frontend:
+    image: qbox-frontend
     build:
       context: .\QBox.Web
       dockerfile: Dockerfile
     ports:
       - "80:80"
     depends_on:
-      - qbox.api
+      - qbox-backend
 
-  qbox.api:
-    image: qbox.api
+  qbox-backend:
+    image: qbox-backend
     ports:
       - "81:80"
     build:
       context: .\QBox.Api
       dockerfile: Dockerfile
     depends_on:
-      - sqlserver
+      - qbox-db
 
-  sqlserver:
+  qbox-db:
     image: microsoft/mssql-server-windows-developer
     ports:
       - "15785:1433"

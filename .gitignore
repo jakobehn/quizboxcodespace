@@ -192,3 +192,4 @@ ModelManifest.xml
 /Source/packages
 /Source/.vs/config
 /Source/QBox.Database/QBox.Database.jfm
+/Source/.kube/schema/v1.7.7
