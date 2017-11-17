@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QBox.Api.DTO;
 using QBoxCore.Api.Models;
 
@@ -14,7 +15,7 @@ namespace QBox.Api.Controllers
         {
             using (var ctx = new QuizBoxContext())
             {
-                return ctx.Highscore.Select(
+                return ctx.Highscore.Include(c => c.Category).Select(
                     c => new ScoreDTO()
                     {
                         Id = c.Id,
@@ -34,7 +35,10 @@ namespace QBox.Api.Controllers
         {
             using (var ctx = new QuizBoxContext())
             {
-                var game = ctx.Game.First(g => g.Id == gameId);
+                var game = ctx.Game
+                    .Include(g => g.Category)
+                    .Include(g => g.GameQuestion)
+                        .ThenInclude(g => g.Answer).First(g => g.Id == gameId);
                 int totalNrQuestions = game.GameQuestion.Count();
                 int nrCorrectAnswers = game.GameQuestion.Count(q => q.Answer.IsCorrect);
                 var scorePercent = ((double) nrCorrectAnswers/(double)totalNrQuestions)*100;

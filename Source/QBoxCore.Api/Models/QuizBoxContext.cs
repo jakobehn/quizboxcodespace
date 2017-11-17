@@ -18,7 +18,7 @@ namespace QBoxCore.Api.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"data source=localhost;initial catalog=Quizbox;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework;");
+                optionsBuilder.UseSqlServer(@"data source=db;initial catalog=Quizbox;integrated security=False;User Id=sa;Password=1qaz2WSX3edc;MultipleActiveResultSets=True;App=EntityFramework;");
             }
         }
 

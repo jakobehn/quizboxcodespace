@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QBox.Api.DTO;
 using QBoxCore.Api.Models;
 
@@ -17,7 +18,7 @@ namespace QBox.Api.Controllers
         {
             using (var ctx = new QuizBoxContext())
             {
-                var game = ctx.Game.First(g => g.Id == gameId);
+                var game = ctx.Game.Include(g => g.GameQuestion).ThenInclude(g => g.Answer).First(g => g.Id == gameId);
                 var question = game.GameQuestion.First(q => q.Order == questionNr);
                 question.Answer = ctx.Answer.First(a => a.Id == selectedAnswer);
                 ctx.SaveChanges();
@@ -39,7 +40,7 @@ namespace QBox.Api.Controllers
                     UserId = "1234567890",
                 };
 
-                var questionsInGame = ctx.Question.Where(q => q.Category.Id == selectedCategory.Id).AsEnumerable().OrderBy(
+                var questionsInGame = ctx.Question.Include(c => c.Category).Where(q => q.Category.Id == selectedCategory.Id).AsEnumerable().OrderBy(
                     q => Guid.NewGuid()).Take(5).ToList();
                 newGame.GameQuestion = new List<GameQuestion>();
                 for (int i = 1; i <= questionsInGame.Count(); i++)
@@ -74,7 +75,15 @@ namespace QBox.Api.Controllers
         {
             using (var ctx = new QuizBoxContext())
             {
-                var game = ctx.Game.FirstOrDefault(g => g.Id == gameId);
+                var game = ctx.Game
+                    .Include(g => g.GameQuestion)
+                        .ThenInclude(g => g.Question)
+                            .ThenInclude(g => g.Category)
+                    .Include(g => g.GameQuestion)
+                        .ThenInclude(g => g.Question)
+                            .ThenInclude(g => g.Answer)
+                    .FirstOrDefault(g => g.Id == gameId);
+
                 var question = game.GameQuestion.FirstOrDefault(q => q.Order == questionNr);
                 if (question == null)
                     return null;
@@ -92,7 +101,7 @@ namespace QBox.Api.Controllers
         {
             using (var ctx = new QuizBoxContext())
             {
-                var game = ctx.Game.First(g => g.Id == gameId);
+                var game = ctx.Game.Include(g => g.GameQuestion).ThenInclude(g => g.Answer).First(g => g.Id == gameId);
                 int totalNrQuestions = game.GameQuestion.Count();
                 int nrCorrectAnswers = game.GameQuestion.Count(q => q.Answer.IsCorrect);
 

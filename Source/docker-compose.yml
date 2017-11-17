@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  frontend:
+    image: qboxcore.web
+    container_name: frontend
+    build:
+      context: ./QBoxCore.Web
+      dockerfile: Dockerfile
+    depends_on:
+    - backend
+  backend:
+    image: qboxcore.api
+    container_name: backend
+    build:
+      context: ./QBoxCore.Api
+      dockerfile: Dockerfile
+  db:
+    image: microsoft/mssql-server-linux:2017-latest
+    container_name: db
+    ports:
+      - "1433:1433"
+    environment:
+      MSSQL_SA_PASSWORD: "1qaz2WSX3edc"
+      ACCEPT_EULA: "Y"
