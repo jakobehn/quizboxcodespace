@@ -1,0 +1,16 @@
+#Build stage
+FROM microsoft/dotnet:2.0-sdk AS builder
+WORKDIR /src
+COPY . .
+WORKDIR /src/QBoxCore.Web
+RUN dotnet restore
+RUN dotnet publish -c Release
+
+#Runtime
+FROM microsoft/aspnetcore:2.0
+ARG source
+
+WORKDIR /app
+EXPOSE 80
+COPY --from=builder /src/QBoxCore.Web/bin/Release/netcoreapp2.0/publish/ .
+ENTRYPOINT ["dotnet", "QBoxCore.Web.dll"]
