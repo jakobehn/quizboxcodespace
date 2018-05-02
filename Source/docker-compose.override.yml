@@ -1,15 +1,15 @@
 version: '3'
 
 services:
-  frontend:
+  web:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "80:80"
+      - "80"
 
-  backend:
+  api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "81:80"
+      - "80"
 
