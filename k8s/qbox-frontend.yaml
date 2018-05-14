@@ -19,12 +19,13 @@ kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: 1
+  replicas: 5
 #  minReadySeconds: 10
 #  strategy:
 #    type: RollingUpdate
 #    rollingUpdate:
 #      maxUnavailable: 0
+#      maxSurge: 1
   template:
     metadata:
       labels:
@@ -33,8 +34,14 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: jakob.azurecr.io/qboxcoreweb:2.0
+        image: jakob.azurecr.io/qboxcoreweb:3.0
         ports:
         - containerPort: 80
+        # readinessProbe:
+        #   httpGet:
+        #     path: /api/health
+        #     port: 80
+        #   initialDelaySeconds: 3
+        #   periodSeconds: 3
       imagePullSecrets:
       - name: regsecret   
