@@ -1,25 +1,9 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: frontend
-  labels:
-    app: qbox
-spec:
-  selector:
-    app: qbox
-    tier: frontend
-  ports:
-    - protocol: TCP
-      port: 80
-      nodePort: 30081
-  type: LoadBalancer
----
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: 5
+  replicas: 1
 #  minReadySeconds: 10
 #  strategy:
 #    type: RollingUpdate
@@ -34,7 +18,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: jakob.azurecr.io/qboxcoreweb:3.0
+        image: jakob.azurecr.io/qboxcoreweb:1.0
         ports:
         - containerPort: 80
         # readinessProbe:
@@ -42,6 +26,4 @@ spec:
         #     path: /api/health
         #     port: 80
         #   initialDelaySeconds: 3
-        #   periodSeconds: 3
-      imagePullSecrets:
-      - name: regsecret   
+        #   periodSeconds: 3 
