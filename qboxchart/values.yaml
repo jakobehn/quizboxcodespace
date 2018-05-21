@@ -1,0 +1,34 @@
+# Default values for qboxchart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+frontend: 
+  replicas: 1
+  image:
+    repository: jakobregistry.azurecr.io/qboxcoreweb
+    tag: "1.0"
+    pullPolicy: IfNotPresent
+  containerPort: 80    
+
+  service:
+    type: ClusterIP
+    port: 80
+
+backend:
+  replicas: 1
+  image:
+    repository: jakobregistry.azurecr.io/qboxcoreapi
+    tag: "1.0"
+    pullPolicy: IfNotPresent
+  containerPort: 80
+
+db:
+  replicas: 1
+  image:
+    repository: microsoft/mssql-server-linux
+    tag: "2017-latest"
+    pullPolicy: IfNotPresent
+  containerPort: 80    
+  password: "1qaz2WSX3edc"

@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: jakob.azurecr.io/qboxcoreweb:1.0
+        image: jakobregistry.azurecr.io/qboxcoreweb:1.0
         ports:
         - containerPort: 80
         # readinessProbe:
