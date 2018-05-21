@@ -32,3 +32,8 @@ db:
     pullPolicy: IfNotPresent
   containerPort: 80    
   password: "1qaz2WSX3edc"
+
+ingress:
+  name: "qbox"
+  prefix: "qbox"
+  host: "930627bf-9a69-4df4-9a5c-cf4f18559fa0.westeurope.aksapp.io"
