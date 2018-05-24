@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Reflection;
 using Microsoft.ApplicationInsights;
 
@@ -33,6 +34,14 @@ namespace QBox.Logging
             else
             {
                 TelemetryClient.TrackEvent(eventName, properties, null);
+            }
+
+            if( Directory.Exists("/var/lib/storage"))
+            { 
+                string path = "/var/lib/storage/log.txt";
+
+                string log = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ": " + eventName + Environment.NewLine;
+                File.AppendAllText(path, log);
             }
         }
 
