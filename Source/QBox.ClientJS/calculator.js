@@ -1,4 +1,4 @@
-var calculator = (function () {
+var calculator = /** @class */ (function () {
     function calculator() {
     }
     calculator.prototype.add = function (num1, num2) {
