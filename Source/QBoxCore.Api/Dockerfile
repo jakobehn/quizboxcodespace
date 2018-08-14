@@ -1,19 +1,18 @@
-FROM microsoft/aspnetcore:2.0 AS base
+FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
 WORKDIR /app
 EXPOSE 80
 
-FROM microsoft/aspnetcore-build:2.0 AS build
+FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY QBox.sln ./
 COPY QBoxCore.Api/QBoxCore.Api.csproj QBoxCore.Api/
 COPY QBoxCore.Api.DTO/QBoxCore.Api.DTO.csproj QBoxCore.Api.DTO/
-RUN dotnet restore -nowarn:msb3202,nu1503
+RUN dotnet restore QBoxCore.Api/QBoxCore.Api.csproj
 COPY . .
 WORKDIR /src/QBoxCore.Api
-RUN dotnet build -c Release -o /app
+RUN dotnet build QBoxCore.Api.csproj -c Release -o /app
 
 FROM build AS publish
-RUN dotnet publish -c Release -o /app
+RUN dotnet publish QBoxCore.Api.csproj -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
