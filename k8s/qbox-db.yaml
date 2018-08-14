@@ -3,15 +3,11 @@ kind: Deployment
 metadata:
   name: mssql-deployment
 spec:
-  replicas: 1
-  strategy:
-    type: Recreate    
   template:
     metadata:
       labels:
         app: mssql
     spec:
-      terminationGracePeriodSeconds: 10
       containers:
       - name: mssql
         image: microsoft/mssql-server-linux
@@ -21,17 +17,7 @@ spec:
         - name: ACCEPT_EULA
           value: "Y"
         - name: SA_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: mssql
-              key: SA_PASSWORD 
-        volumeMounts:
-        - name: mssqldb
-          mountPath: /var/opt/mssql
-      volumes:
-      - name: mssqldb
-        persistentVolumeClaim:
-          claimName: mssql-data
+          value: "1qaz2WSX3edc"
 ---
 apiVersion: v1
 kind: Service
@@ -43,5 +29,4 @@ spec:
   ports:
     - protocol: TCP
       port: 1433
-      targetPort: 1433
-  type: LoadBalancer
+  type: ClusterIP
