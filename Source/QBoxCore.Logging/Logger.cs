@@ -25,7 +25,6 @@ namespace QBox.Logging
         }
         public static void Event(string eventName, IDictionary<string, string> properties = null)
         {
-            TelemetryClient.InstrumentationKey = "";
             if (properties == null)
             {
 
