@@ -48,7 +48,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{C5E48021-3C6
 	ProjectSection(SolutionItems) = preProject
 		..\k8s\qbox-backend.yaml = ..\k8s\qbox-backend.yaml
 		..\k8s\qbox-db.yaml = ..\k8s\qbox-db.yaml
+		..\k8s\qbox-frontend-service.yaml = ..\k8s\qbox-frontend-service.yaml
 		..\k8s\qbox-frontend.yaml = ..\k8s\qbox-frontend.yaml
+		..\k8s\qbox-ingress.yaml = ..\k8s\qbox-ingress.yaml
+		..\k8s\storage.yaml = ..\k8s\storage.yaml
+		..\k8s\storageclass.yaml = ..\k8s\storageclass.yaml
 	EndProjectSection
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BB9FB519-ABC5-432A-BAD4-44EE2CAC06CE}"

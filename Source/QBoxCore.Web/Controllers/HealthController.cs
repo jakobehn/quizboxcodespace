@@ -12,21 +12,22 @@ namespace QBoxCore.Web.Controllers
     [Route("api/Health")]
     public class HealthController : Controller
     {
-        private readonly IQBoxClient apiClient;
-
-        public HealthController(IQBoxClient apiClient)
-        {
-            this.apiClient = apiClient;
-        }
+        static DateTime? startup;
 
         // GET: api/Health
         [HttpGet]
         public IActionResult Get()
         {
-            var allCategories = apiClient.GetCategories().Result; 
-            if( allCategories.Any())
-                return StatusCode(200);
-            return StatusCode(500);
+            if (!startup.HasValue)
+            {
+                startup = DateTime.Now;
+            }
+            var elapsedTime = DateTime.Now - startup.Value;
+            if (elapsedTime.TotalSeconds < 20)
+            {
+                return StatusCode(500);
+            }
+            return StatusCode(200);
         }
 
     }

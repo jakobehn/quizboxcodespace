@@ -18,12 +18,20 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: jakob.azurecr.io/qboxcoreweb:3.0
+        image: jakob.azurecr.io/qboxcoreweb:8.0
+        volumeMounts:
+        - mountPath: "/var/lib/storage"
+          name: volume        
         ports:
         - containerPort: 80
-        # readinessProbe:
-        #   httpGet:
-        #     path: /api/health
-        #     port: 80
-        #   initialDelaySeconds: 3
-        #   periodSeconds: 3 
+        readinessProbe:
+          httpGet:
+            path: /api/health
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3 
+        imagePullPolicy: Always
+      volumes:
+        - name: volume
+          persistentVolumeClaim:
+            claimName: azurefile

@@ -35,7 +35,7 @@ namespace QBox.Logging
             {
                 TelemetryClient.TrackEvent(eventName, properties, null);
             }
-
+            Console.WriteLine("Logging info: " + eventName);
             if( Directory.Exists("/var/lib/storage"))
             { 
                 string path = "/var/lib/storage/log.txt";
