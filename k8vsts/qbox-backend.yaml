@@ -24,6 +24,9 @@ spec:
       containers:
       - name: backend
         image: __REGISTRY__/qboxcoreapi:__VERSION__
+        env:
+        - name: APPLICATIONINSIGHTS__INSTRUMENTATIONKEY
+          value: __INSTRUMENTATIONKEY__        
         ports:
         - containerPort: 80
    
