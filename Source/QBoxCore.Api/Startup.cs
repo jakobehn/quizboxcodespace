@@ -39,6 +39,7 @@ namespace QBoxCore.Api
                 { 
                     context.Database.Migrate();
                 }
+
             initializer.Seed();
         }
     }
