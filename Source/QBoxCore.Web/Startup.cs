@@ -28,8 +28,8 @@ namespace QBoxCore.Web
 
             var appInsightsSection = Configuration.GetSection("ApplicationInsights");
             var servicesSection = Configuration.GetSection("Services").Get<ServicesSettings>();
-
             services.Configure<QBoxAppInsightsSettings>(appInsightsSection);
+
             services.AddTransient<ILogger>(s => new Logger(appInsightsSection.Get<QBoxAppInsightsSettings>()));
             services.AddTransient<IQBoxClient>(s => new QBoxClient(servicesSection.ApiBaseUrl));
         }

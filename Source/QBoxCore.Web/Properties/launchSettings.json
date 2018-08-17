@@ -12,6 +12,7 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
+        "APPLICATIONINSIGHTS__INSTRUMENTATIONKEY": "15e26f40-b713-445c-a615-e2a297850daa",
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
