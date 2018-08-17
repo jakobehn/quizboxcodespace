@@ -13,6 +13,9 @@ spec:
       containers:
       - name: frontend
         image: __REGISTRY__/qboxcoreweb:__VERSION__     
+        env:
+        - name: APPLICATIONINSIGHTS_INSTRUMENTATIONKEY
+          value: __INSTRUMENTATIONKEY__
         ports:
         - containerPort: 80
         imagePullPolicy: Always
