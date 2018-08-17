@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\QBoxCore.Common\QBoxCore.Common.csproj" />
     <ProjectReference Include="..\QBoxCore.Api.Client\QBoxCore.Api.Client.csproj" />
     <ProjectReference Include="..\QBoxCore.Logging\QBoxCore.Logging.csproj" />
   </ItemGroup>

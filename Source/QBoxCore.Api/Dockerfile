@@ -6,6 +6,8 @@ FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
 COPY QBoxCore.Api/QBoxCore.Api.csproj QBoxCore.Api/
 COPY QBoxCore.Api.DTO/QBoxCore.Api.DTO.csproj QBoxCore.Api.DTO/
+COPY QBoxCore.Logging/QBoxCore.Logging.csproj QBoxCore.Logging/
+COPY QBoxCore.Common/QBoxCore.Common.csproj QBoxCore.Common/
 RUN dotnet restore QBoxCore.Api/QBoxCore.Api.csproj
 COPY . .
 WORKDIR /src/QBoxCore.Api

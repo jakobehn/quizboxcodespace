@@ -8,6 +8,7 @@ COPY QBoxCore.Web/QBoxCore.Web.csproj QBoxCore.Web/
 COPY QBoxCore.Api.Client/QBoxCore.Api.Client.csproj QBoxCore.Api.Client/
 COPY QBoxCore.Api.DTO/QBoxCore.Api.DTO.csproj QBoxCore.Api.DTO/
 COPY QBoxCore.Logging/QBoxCore.Logging.csproj QBoxCore.Logging/
+COPY QBoxCore.Common/QBoxCore.Common.csproj QBoxCore.Common/
 RUN dotnet restore QBoxCore.Web/QBoxCore.Web.csproj
 COPY . .
 WORKDIR /src/QBoxCore.Web
