@@ -14,7 +14,7 @@ spec:
       - name: frontend
         image: __REGISTRY__/qboxcoreweb:__VERSION__     
         env:
-        - name: APPLICATIONINSIGHTS_INSTRUMENTATIONKEY
+        - name: APPLICATIONINSIGHTS__INSTRUMENTATIONKEY
           value: __INSTRUMENTATIONKEY__
         ports:
         - containerPort: 80
