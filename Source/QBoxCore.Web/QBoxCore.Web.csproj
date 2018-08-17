@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\QBoxCore.Common\QBoxCore.Common.csproj" />
     <ProjectReference Include="..\QBoxCore.Api.Client\QBoxCore.Api.Client.csproj" />
     <ProjectReference Include="..\QBoxCore.Logging\QBoxCore.Logging.csproj" />
   </ItemGroup>

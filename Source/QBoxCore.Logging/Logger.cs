@@ -3,38 +3,45 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using Microsoft.ApplicationInsights;
+using Microsoft.Extensions.Options;
+using QBoxCore.Common;
 
 namespace QBox.Logging
 {
-    public static class Logger
+    public class Logger : ILogger
     {
-        private static TelemetryClient TelemetryClient { get; set; }
+        private readonly QBoxAppInsightsSettings settings;
+        private static TelemetryClient telemetryClient;
 
-        static Logger()
+
+        public Logger(QBoxAppInsightsSettings settings)
         {
-            TelemetryClient = new TelemetryClient()
+            this.settings = settings;
+            if( telemetryClient == null)
             {
-                InstrumentationKey = ""
-            };
-            TelemetryClient.Context.Component.Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                telemetryClient = new TelemetryClient()
+                {
+                    InstrumentationKey = settings.InstrumentationKey,
+                };
+                telemetryClient.Context.Component.Version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            }
         }
 
-        public static void PageView(string page)
+        public void PageView(string page)
         {
-            TelemetryClient.TrackPageView(page);
+            telemetryClient.TrackPageView(page);
         }
-        public static void Event(string eventName, IDictionary<string, string> properties = null)
+        public void Event(string eventName, IDictionary<string, string> properties = null)
         {
             if (properties == null)
             {
 
-                TelemetryClient.TrackEvent(eventName);
+                telemetryClient.TrackEvent(eventName);
             }
             else
             {
-                TelemetryClient.TrackEvent(eventName, properties, null);
+                telemetryClient.TrackEvent(eventName, properties, null);
             }
-            Console.WriteLine("Logging info: " + eventName);
             if( Directory.Exists("/var/lib/storage"))
             { 
                 string path = "/var/lib/storage/log.txt";
@@ -44,14 +51,14 @@ namespace QBox.Logging
             }
         }
 
-        public static void Metric(string name, double value)
+        public void Metric(string name, double value)
         {
-            TelemetryClient.TrackMetric(name, value);
+            telemetryClient.TrackMetric(name, value);
         }
 
-        public static void Exception(Exception ex)
+        public void Exception(Exception ex)
         {
-            TelemetryClient.TrackException(ex);
+            telemetryClient.TrackException(ex);
         }
     }
 }

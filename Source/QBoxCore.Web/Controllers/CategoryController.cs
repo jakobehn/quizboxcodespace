@@ -12,10 +12,12 @@ namespace QBox.Web.Controllers
     public class CategoryController : Controller
     {
         private readonly IQBoxClient apiClient;
+        private readonly ILogger logger;
 
-        public CategoryController(IQBoxClient apiClient)
+        public CategoryController(IQBoxClient apiClient, ILogger logger)
         {
             this.apiClient = apiClient;
+            this.logger = logger;
         }
 
 
@@ -42,7 +44,7 @@ namespace QBox.Web.Controllers
             }
 
             string selectedCategory = Convert.ToString(form.First().Value);
-            QBox.Logging.Logger.Event(selectedCategory);
+            logger.Event(selectedCategory);
 
             return RedirectToAction("Index", "Question", new {category=selectedCategory});
         }
@@ -52,7 +54,7 @@ namespace QBox.Web.Controllers
         {
             var allCategories = await apiClient.GetCategories();
             var selectedCategory = allCategories[new Random().Next(0, allCategories.Count - 1)].Name;
-            Logger.Event("randomCategory");
+            logger.Event("randomCategory");
             return RedirectToAction("Index", "Question", new { category = selectedCategory });
         }
 

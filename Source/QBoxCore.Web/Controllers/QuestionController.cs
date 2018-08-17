@@ -11,10 +11,12 @@ namespace QBox.Web.Controllers
     public class QuestionController : Controller
     {
         private readonly IQBoxClient apiClient;
+        private readonly ILogger logger;
 
-        public QuestionController(IQBoxClient apiClient)
+        public QuestionController(IQBoxClient apiClient, ILogger logger)
         {
             this.apiClient = apiClient;
+            this.logger = logger;
         }
 
         [Route("{category}/{gameId?}/{questionNr?}")]
@@ -78,7 +80,7 @@ namespace QBox.Web.Controllers
             {
                 return View("Index", model);
             }
-            Logger.Event("PostHighscore");
+            logger.Event("PostHighscore");
 
             await apiClient.PostHighScore(model.GameId, model.Name, model.Age);
             return RedirectToAction("Index", "Highscore");

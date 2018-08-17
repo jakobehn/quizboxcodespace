@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QBox.Api.Client;
+using QBox.Logging;
+using QBoxCore.Common;
 
 namespace QBoxCore.Web
 {
@@ -23,9 +25,13 @@ namespace QBoxCore.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            var section = Configuration.GetSection("Services");
-            var url = section.GetValue<string>("ApiBaseUrl");
-            services.AddTransient<IQBoxClient>(s => new QBoxClient(url));
+
+            var appInsightsSection = Configuration.GetSection("ApplicationInsights");
+            var servicesSection = Configuration.GetSection("Services").Get<ServicesSettings>();
+
+            services.Configure<QBoxAppInsightsSettings>(appInsightsSection);
+            services.AddTransient<ILogger>(s => new Logger(appInsightsSection.Get<QBoxAppInsightsSettings>()));
+            services.AddTransient<IQBoxClient>(s => new QBoxClient(servicesSection.ApiBaseUrl));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
