@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Polly;
 using QBox.Api.Client;
 using QBox.Logging;
 using QBox.Web.Models;
@@ -23,16 +24,26 @@ namespace QBox.Web.Controllers
 
         public ActionResult Index()
         {
-            var allCategories = apiClient.GetCategories().Result;
-            var model = new QuizCategoriesViewModel
-            {
-                Categories = allCategories.Select(
-                    c => new QuizCategoryViewModel() { Id = c.Id, Name = c.Name, Description = c.Description }).ToList()
-            };
-            model.ShowRandomCategory = true;
+            var sqlRetryPolicy = Policy
+                        .Handle<Exception>()
+                        .WaitAndRetry(new[]
+                        {
+                TimeSpan.FromSeconds(5),
+                TimeSpan.FromSeconds(5),
+                TimeSpan.FromSeconds(5)
+                        });
 
-            return View(model);
+            return sqlRetryPolicy.Execute(() => {
+                var allCategories = apiClient.GetCategories().Result;
+                var model = new QuizCategoriesViewModel
+                {
+                    Categories = allCategories.Select(
+                        c => new QuizCategoryViewModel() { Id = c.Id, Name = c.Name, Description = c.Description }).ToList()
+                };
+                model.ShowRandomCategory = true;
 
+                return View(model);
+            });
         }
 
         [HttpPost]

@@ -8,12 +8,16 @@ services:
       dockerfile: QBoxCore.Web/Dockerfile
     volumes:
        - c:/storage:/var/lib/storage
+    depends_on:
+      - api
+
   api:
     image: qboxcoreapi
     build:
       context: .
       dockerfile: QBoxCore.Api/Dockerfile
-
+    depends_on:
+      - db
 
   db:
      image: "microsoft/mssql-server-linux"

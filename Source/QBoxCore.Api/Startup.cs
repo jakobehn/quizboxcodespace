@@ -5,6 +5,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QBox.Api.Migrations;
 using QBoxCore.Api.Models;
+using Polly;
+using System.Data.SqlClient;
+using System;
 
 namespace QBoxCore.Api
 {
@@ -35,10 +38,27 @@ namespace QBoxCore.Api
 
             app.UseMvc();
 
-                using( var context = new QuizBoxContext())
-                { 
-                    context.Database.Migrate();
-                }
+            var sqlRetryPolicy = Policy
+              .Handle<Exception>()
+              .WaitAndRetry(new[]
+              {
+                TimeSpan.FromSeconds(5),
+                TimeSpan.FromSeconds(5),
+                TimeSpan.FromSeconds(5)
+              });
+
+            sqlRetryPolicy.Execute(() => { 
+                InitializeDatabase(initializer);
+            });
+
+        }
+
+        private void InitializeDatabase(DbInitializer initializer)
+        {
+            using (var context = new QuizBoxContext())
+            {
+                context.Database.Migrate();
+            }
 
             initializer.Seed();
         }
