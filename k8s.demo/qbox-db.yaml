@@ -10,7 +10,7 @@ spec:
     spec:
       containers:
       - name: mssql
-        image: microsoft/mssql-server-linux:CU9
+        image: microsoft/mssql-server-linux
         ports:
         - containerPort: 1433
         env:
