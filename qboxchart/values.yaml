@@ -7,7 +7,7 @@ replicaCount: 1
 frontend: 
   replicas: 1
   image:
-    repository: jakobregistry.azurecr.io/qboxcoreweb
+    repository: jakob.azurecr.io/qboxcoreweb
     tag: "1.0"
     pullPolicy: IfNotPresent
   containerPort: 80    
@@ -19,7 +19,7 @@ frontend:
 backend:
   replicas: 1
   image:
-    repository: jakobregistry.azurecr.io/qboxcoreapi
+    repository: jakob.azurecr.io/qboxcoreapi
     tag: "1.0"
     pullPolicy: IfNotPresent
   containerPort: 80
@@ -28,12 +28,12 @@ db:
   replicas: 1
   image:
     repository: microsoft/mssql-server-linux
-    tag: "2017-latest"
+    tag: "2017-CU9"
     pullPolicy: IfNotPresent
   containerPort: 80    
   password: "1qaz2WSX3edc"
 
 ingress:
-  name: "qbox"
-  prefix: "qbox"
-  host: "930627bf-9a69-4df4-9a5c-cf4f18559fa0.westeurope.aksapp.io"
+  name: "qbox-chart"
+  prefix: "qbox-chart"
+  host: "78212448ba524a099f48.westeurope.aksapp.io"
