@@ -1,12 +1,12 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: qboxx
+  name: qbox
   annotations:
     kubernetes.io/ingress.class: addon-http-application-routing
 spec:
   rules:
-  - host: qboxx.78212448ba524a099f48.westeurope.aksapp.io
+  - host: qbox.d634ee0d60a346fe8385.westeurope.aksapp.io
     http:
       paths:
       - backend:
