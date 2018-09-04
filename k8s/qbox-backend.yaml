@@ -26,4 +26,5 @@ spec:
         image: jakob.azurecr.io/qboxcoreapi:1.0
         ports:
         - containerPort: 80
+        imagePullPolicy: Always          
    

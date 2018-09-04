@@ -28,9 +28,8 @@ namespace QBox.Web.Controllers
                         .Handle<Exception>()
                         .WaitAndRetry(new[]
                         {
-                TimeSpan.FromSeconds(5),
-                TimeSpan.FromSeconds(5),
-                TimeSpan.FromSeconds(5)
+                TimeSpan.FromSeconds(10),
+                TimeSpan.FromSeconds(15)
                         });
 
             return sqlRetryPolicy.Execute(() => {
