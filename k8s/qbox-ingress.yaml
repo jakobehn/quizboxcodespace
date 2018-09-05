@@ -9,7 +9,13 @@ spec:
   - host: qbox.d634ee0d60a346fe8385.westeurope.aksapp.io
     http:
       paths:
-      - backend:
+      - path: /  
+        backend:
           serviceName: frontend
           servicePort: 80
-        path: /      
+         
+      - path: /api
+        backend:
+          serviceName: api
+          servicePort: 80
+                     
