@@ -36,4 +36,4 @@ db:
 ingress:
   name: "qbox-chart"
   prefix: "qbox-chart"
-  host: "78212448ba524a099f48.westeurope.aksapp.io"
+  host: "3071c04184cf486484f0.westeurope.aksapp.io"

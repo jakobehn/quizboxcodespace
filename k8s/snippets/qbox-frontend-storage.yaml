@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: devopsdays.azurecr.io/qboxcoreweb:2.0 
+        image: jakob.azurecr.io/qboxcoreweb:1.0 
         volumeMounts:
         - mountPath: "/var/lib/storage"
           name: volume          
