@@ -14,5 +14,9 @@ spec:
         image: winops.azurecr.io/qboxcoreweb:1.0        
         ports:
         - containerPort: 80
-  
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m        
       

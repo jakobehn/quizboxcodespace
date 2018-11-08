@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend
+  name: db
 spec:
   selector:
-    tier: frontend
+    tier: db
   ports:
     - protocol: TCP
-      port: 80
+      port: 1433
   type: ClusterIP

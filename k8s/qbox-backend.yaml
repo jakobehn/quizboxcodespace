@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: jakob.azurecr.io/qboxcoreapi:1.0
+        image: winops.azurecr.io/qboxcoreapi:1.0
         ports:
         - containerPort: 80
    
