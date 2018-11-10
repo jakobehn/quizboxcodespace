@@ -6,8 +6,6 @@ services:
     build:
       context: .
       dockerfile: QBoxCore.Web/Dockerfile
-    volumes:
-       - c:/storage:/var/lib/storage
     depends_on:
       - api
 
