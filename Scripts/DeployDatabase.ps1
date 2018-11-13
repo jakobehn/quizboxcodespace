@@ -12,7 +12,7 @@ param(
 		[Parameter(Position=5)]
 	[string]$databasePassword
 )
-$path = ${env:ProgramFiles(x86)} + "\Microsoft SQL Server\120\DAC\bin\SqlPackage.exe”
+$path = ${env:ProgramFiles(x86)} + "\Microsoft SQL Server\130\DAC\bin\SqlPackage.exe”
 
 Write-Verbose -Verbose ("Running $path /Action:Publish /SourceFile:$dacPacPath /TargetDatabaseName:$databaseName /TargetServerName:$databaseServer /TargetUser:$databaseLogin/TargetPassword:$databasePassword")
 

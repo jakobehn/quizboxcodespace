@@ -1,0 +1,50 @@
+resources:
+- repo: self
+  clean: true
+queue:
+  name: Local
+steps:
+
+- task: DockerCompose@0
+  displayName: 'Build images'
+  inputs:
+    azureSubscription: WinOpsRegistry
+    azureContainerRegistry: '{"loginServer":"winops.azurecr.io", "id" : "/subscriptions/6fc3b2b4-efd7-4580-aaac-36ecf24bbd7e/resourceGroups/acr/providers/Microsoft.ContainerRegistry/registries/winops"}'
+    action: 'Build services'
+    additionalImageTags: '$(build.buildnumber)'
+    includeLatestTag: true
+
+- task: DockerCompose@0
+  displayName: 'Push images'
+  inputs:
+    azureSubscription: WinOpsRegistry
+    azureContainerRegistry: '{"loginServer":"winops.azurecr.io", "id" : "/subscriptions/6fc3b2b4-efd7-4580-aaac-36ecf24bbd7e/resourceGroups/acr/providers/Microsoft.ContainerRegistry/registries/winops"}'
+    action: 'Push services'
+    additionalImageTags: '$(build.buildnumber)'
+
+- task: HelmInstaller@0
+  displayName: 'Install Helm 2.11.0'
+  inputs:
+    helmVersion: 2.11.0
+    kubectlVersion: 1.10.3
+    checkLatestKubectl: false
+
+- task: HelmDeploy@0
+  displayName: 'helm init --client-only'
+  inputs:
+    azureSubscription: WinOpsCluster
+    azureResourceGroup: winops
+    kubernetesCluster: winops
+    command: init
+    upgradeTiller: false
+    arguments: '--client-only'
+
+- task: HelmDeploy@0
+  displayName: 'helm package'
+  inputs:
+    command: package
+    chartPath: qboxchart
+    save: false
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish helm charts'
