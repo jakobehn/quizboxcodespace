@@ -11,6 +11,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: winops.azurecr.io/qboxcoreweb:1.1     
+        image: winops.azurecr.io/qboxcoreweb:1.2
         ports:
         - containerPort: 80
