@@ -2,7 +2,7 @@
 # Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
-name: qbox-2.1$(rev:.r)
+name: 2.1$(rev:.r)
 
 trigger:
 - master
