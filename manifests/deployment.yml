@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: qboxcoreweb 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: qboxcoreweb 
+    spec:
+      containers:
+        - name: qboxcoreweb 
+          image: techdays.azurecr.io/qboxcoreweb 
+          ports:
+          - containerPort: 80
