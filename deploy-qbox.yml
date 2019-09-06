@@ -4,11 +4,11 @@ parameters:
 
 steps:
 - task: KubernetesManifest@0
-  displayName: Deploy to Kubernetes cluster
+  displayName: Deploy to AKS
   inputs:
     action: 'deploy'
-    kubernetesServiceConnection: 'techdays-qbox-test'
-    namespace: 'qbox-test'
+    kubernetesServiceConnection: ${{ parameters.kubernetesServiceConnection }}
+    namespace: ${{ parameters.namespace }}
     manifests: |
       $(Pipeline.Workspace)/manifests/secrets.yml                              
       $(Pipeline.Workspace)/manifests/deployment.yml
