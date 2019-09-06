@@ -29,6 +29,24 @@ stages:
     pool:
       name: Local
     steps:
+
+    - task: DockerCompose@0
+      displayName: 'Build images'
+      inputs:
+        azureSubscription: WinOpsRegistry
+        azureContainerRegistry: '{"loginServer":"winops.azurecr.io", "id" : "/subscriptions/6fc3b2b4-efd7-4580-aaac-36ecf24bbd7e/resourceGroups/acr/providers/Microsoft.ContainerRegistry/registries/winops"}'
+        action: 'Build services'
+        additionalImageTags: '$(build.buildnumber)'
+        includeLatestTag: true
+
+    - task: DockerCompose@0
+      displayName: 'Push images'
+      inputs:
+        azureSubscription: WinOpsRegistry
+        azureContainerRegistry: '{"loginServer":"winops.azurecr.io", "id" : "/subscriptions/6fc3b2b4-efd7-4580-aaac-36ecf24bbd7e/resourceGroups/acr/providers/Microsoft.ContainerRegistry/registries/winops"}'
+        action: 'Push services'
+        additionalImageTags: '$(build.buildnumber)'    
+
     - task: Docker@2
       displayName: Build and push an image to container registry
       inputs:
