@@ -1,10 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2024
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5E77A723-5CAC-4C80-8535-D4EF4A36E7F5}"
 	ProjectSection(SolutionItems) = preProject
+		..\azure-pipelines-1.yml = ..\azure-pipelines-1.yml
+		..\azure-pipelines.yml = ..\azure-pipelines.yml
 		CodeCoverage.runsettings = CodeCoverage.runsettings
 		CustomRules.ruleset = CustomRules.ruleset
 		Local.testsettings = Local.testsettings
