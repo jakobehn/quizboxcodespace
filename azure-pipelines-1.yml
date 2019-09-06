@@ -54,8 +54,7 @@ stages:
       name: Local
     environment: 'qbox-prod.qbox-prod'
     strategy:
-      canary:
-        percentage: 25
+      runOnce:
         deploy:
           steps:
           - template: deploy-qbox.yml
