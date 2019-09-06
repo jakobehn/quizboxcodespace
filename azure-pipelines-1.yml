@@ -72,6 +72,7 @@ stages:
               kubernetesServiceConnection: 'techdays-qbox-test'
               namespace: 'qbox-test'
               manifests: |
+                $(Pipeline.Workspace)/manifests/secrets.yml                              
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
@@ -96,6 +97,7 @@ stages:
               kubernetesServiceConnection: 'techdays-qbox-prod'
               namespace: 'qbox-prod'
               manifests: |
+                $(Pipeline.Workspace)/manifests/secrets.yml                              
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'              
