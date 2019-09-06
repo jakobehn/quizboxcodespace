@@ -17,7 +17,7 @@ variables:
   imageRepository: 'qboxcoreweb'
   containerRegistry: 'techdays.azurecr.io'
   dockerfilePath: '**/Dockerfile'
-  tag: '$(Build.BuildId)'
+  tag: '$(build.buildnumber)'
 
 stages:
 - stage: Build
