@@ -52,7 +52,7 @@ stages:
     - upload: manifests
       artifact: manifests
 
-- stage: Deploy Test
+- stage: DeployTest
   displayName: Deploy Test
   dependsOn: Build
   jobs:
@@ -76,9 +76,9 @@ stages:
                 $(Pipeline.Workspace)/manifests/service.yml
               containers: '$(containerRegistry)/$(imageRepository):$(tag)'
 
-- stage: Deploy Prod
+- stage: DeployProd
   displayName: Deploy Prod
-  dependsOn: Deploy Test
+  dependsOn: DeployTest
   jobs:
   - deployment: Deploy
     displayName: Deploy
