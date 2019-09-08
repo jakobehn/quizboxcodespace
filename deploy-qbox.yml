@@ -5,6 +5,17 @@ parameters:
 steps:
 
 - task: KubernetesManifest@0
+  name: bake
+  displayName: Bake K8s manifests from Helm chart
+  inputs:
+    action: bake
+    kubernetesServiceConnection: ${{ parameters.kubernetesServiceConnection }}      
+    helmChart: helm/qbox
+    overrides: |
+      frontend.image.tag:$(build.buildnumber)
+      backend.image.tag:$(build.buildnumber)        
+
+- task: KubernetesManifest@0
   displayName: Deploy to AKS
   inputs:
     action: 'deploy'

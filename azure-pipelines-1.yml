@@ -20,8 +20,6 @@ stages:
 
   jobs:  
   - template: build-qbox.yml
-    parameters:
-      kubernetesServiceConnection: 'techdays-qbox-test'       
 
 - stage: DeployTest
   displayName: Deploy Test
