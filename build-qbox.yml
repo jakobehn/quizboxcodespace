@@ -29,10 +29,11 @@ jobs:
     displayName: Bake K8s manifests from Helm chart
     inputs:
       action: bake
+      kubernetesServiceConnection: ${{ parameters.kubernetesServiceConnection }}      
       helmChart: helm/qbox
       overrides: |
         frontend.image.tag:$(build.buildnumber)
         backend.image.tag:$(build.buildnumber)        
-        
+
   - upload: manifests
     artifact: manifests
