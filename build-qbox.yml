@@ -34,6 +34,3 @@ jobs:
       overrides: |
         frontend.image.tag:$(build.buildnumber)
         backend.image.tag:$(build.buildnumber)        
-
-  - upload: manifests
-    artifact: manifests
