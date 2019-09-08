@@ -1,7 +1,3 @@
-# Deploy to Azure Kubernetes Service
-# Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
-
 name: 2.1$(rev:.r)
 
 trigger:
@@ -12,7 +8,6 @@ resources:
 
 variables:
 
-  # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '72c293a5-902c-4f0f-b415-743aeff8b352'
   imageRepository: 'qboxcoreweb'
   containerRegistry: 'techdays.azurecr.io'

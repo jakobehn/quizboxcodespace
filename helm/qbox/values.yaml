@@ -6,7 +6,7 @@ replicaCount: 1
 frontend: 
   replicas: 1
   image:
-    repository: winops.azurecr.io/qboxcoreweb
+    repository: techdays.azurecr.io/qboxcoreweb
     tag: "1.1"
     pullPolicy: IfNotPresent
   containerPort: 80    
@@ -18,7 +18,7 @@ frontend:
 backend:
   replicas: 1
   image:
-    repository: winops.azurecr.io/qboxcoreapi
+    repository: techdays.azurecr.io/qboxcoreapi
     tag: "1.1"
     pullPolicy: IfNotPresent
   containerPort: 80
@@ -30,9 +30,5 @@ db:
     tag: "2017-CU9"
     pullPolicy: IfNotPresent
   containerPort: 80    
-  password: "MXFhejJXU1gzZWRj"
+  password: "1qaz2WSX3edc"
 
-ingress:
-  name: "qbox-chart"
-  prefix: "qbox-chart"
-  host: "72a0ccffbb074be6990e.westeurope.aksapp.io"

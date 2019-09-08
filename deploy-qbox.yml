@@ -3,14 +3,12 @@ parameters:
   kubernetesServiceConnection: ''
 
 steps:
+
 - task: KubernetesManifest@0
   displayName: Deploy to AKS
   inputs:
     action: 'deploy'
     kubernetesServiceConnection: ${{ parameters.kubernetesServiceConnection }}
     namespace: ${{ parameters.namespace }}
-    manifests: |
-      $(Pipeline.Workspace)/manifests/secrets.yml                              
-      $(Pipeline.Workspace)/manifests/deployment.yml
-      $(Pipeline.Workspace)/manifests/service.yml
+    manifests: $(bake.manifestsBundle)
     containers: '$(containerRegistry)/$(imageRepository):$(tag)'
