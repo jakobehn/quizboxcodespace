@@ -34,6 +34,7 @@ stages:
       runOnce:
         deploy:
           steps:
+          - checkout: self          
           - template: deploy-qbox.yml
             parameters:
               namespace: 'qbox-test'
@@ -52,6 +53,7 @@ stages:
       runOnce:
         deploy:
           steps:
+          - checkout: self          
           - template: deploy-qbox.yml
             parameters:
               namespace: 'qbox-test'
