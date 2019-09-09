@@ -36,10 +36,15 @@ stages:
           steps:
           - template: deploy-qbox.yml
             parameters:
-              namespace: 'qbox-prod'
+              namespace: 'qbox-test'
               kubernetesServiceConnection: 'techdays-qbox-test'     
-  - deployment: DeployUS
-    displayName: DeployUS
+
+- stage: DeployTestUS
+  displayName: Deploy TestUS
+  dependsOn: Build
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
     pool:
       name: Local
     environment: 'qbox-test.qbox-test-tdswe-eastus2'
@@ -49,8 +54,8 @@ stages:
           steps:
           - template: deploy-qbox.yml
             parameters:
-              namespace: 'qbox-prod'
-              kubernetesServiceConnection: 'techdays-qbox-us-test'                   
+              namespace: 'qbox-test'
+              kubernetesServiceConnection: 'techdays-qbox-us-test'     
 
 - stage: DeployProd
   displayName: Deploy Prod
