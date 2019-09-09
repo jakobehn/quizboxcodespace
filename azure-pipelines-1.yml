@@ -31,16 +31,12 @@ stages:
       name: Local
     environment: 'qbox-test.qbox-test'
     strategy:
-      matrix:
-        EU:
-          kubernetesServiceConnection: 'techdays-qbox-test'
-        US:
-          kubernetesServiceConnection: 'techdays-qbox-us-test'          
+      runOnce:
         deploy:
           steps:
           - template: deploy-qbox.yml
             parameters:
-              namespace: 'qbox-test'
+              namespace: 'qbox-prod'
               kubernetesServiceConnection: 'techdays-qbox-test'     
 
 - stage: DeployProd
