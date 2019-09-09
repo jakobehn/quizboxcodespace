@@ -38,6 +38,19 @@ stages:
             parameters:
               namespace: 'qbox-prod'
               kubernetesServiceConnection: 'techdays-qbox-test'     
+  - deployment: DeployUS
+    displayName: DeployUS
+    pool:
+      name: Local
+    environment: 'qbox-test.qbox-test-tdswe-eastus2'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: deploy-qbox.yml
+            parameters:
+              namespace: 'qbox-prod'
+              kubernetesServiceConnection: 'techdays-qbox-us-test'                   
 
 - stage: DeployProd
   displayName: Deploy Prod
