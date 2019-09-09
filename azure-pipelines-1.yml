@@ -31,7 +31,12 @@ stages:
       name: Local
     environment: 'qbox-test.qbox-test'
     strategy:
-      runOnce:
+      maxParallel: 2
+      matrix:
+        EU:
+          kubernetesServiceConnection: 'techdays-qbox-test'
+        US:
+          kubernetesServiceConnection: 'techdays-qbox-us-test'          
         deploy:
           steps:
           - template: deploy-qbox.yml
