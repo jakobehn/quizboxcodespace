@@ -31,7 +31,6 @@ stages:
       name: Local
     environment: 'qbox-test.qbox-test'
     strategy:
-      maxParallel: 2
       matrix:
         EU:
           kubernetesServiceConnection: 'techdays-qbox-test'
