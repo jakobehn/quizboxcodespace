@@ -29,7 +29,7 @@ stages:
     displayName: Deploy
     pool:
       name: Local
-    environment: 'qbox-test.techdays-eu'
+    environment: 'qbox-test.qbox-test.techdays-eu'
     strategy:
       runOnce:
         deploy:
@@ -40,57 +40,3 @@ stages:
               namespace: 'qbox-test'
               kubernetesServiceConnection: 'qbox-test-techdays-eu'     
 
-- stage: DeployTestUS
-  displayName: Deploy TestUS
-  dependsOn: Build
-  jobs:
-  - deployment: Deploy
-    displayName: Deploy
-    pool:
-      name: Local
-    environment: 'qbox-test.techdays-us'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - checkout: self          
-          - template: deploy-qbox.yml
-            parameters:
-              namespace: 'qbox-test'
-              kubernetesServiceConnection: 'qbox-test-techdays-us'     
-
-- stage: DeployProd
-  displayName: Deploy Prod
-  dependsOn: DeployTest
-  jobs:
-  - deployment: Deploy
-    displayName: Deploy
-    pool:
-      name: Local
-    environment: 'qbox-prod.techdays-eu'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - template: deploy-qbox.yml
-            parameters:
-              namespace: 'qbox-prod'
-              kubernetesServiceConnection: 'qbox-prod-techdays-eu'     
-
-- stage: DeployProdUS
-  displayName: Deploy Prod
-  dependsOn: DeployTest
-  jobs:
-  - deployment: Deploy
-    displayName: Deploy
-    pool:
-      name: Local
-    environment: 'qbox-prod.techdays-us'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - template: deploy-qbox.yml
-            parameters:
-              namespace: 'qbox-prod'
-              kubernetesServiceConnection: 'qbox-prod-techdays-us'                   
