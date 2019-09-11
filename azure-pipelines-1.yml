@@ -29,7 +29,7 @@ stages:
     displayName: Deploy
     pool:
       name: Local
-    environment: 'qbox-test.qbox-test'
+    environment: 'qbox-test.techdays-eu'
     strategy:
       runOnce:
         deploy:
@@ -38,7 +38,7 @@ stages:
           - template: deploy-qbox.yml
             parameters:
               namespace: 'qbox-test'
-              kubernetesServiceConnection: 'techdays-qbox-test'     
+              kubernetesServiceConnection: 'qbox-test-techdays-eu'     
 
 - stage: DeployTestUS
   displayName: Deploy TestUS
@@ -48,7 +48,7 @@ stages:
     displayName: Deploy
     pool:
       name: Local
-    environment: 'qbox-test.qbox-test-tdswe-eastus2'
+    environment: 'qbox-test.techdays-us'
     strategy:
       runOnce:
         deploy:
@@ -57,7 +57,7 @@ stages:
           - template: deploy-qbox.yml
             parameters:
               namespace: 'qbox-test'
-              kubernetesServiceConnection: 'techdays-qbox-us-test'     
+              kubernetesServiceConnection: 'qbox-test-techdays-us'     
 
 - stage: DeployProd
   displayName: Deploy Prod
@@ -67,7 +67,7 @@ stages:
     displayName: Deploy
     pool:
       name: Local
-    environment: 'qbox-prod.qbox-prod'
+    environment: 'qbox-prod.techdays-eu'
     strategy:
       runOnce:
         deploy:
@@ -75,4 +75,22 @@ stages:
           - template: deploy-qbox.yml
             parameters:
               namespace: 'qbox-prod'
-              kubernetesServiceConnection: 'techdays-qbox-prod'     
+              kubernetesServiceConnection: 'qbox-prod-techdays-eu'     
+
+- stage: DeployProdUS
+  displayName: Deploy Prod
+  dependsOn: DeployTest
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      name: Local
+    environment: 'qbox-prod.techdays-us'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: deploy-qbox.yml
+            parameters:
+              namespace: 'qbox-prod'
+              kubernetesServiceConnection: 'qbox-prod-techdays-us'                   
