@@ -19,8 +19,8 @@ steps:
     resourceGroupName: 'techdays-eu'
     location: 'West Europe'
     templateLocation: 'Linked artifact'
-    csmFile: 'k8scluster/cluster.json'
-    csmParametersFile: 'k8scluster/cluster-eu.parameters.json'
+    csmFile: '$(System.DefaultWorkingDirectory)/k8scluster/cluster.json'
+    csmParametersFile: '$(System.DefaultWorkingDirectory)/k8scluster/cluster-eu.parameters.json'
     deploymentMode: 'Incremental'
     deploymentName: 'AKS Cluster EU'
 
