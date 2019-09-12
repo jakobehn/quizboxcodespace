@@ -1,52 +1,60 @@
 name: 2.1$(rev:.r)
 
+trigger:
+- master
+
 resources:
 - repo: self
-  clean: true
-queue:
-  name: Local
-steps:
 
-- task: DockerCompose@0
-  displayName: 'Build images'
-  inputs:
-    azureSubscription: WinOpsRegistry
-    azureContainerRegistry: '{"loginServer":"winops.azurecr.io", "id" : "/subscriptions/6fc3b2b4-efd7-4580-aaac-36ecf24bbd7e/resourceGroups/acr/providers/Microsoft.ContainerRegistry/registries/winops"}'
-    action: 'Build services'
-    additionalImageTags: '$(build.buildnumber)'
-    includeLatestTag: true
+variables:
 
-- task: DockerCompose@0
-  displayName: 'Push images'
-  inputs:
-    azureSubscription: WinOpsRegistry
-    azureContainerRegistry: '{"loginServer":"winops.azurecr.io", "id" : "/subscriptions/6fc3b2b4-efd7-4580-aaac-36ecf24bbd7e/resourceGroups/acr/providers/Microsoft.ContainerRegistry/registries/winops"}'
-    action: 'Push services'
-    additionalImageTags: '$(build.buildnumber)'
+  dockerRegistryServiceConnection: '72c293a5-902c-4f0f-b415-743aeff8b352'
+  imageRepository: 'qboxcoreweb'
+  containerRegistry: 'techdays.azurecr.io'
+  dockerfilePath: '**/Dockerfile'
+  tag: '$(build.buildnumber)'
 
-- task: HelmInstaller@0
-  displayName: 'Install Helm 2.11.0'
-  inputs:
-    helmVersion: 2.11.0
-    kubectlVersion: 1.10.3
-    checkLatestKubectl: false
+stages:
+- stage: Build
+  displayName: Build stage
 
-- task: HelmDeploy@0
-  displayName: 'helm init --client-only'
-  inputs:
-    azureSubscription: WinOpsCluster
-    azureResourceGroup: winops
-    kubernetesCluster: winops
-    command: init
-    upgradeTiller: false
-    arguments: '--client-only'
+  jobs:  
+  - template: build-qbox.yml
 
-- task: HelmDeploy@0
-  displayName: 'helm package'
-  inputs:
-    command: package
-    chartPath: qboxchart
-    save: false
+- stage: DeployTest
+  displayName: Deploy Test
+  dependsOn: Build
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      name: Local
+    environment: 'qbox-test.qbox-test.techdays-eu'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self          
+          - template: deploy-qbox.yml
+            parameters:
+              namespace: 'qbox-test'
+              kubernetesServiceConnection: 'qbox-test-techdays-eu'     
 
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish helm charts'
+- stage: DeployTestUS
+  displayName: Deploy Test
+  dependsOn: Build
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      name: Local
+    environment: 'qbox-test.qbox-test.techdays-us'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self          
+          - template: deploy-qbox.yml
+            parameters:
+              namespace: 'qbox-test'
+              kubernetesServiceConnection: 'qbox-test-techdays-us'     
