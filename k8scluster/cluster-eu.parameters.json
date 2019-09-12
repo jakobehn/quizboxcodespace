@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "clusterName": {
-            "value": "testcluster1"
+            "value": "techdays-eu"
         },
         "dnsPrefix": {
-            "value": "testcluster1"
+            "value": "techdays-eu"
         },
         "location": {
             "value": "westeurope"

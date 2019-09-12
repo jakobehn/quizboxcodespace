@@ -217,30 +217,6 @@
                     "serverAppSecret": "[parameters('serverAppSecret')]"                    
                 }
             }
-        },
-        {
-            "type": "Microsoft.ContainerService/managedClusters/agentPools",
-            "apiVersion": "2019-06-01",
-            "name": "[concat(parameters('clusterName'), '/nodepool1')]",
-            "dependsOn": [
-                "[resourceId('Microsoft.ContainerService/managedClusters', parameters('clusterName'))]"
-            ],
-            "properties": {
-                "count": "[parameters('agentCount')]",
-                "vmSize": "Standard_DS2_v2",
-                "osDiskSizeGB": "[parameters('osDiskSizeGB')]",
-                "maxPods": "[parameters('maxPods')]",
-                "type": "VirtualMachineScaleSets",
-                "availabilityZones": [
-                    "1",
-                    "2"
-                ],
-                "maxCount": "[parameters('agentMaxCount')]",
-                "minCount": "[parameters('agentMinCount')]",
-                "enableAutoScaling": true,
-                "orchestratorVersion": "[parameters('kubernetesVersion')]",
-                "osType": "[parameters('osType')]"
-            }
         }
     ]
 }
