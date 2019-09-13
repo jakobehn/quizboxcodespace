@@ -30,6 +30,6 @@ steps:
     resourceGroupName: 'techdays-us'
     location: 'EastUS2'
     templateLocation: 'Linked artifact'
-    csmFile: 'k8scluster/cluster.json'
-    csmParametersFile: 'k8scluster/cluster-us.parameters.json'
+    csmFile: '$(System.DefaultWorkingDirectory)/k8scluster/cluster.json'
+    csmParametersFile: '$(System.DefaultWorkingDirectory)/k8scluster/cluster-us.parameters.json'
     deploymentMode: 'Incremental'
