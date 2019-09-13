@@ -165,6 +165,9 @@
             "metadata": {
                 "description": "The version of Kubernetes."
             }
+        },
+        "logAnalyticsWorkspaceResourceId": {
+            "type": "string"  
         }
     },    
     "resources": [
@@ -202,13 +205,19 @@
                 "nodeResourceGroup": "[concat('MC_', parameters('clusterName'), '_', parameters('clusterName'), parameters('location'))]",
                 "enableRBAC": true,
                 "enablePodSecurityPolicy": false,
+                "omsagent": {
+                    "enabled": true,
+                    "config": {
+                      "logAnalyticsWorkspaceResourceID": "[parameters('logAnalyticsWorkspaceResourceId')]"
+                    }
+                },
                 "networkProfile": {
                     "networkPlugin": "[parameters('networkPlugin')]",
                     "loadBalancerSku": "standard",
                     "podCidr": "[parameters('podCidr')]",
                     "serviceCidr": "[parameters('serviceCidr')]",
                     "dnsServiceIP": "[parameters('dnsServiceIP')]",
-                    "dockerBridgeCidr": "[parameters('dockerBridgeCidr')]",
+                    "dockerBridgeCidr": "[parameters('dockerBridgeCidr')]"
                 },
                 "aadProfile": {
                     "clientAppID": "[parameters('clientAppId')]",
