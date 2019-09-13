@@ -202,15 +202,17 @@
                         "clientId": "[parameters('servicePrincipalClientId')]",
                         "secret": "c7576c7c-5ba4-45cc-836c-4bb7844fb038"
                     }, 
+                    "addonProfiles": {
+                        "omsagent": {
+                          "enabled": true,
+                          "config": {
+                            "logAnalyticsWorkspaceResourceID": "[parameters('logAnalyticsWorkspaceResourceId')]"
+                          }
+                        }
+                      },                    
                     "nodeResourceGroup": "[concat('MC_', parameters('clusterName'), '_', parameters('clusterName'), parameters('location'))]",
                     "enableRBAC": true,
                     "enablePodSecurityPolicy": false,
-                    "omsagent": {
-                        "enabled": true,
-                        "config": {
-                        "logAnalyticsWorkspaceResourceID": "[parameters('logAnalyticsWorkspaceResourceId')]"
-                        }
-                    },
                     "networkProfile": {
                         "networkPlugin": "[parameters('networkPlugin')]",
                         "loadBalancerSku": "standard",
