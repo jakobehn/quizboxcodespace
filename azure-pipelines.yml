@@ -39,7 +39,7 @@ stages:
             parameters:
               namespace: 'qbox-test'
               kubernetesServiceConnection: 'qbox-test-techdays-eu'  
-              ingressHostName: 'techdays.westeurope.cloudapp.azure.com'
+              ingressHostName: 'techdays.westeurope'
 
 - stage: DeployTestUS
   displayName: Deploy Test US
@@ -59,4 +59,4 @@ stages:
             parameters:
               namespace: 'qbox-test'
               kubernetesServiceConnection: 'qbox-test-techdays-us'     
-              ingressHostName: 'techdays.eastus2.cloudapp.azure.com'
+              ingressHostName: 'techdays.eastus2'

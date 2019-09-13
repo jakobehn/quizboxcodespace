@@ -6,7 +6,7 @@ metadata:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: {{.Values.ingress.hostname}}.westeurope.aksapp.io
+  - host: {{.Values.ingress.hostname}}.cloudapp.azure.com
     http:
       paths:
       - path: /
