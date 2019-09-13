@@ -22,7 +22,6 @@ steps:
     csmFile: '$(System.DefaultWorkingDirectory)/k8scluster/cluster.json'
     csmParametersFile: '$(System.DefaultWorkingDirectory)/k8scluster/cluster-eu.parameters.json'
     deploymentMode: 'Incremental'
-    deploymentName: 'AKS-EU'
 
 - task: AzureResourceGroupDeployment@2
   inputs:
@@ -34,4 +33,3 @@ steps:
     csmFile: 'k8scluster/cluster.json'
     csmParametersFile: 'k8scluster/cluster-us.parameters.json'
     deploymentMode: 'Incremental'
-    deploymentName: 'AKS-US'    
