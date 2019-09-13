@@ -32,3 +32,6 @@ db:
   containerPort: 80    
   password: "1qaz2WSX3edc"
 
+ingress:
+  hostname: techdays.somewhere.com
+
