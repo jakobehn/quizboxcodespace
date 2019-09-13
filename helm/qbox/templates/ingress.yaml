@@ -4,10 +4,10 @@ metadata:
   name: qbox-ingress
   annotations:
     kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - http:
+  - host: {{.Values.ingress.hostname}}.westeurope.aksapp.io
+    http:
       paths:
       - path: /
         backend:
