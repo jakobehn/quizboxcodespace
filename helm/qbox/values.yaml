@@ -30,7 +30,7 @@ db:
     tag: "2017-latest-ubuntu"
     pullPolicy: IfNotPresent
   containerPort: 80    
-  password: "1qaz2WSX3edc"
+  password: 1qaz2WSX3edc
 
 ingress:
   hostname: techdays.somewhere.com
