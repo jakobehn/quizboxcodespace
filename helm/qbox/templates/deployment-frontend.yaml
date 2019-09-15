@@ -15,3 +15,8 @@ spec:
         image: "{{ .Values.frontend.image.repository }}:{{ .Values.frontend.image.tag }}"
         ports:
         - containerPort: {{ .Values.frontend.containerPort }}
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
