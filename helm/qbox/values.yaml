@@ -4,7 +4,6 @@
 
 replicaCount: 1
 frontend: 
-  replicas: 3
   image:
     repository: techdays.azurecr.io/qboxcoreweb
     tag: "1.1"
@@ -16,7 +15,6 @@ frontend:
     port: 80
 
 backend:
-  replicas: 1
   image:
     repository: techdays.azurecr.io/qboxcoreapi
     tag: "1.1"
@@ -24,7 +22,6 @@ backend:
   containerPort: 80
 
 db:
-  replicas: 1
   image:
     repository: mcr.microsoft.com/mssql/server
     tag: "2017-latest-ubuntu"

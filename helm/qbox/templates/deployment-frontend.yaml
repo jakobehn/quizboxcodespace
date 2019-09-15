@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: {{ .Values.frontend.replicas }}
   template:
     metadata:
       labels:

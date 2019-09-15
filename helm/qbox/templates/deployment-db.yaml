@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: db
 spec:
-  replicas: {{ .Values.db.replicas }}
   template:
     metadata:
       labels:
