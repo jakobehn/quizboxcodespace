@@ -5,6 +5,8 @@
 
 name: 1.0$(rev:.r)
 
+trigger: none
+
 pool:
   name: Local
 

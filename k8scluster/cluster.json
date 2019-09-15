@@ -189,8 +189,7 @@
                             "type": "VirtualMachineScaleSets",
                             "availabilityZones": [
                                 "1",
-                                "2",
-                                "3"
+                                "2"
                             ],
                             "maxCount": "[parameters('agentMaxCount')]",
                             "minCount": "[parameters('agentMinCount')]",
