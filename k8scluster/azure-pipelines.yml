@@ -2,13 +2,12 @@ name: 1.0$(rev:.r)
 
 trigger: none
 
-pool:
-  name: Local
-
 stages:
 - stage: Test
   jobs:
   - job: Test
+    pool:
+      name: Local  
     steps:
     - task: AzureResourceGroupDeployment@2
       displayName: Deploy Test
@@ -25,6 +24,8 @@ stages:
 - stage: Prod
   jobs:
   - job: Prod
+    pool:
+      name: Local    
     steps:
     - task: AzureResourceGroupDeployment@2
       displayName: Deploy Prod EU
