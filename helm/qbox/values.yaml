@@ -4,7 +4,7 @@
 
 replicaCount: 1
 frontend: 
-  replicas: 1
+  replicas: 3
   image:
     repository: techdays.azurecr.io/qboxcoreweb
     tag: "1.1"
