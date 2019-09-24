@@ -21,15 +21,15 @@ stages:
   jobs:  
   - template: build-qbox.yml
 
-- stage: DeployTest
-  displayName: Deploy Test Europe
+- stage: DeployDev
+  displayName: Deploy Dev
   dependsOn: Build
   jobs:
   - deployment: Deploy
     displayName: Deploy
     pool:
       name: Local
-    environment: 'qbox-test.qbox-test.techdays-eu'
+    environment: 'devtest.qbox-test'
     strategy:
       runOnce:
         deploy:
@@ -38,25 +38,5 @@ stages:
           - template: deploy-qbox.yml
             parameters:
               namespace: 'qbox-test'
-              kubernetesServiceConnection: 'qbox-test-techdays-eu'  
+              kubernetesServiceConnection: 'qbox-dev'  
               ingressHostName: 'techdays.westeurope'
-
-- stage: DeployTestUS
-  displayName: Deploy Test US
-  dependsOn: Build
-  jobs:
-  - deployment: Deploy
-    displayName: Deploy
-    pool:
-      name: Local
-    environment: 'qbox-test.qbox-test.techdays-us'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - checkout: self          
-          - template: deploy-qbox.yml
-            parameters:
-              namespace: 'qbox-test'
-              kubernetesServiceConnection: 'qbox-test-techdays-us'     
-              ingressHostName: 'techdays.eastus2'
