@@ -37,6 +37,6 @@ stages:
           - checkout: self          
           - template: deploy-qbox.yml
             parameters:
-              namespace: 'qbox-test'
+              namespace: 'qbox-dev'
               kubernetesServiceConnection: 'qbox-dev'  
               ingressHostName: 'techdays.westeurope'
