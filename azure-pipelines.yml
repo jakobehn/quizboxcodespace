@@ -40,3 +40,63 @@ stages:
               namespace: 'qbox-dev'
               kubernetesServiceConnection: 'qbox-dev'  
               ingressHostName: 'techdays.westeurope'
+
+- stage: DeployStaging
+  displayName: Deploy Staging
+  dependsOn: DeployDev
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      name: Local
+    environment: 'devtest.qbox-staging'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self          
+          - template: deploy-qbox.yml
+            parameters:
+              namespace: 'qbox-staging'
+              kubernetesServiceConnection: 'qbox-staging'  
+              ingressHostName: 'techdays.westeurope'
+
+- stage: DeployProdEU
+  displayName: Deploy ProdEU
+  dependsOn: DeployStaging
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      name: Local
+    environment: 'prodeu.qbox'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self          
+          - template: deploy-qbox.yml
+            parameters:
+              namespace: 'qbox'
+              kubernetesServiceConnection: 'qbox-prodeu'  
+              ingressHostName: 'techdays.westeurope'              
+
+- stage: DeployProdUS2
+  displayName: Deploy ProdUS2
+  dependsOn: DeployStaging
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      name: Local
+    environment: 'produs2.qbox'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self          
+          - template: deploy-qbox.yml
+            parameters:
+              namespace: 'qbox'
+              kubernetesServiceConnection: 'qbox-produs2'  
+              ingressHostName: 'techdays.westeurope'                            
