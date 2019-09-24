@@ -8,7 +8,7 @@ jobs:
   - task: DockerCompose@0
     inputs:
       containerregistrytype: 'Azure Container Registry'
-      azureSubscription: 'Microsoft Azure Sponsorship(b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5)'
+      azureSubscription: 'Azure Sponsorship'
       azureContainerRegistry: '{"loginServer":"techdays.azurecr.io", "id" : "/subscriptions/b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5/resourceGroups/techdays/providers/Microsoft.ContainerRegistry/registries/techdays"}'
       dockerComposeFile: '**/docker-compose.yml'
       action: 'Build services'
@@ -19,7 +19,7 @@ jobs:
     displayName: 'Push images'
     inputs:
       containerregistrytype: 'Azure Container Registry'
-      azureSubscription: 'Microsoft Azure Sponsorship(b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5)'
+      azureSubscription: 'Azure Sponsorship'
       azureContainerRegistry: '{"loginServer":"techdays.azurecr.io", "id" : "/subscriptions/b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5/resourceGroups/techdays/providers/Microsoft.ContainerRegistry/registries/techdays"}'
       action: 'Push services'
       additionalImageTags: '$(build.buildnumber)'    
