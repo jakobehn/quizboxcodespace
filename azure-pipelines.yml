@@ -39,7 +39,7 @@ stages:
             parameters:
               namespace: 'qbox-dev'
               kubernetesServiceConnection: 'qbox-dev'  
-              ingressHostName: 'qbox-dev.westeurope'
+              ingressHostName: 'qbox-dev.westeurope.cloudapp.azure.com'
 
 - stage: DeployStaging
   displayName: Deploy Staging
@@ -59,7 +59,7 @@ stages:
             parameters:
               namespace: 'qbox-staging'
               kubernetesServiceConnection: 'qbox-staging'  
-              ingressHostName: 'qbox-staging.westeurope'
+              ingressHostName: 'qbox-staging.westeurope.cloudapp.azure.com'
 
 - stage: DeployProdEU
   displayName: Deploy ProdEU
@@ -79,7 +79,7 @@ stages:
             parameters:
               namespace: 'qbox'
               kubernetesServiceConnection: 'qbox-prodeu'  
-              ingressHostName: 'qboxeu.westeurope'              
+              ingressHostName: 'qboxeu.westeurope.cloudapp.azure.com'              
 
 - stage: DeployProdUS2
   displayName: Deploy ProdUS2
@@ -99,4 +99,4 @@ stages:
             parameters:
               namespace: 'qbox'
               kubernetesServiceConnection: 'qbox-produs2'  
-              ingressHostName: 'qboxus2.westeurope'                            
+              ingressHostName: 'qboxus2.westeurope.cloudapp.azure.com'                            
