@@ -39,7 +39,7 @@ stages:
             parameters:
               namespace: 'qbox-dev'
               kubernetesServiceConnection: 'qbox-dev'  
-              ingressHostName: 'techdays.westeurope'
+              ingressHostName: 'qbox-dev.westeurope'
 
 - stage: DeployStaging
   displayName: Deploy Staging
@@ -59,7 +59,7 @@ stages:
             parameters:
               namespace: 'qbox-staging'
               kubernetesServiceConnection: 'qbox-staging'  
-              ingressHostName: 'techdays.westeurope'
+              ingressHostName: 'qbox-staging.westeurope'
 
 - stage: DeployProdEU
   displayName: Deploy ProdEU
@@ -79,7 +79,7 @@ stages:
             parameters:
               namespace: 'qbox'
               kubernetesServiceConnection: 'qbox-prodeu'  
-              ingressHostName: 'techdays.westeurope'              
+              ingressHostName: 'qboxeu.westeurope'              
 
 - stage: DeployProdUS2
   displayName: Deploy ProdUS2
@@ -99,4 +99,4 @@ stages:
             parameters:
               namespace: 'qbox'
               kubernetesServiceConnection: 'qbox-produs2'  
-              ingressHostName: 'techdays.westeurope'                            
+              ingressHostName: 'qboxus2.westeurope'                            
