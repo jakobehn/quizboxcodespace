@@ -21,15 +21,15 @@ stages:
   jobs:  
   - template: build-qbox.yml
 
-- stage: DeployTest
-  displayName: Deploy Test Europe
+- stage: DeployDev
+  displayName: Deploy Dev
   dependsOn: Build
   jobs:
   - deployment: Deploy
     displayName: Deploy
     pool:
       name: Local
-    environment: 'qbox-test.qbox-test.techdays-eu'
+    environment: 'devtest.qbox-dev'
     strategy:
       runOnce:
         deploy:
@@ -37,19 +37,19 @@ stages:
           - checkout: self          
           - template: deploy-qbox.yml
             parameters:
-              namespace: 'qbox-test'
-              kubernetesServiceConnection: 'qbox-test-techdays-eu'  
-              ingressHostName: 'techdays.westeurope'
+              namespace: 'qbox-dev'
+              kubernetesServiceConnection: 'qbox-dev'  
+              ingressHostName: 'qbox-dev.westeurope'
 
-- stage: DeployTestUS
-  displayName: Deploy Test US
-  dependsOn: Build
+- stage: DeployStaging
+  displayName: Deploy Staging
+  dependsOn: DeployDev
   jobs:
   - deployment: Deploy
     displayName: Deploy
     pool:
       name: Local
-    environment: 'qbox-test.qbox-test.techdays-us'
+    environment: 'devtest.qbox-staging'
     strategy:
       runOnce:
         deploy:
@@ -57,6 +57,46 @@ stages:
           - checkout: self          
           - template: deploy-qbox.yml
             parameters:
-              namespace: 'qbox-test'
-              kubernetesServiceConnection: 'qbox-test-techdays-us'     
-              ingressHostName: 'techdays.eastus2'
+              namespace: 'qbox-staging'
+              kubernetesServiceConnection: 'qbox-staging'  
+              ingressHostName: 'qbox-staging.westeurope'
+
+- stage: DeployProdEU
+  displayName: Deploy ProdEU
+  dependsOn: DeployStaging
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      name: Local
+    environment: 'prodeu.qbox'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self          
+          - template: deploy-qbox.yml
+            parameters:
+              namespace: 'qbox'
+              kubernetesServiceConnection: 'qbox-prodeu'  
+              ingressHostName: 'qboxeu.westeurope'              
+
+- stage: DeployProdUS2
+  displayName: Deploy ProdUS2
+  dependsOn: DeployStaging
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy
+    pool:
+      name: Local
+    environment: 'produs2.qbox'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - checkout: self          
+          - template: deploy-qbox.yml
+            parameters:
+              namespace: 'qbox'
+              kubernetesServiceConnection: 'qbox-produs2'  
+              ingressHostName: 'qboxus2.westeurope'                            
