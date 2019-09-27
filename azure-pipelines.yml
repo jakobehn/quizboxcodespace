@@ -43,6 +43,17 @@ jobs:
   - task: HelmInstaller@1
     inputs:
       helmVersionToInstall: 'latest'
+
+  - task: HelmDeploy@0
+    inputs:
+      connectionType: 'Azure Resource Manager'
+      azureSubscription: 'Azure Sponsorship'
+      azureResourceGroup: 'tdswe-test'
+      kubernetesCluster: 'tdswe-test'
+      command: 'init'
+      upgradeTiller: false
+      arguments: '--client-only'
+      
   - task: HelmDeploy@0
     inputs:
       azureSubscription: 'Azure Sponsorship'
