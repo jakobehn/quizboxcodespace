@@ -40,6 +40,9 @@ jobs:
       action: 'Push services'
       additionalImageTags: '$(build.buildnumber)'    
     
+  - task: HelmInstaller@1
+    inputs:
+      helmVersionToInstall: 'latest'
   - task: HelmDeploy@0
     inputs:
       azureSubscription: 'Azure Sponsorship'
