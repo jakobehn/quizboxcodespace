@@ -50,7 +50,7 @@ jobs:
       kubernetesCluster: 'tdswe-test'
       namespace: '$(namespace)'
       command: 'package'
-      chartPath: 'helm/'
+      chartPath: '.\helm\qbox\'
       chartVersion: '$(build.buildnumber)'
 
   - task: PublishBuildArtifacts@1
