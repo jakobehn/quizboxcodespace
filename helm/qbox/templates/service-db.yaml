@@ -7,5 +7,5 @@ spec:
     tier: db
   ports:
     - protocol: TCP
-      port: 1433
+      port: {{ .Values.db.service.port }}
   type: ClusterIP
