@@ -56,12 +56,8 @@ jobs:
       
   - task: HelmDeploy@0
     inputs:
-      azureSubscription: 'Azure Sponsorship'
-      azureResourceGroup: 'tdswe-test'
-      kubernetesCluster: 'tdswe-test'
-      namespace: '$(namespace)'
       command: 'package'
-      chartPath: '.\helm\qbox\'
+      chartPath: 'helm/qbox'
       chartVersion: '$(build.buildnumber)'
 
   - task: PublishBuildArtifacts@1
