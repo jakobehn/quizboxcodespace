@@ -27,7 +27,7 @@ jobs:
   - task: Docker@2
     inputs:
       containerRegistry: 'techdays'
-      repository: 'qboxcorapi'
+      repository: 'techdays.azurecr.io/qboxcorapi'
       command: 'buildAndPush'
       Dockerfile: 'Source/QBoxCore.API/Dockerfile'
       buildContext: 'Source/'
@@ -36,7 +36,7 @@ jobs:
   - task: Docker@2
     inputs:
       containerRegistry: 'techdays'
-      repository: 'qboxcoreweb'
+      repository: 'techdays.azurecr.io/qboxcoreweb'
       command: 'buildAndPush'
       Dockerfile: 'Source/QBoxCore.Web/Dockerfile'
       buildContext: 'Source/'
