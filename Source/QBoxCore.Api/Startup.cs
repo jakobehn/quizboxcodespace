@@ -37,25 +37,7 @@ namespace QBoxCore.Api
             }
 
             app.UseMvc();
-            try { 
-            var sqlRetryPolicy = Policy
-              .Handle<Exception>()
-              .WaitAndRetry(new[]
-              {
-                TimeSpan.FromSeconds(5),
-                TimeSpan.FromSeconds(10)
-              });
-
-            sqlRetryPolicy.Execute(() =>
-            {
-                InitializeDatabase(initializer);
-            });
-            }
-            catch( Exception ex)
-            {
-                //TOO: Log this
-            }
-
+            InitializeDatabase(initializer);
         }
 
         private void InitializeDatabase(DbInitializer initializer)

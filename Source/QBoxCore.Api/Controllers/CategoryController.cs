@@ -25,49 +25,28 @@ namespace QBox.Api.Controllers
         }
         public IEnumerable<CategoryDTO> Get()
         {
-            var sqlRetryPolicy = Policy
-              .Handle<Exception>()
-              .WaitAndRetry(new[]
-              {
-                TimeSpan.FromSeconds(10),
-                TimeSpan.FromSeconds(15)
-              }, (exception, timeSpan) => {
-                  try
-                  { 
-                  using (var context = new QuizBoxContext())
-                  {
-                      context.Database.Migrate();
-                  }
+            using (var context = new QuizBoxContext())
+            {
+                context.Database.Migrate();
+            }
 
-                  initializer.Seed();
-                  }
-                  catch( Exception ex)
-                  {
-                      //TODO: Log
-                  }
-              });
+            initializer.Seed();
 
-            return sqlRetryPolicy.Execute(() => {
-                IEnumerable<CategoryDTO> categories = new List<CategoryDTO>();
+            IEnumerable<CategoryDTO> categories = new List<CategoryDTO>();
 
-                using (var ctx = new QuizBoxContext())
-                {
-                    categories = ctx.Category.Select(
-                        c => new CategoryDTO()
-                        {
-                            Id = c.Id,
-                            Name = c.Name,
-                            Description = c.Description
-                        }).ToList();
-                    return categories;
-                }
-
-
-            });
+            using (var ctx = new QuizBoxContext())
+            {
+                categories = ctx.Category.Select(
+                    c => new CategoryDTO()
+                    {
+                        Id = c.Id,
+                        Name = c.Name,
+                        Description = c.Description
+                    }).ToList();
+                return categories;
+            }
         }
 
-
     }
-
     
 }

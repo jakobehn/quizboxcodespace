@@ -23,26 +23,16 @@ namespace QBox.Web.Controllers
 
 
         public ActionResult Index()
-        {
-            var sqlRetryPolicy = Policy
-                        .Handle<Exception>()
-                        .WaitAndRetry(new[]
-                        {
-                TimeSpan.FromSeconds(10),
-                TimeSpan.FromSeconds(15)
-                        });
+        {            
+            var allCategories = apiClient.GetCategories().Result;
+            var model = new QuizCategoriesViewModel
+            {
+                Categories = allCategories.Select(
+                    c => new QuizCategoryViewModel() { Id = c.Id, Name = c.Name, Description = c.Description }).ToList()
+            };
+            model.ShowRandomCategory = true;
 
-            return sqlRetryPolicy.Execute(() => {
-                var allCategories = apiClient.GetCategories().Result;
-                var model = new QuizCategoriesViewModel
-                {
-                    Categories = allCategories.Select(
-                        c => new QuizCategoryViewModel() { Id = c.Id, Name = c.Name, Description = c.Description }).ToList()
-                };
-                model.ShowRandomCategory = true;
-
-                return View(model);
-            });
+            return View(model);
         }
 
         [HttpPost]
