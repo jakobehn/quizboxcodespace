@@ -31,5 +31,6 @@ db:
 
 ingress:
   hostname: techdays.somewhere.com
-  publichostname: 
+  trafficManagerEnabled: false
+  trafficManagerDNS: 
 

@@ -15,8 +15,8 @@ spec:
           serviceName: frontend
           servicePort: 80  
 
-{{ if .Values.ingress.publichostname}}
-  - host: {{ .Values.ingress.publichostname }}
+{{ if .Values.ingress.trafficManagerEnabled}}
+  - host: {{ .Values.ingress.trafficManagerDNS }}
     http:
       paths:
       - path: /
