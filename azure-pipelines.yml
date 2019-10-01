@@ -20,7 +20,10 @@ jobs:
   pool:
     name: Local
   steps:
-
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'techdays'
+      command: 'login'
   - task: Docker@2
     inputs:
       containerRegistry: 'techdays'
