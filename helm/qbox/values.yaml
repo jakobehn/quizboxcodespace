@@ -31,4 +31,5 @@ db:
 
 ingress:
   hostname: techdays.somewhere.com
+  publichostname: 
 

@@ -13,4 +13,14 @@ spec:
       - path: /
         backend:
           serviceName: frontend
-          servicePort: 80    
+          servicePort: 80  
+
+{{ if .Values.ingress.publichostname}}
+  - host: {{ .Values.ingress.publichostname }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: frontend
+          servicePort: 80              
+{{ end }}
