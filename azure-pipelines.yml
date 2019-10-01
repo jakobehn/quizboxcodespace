@@ -21,24 +21,23 @@ jobs:
     name: Local
   steps:
 
-  - task: DockerCompose@0
+  - task: Docker@2
     inputs:
-      containerregistrytype: 'Azure Container Registry'
-      azureSubscription: 'Azure Sponsorship'
-      azureContainerRegistry: '{"loginServer":"techdays.azurecr.io", "id" : "/subscriptions/b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5/resourceGroups/techdays/providers/Microsoft.ContainerRegistry/registries/techdays"}'
-      dockerComposeFile: '**/docker-compose.yml'
-      action: 'Build services'  
-      additionalImageTags: '$(build.buildnumber)'
-      includeLatestTag: false
+      containerRegistry: 'techdays'
+      repository: 'qboxcorapi'
+      command: 'buildAndPush'
+      Dockerfile: 'Source/QBoxCore.API/Dockerfile'
+      buildContext: 'Source/'
+      tags: '$(Build.BuildNumber)'
 
-  - task: DockerCompose@0
-    displayName: 'Push images'
+  - task: Docker@2
     inputs:
-      containerregistrytype: 'Azure Container Registry'
-      azureSubscription: 'Azure Sponsorship'
-      azureContainerRegistry: '{"loginServer":"techdays.azurecr.io", "id" : "/subscriptions/b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5/resourceGroups/techdays/providers/Microsoft.ContainerRegistry/registries/techdays"}'
-      action: 'Push services'
-      additionalImageTags: '$(build.buildnumber)'    
+      containerRegistry: 'techdays'
+      repository: 'qboxcoreweb'
+      command: 'buildAndPush'
+      Dockerfile: 'Source/QBoxCore.Web/Dockerfile'
+      buildContext: 'Source/'
+      tags: '$(Build.BuildNumber)'      
     
   - task: HelmInstaller@1
     inputs:
