@@ -30,6 +30,7 @@ namespace QBox.Logging
         public void PageView(string page)
         {
             telemetryClient.TrackPageView(page);
+            Console.WriteLine(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ": " + "Page: " + page);
         }
         public void Event(string eventName, IDictionary<string, string> properties = null)
         {
@@ -42,13 +43,15 @@ namespace QBox.Logging
             {
                 telemetryClient.TrackEvent(eventName, properties, null);
             }
-            if( Directory.Exists("/var/lib/storage"))
+            string log = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ": " + eventName + Environment.NewLine;
+            if ( Directory.Exists("/var/lib/storage"))
             { 
                 string path = "/var/lib/storage/log.txt";
 
-                string log = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + ": " + eventName + Environment.NewLine;
+
                 File.AppendAllText(path, log);
             }
+            Console.WriteLine(log);
         }
 
         public void Metric(string name, double value)
