@@ -8,10 +8,11 @@ namespace QBoxCore.HighscoreNotification
         static void Main(string[] args)
         {
             Console.WriteLine("Waiting for highscore notifications");
-
+            Console.WriteLine("------");
             while(true)
             {
-                Thread.Sleep(1000);
+                Console.WriteLine($"{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}: No new notifications");
+                Thread.Sleep(3000);
             }
         }
     }
