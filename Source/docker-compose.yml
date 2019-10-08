@@ -25,3 +25,10 @@ services:
        SA_PASSWORD: "1qaz2WSX3edc"
        ACCEPT_EULA: "Y"
        MSSQL_PID: "Express"
+
+  highscorenotification:
+    image: qboxcorehighscorenotification
+    build:
+      context: .
+      dockerfile: QBoxCore.HighscoreNotification/Dockerfile
+
