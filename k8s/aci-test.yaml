@@ -1,22 +1,20 @@
-apiVersion: apps/v1
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: aci-helloworld
+  name: aci-test
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: aci-helloworld
+  replicas: 10
   template:
     metadata:
       labels:
-        app: aci-helloworld
+        app: aci-test
     spec:
       containers:
-      - name: aci-helloworld
-        image: microsoft/aci-helloworld
-        ports:
-        - containerPort: 80
+      - name: qboxcorehighscorenotifications
+        image: techdays.azurecr.io/qboxcorehighscorenotification
+      imagePullSecrets:
+      - name: acr-auth
+
       nodeSelector:
         kubernetes.io/role: agent
         beta.kubernetes.io/os: linux
