@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.5.1" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Polly" Version="6.1.0" />
+    <PackageReference Include="prometheus-net.AspNetCore" Version="2.1.0" />
   </ItemGroup>
 
   <ItemGroup>

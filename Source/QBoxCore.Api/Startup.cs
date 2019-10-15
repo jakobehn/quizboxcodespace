@@ -8,6 +8,7 @@ using QBoxCore.Api.Models;
 using Polly;
 using System.Data.SqlClient;
 using System;
+using Prometheus;
 
 namespace QBoxCore.Api
 {
@@ -35,7 +36,7 @@ namespace QBoxCore.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseMetricServer();
             app.UseMvc();
             InitializeDatabase(initializer);
         }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Prometheus;
 using QBox.Api.Client;
 using QBox.Logging;
 using QBoxCore.Common;
@@ -45,6 +46,7 @@ namespace QBoxCore.Web
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            app.UseMetricServer();
 
             app.UseStaticFiles();
 
