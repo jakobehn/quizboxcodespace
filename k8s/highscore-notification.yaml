@@ -3,8 +3,14 @@ kind: Deployment
 metadata:
   name: highscore-notification
 spec:
+  selector:
+    matchLabels:
+      app: highscore-notification
   replicas: 10
   template:
+    metadata:
+      labels:
+        app: highscore-notification  
     spec:
       containers:
       - name: qboxcorehighscorenotifications
