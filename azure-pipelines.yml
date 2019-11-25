@@ -41,7 +41,7 @@ jobs:
     
   - task: HelmInstaller@1
     inputs:
-      helmVersionToInstall: 'latest'
+      helmVersionToInstall: '2.14'
 
   - task: HelmDeploy@0
     inputs:
