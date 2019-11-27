@@ -6,31 +6,26 @@ replicaCount: 1
 frontend: 
   image:
     repository: techdays.azurecr.io/qboxcoreweb
-    tag: "1.1"
+    tag: "2.1.102"
     pullPolicy: IfNotPresent
   containerPort: 80    
 
   service:
-    type: ClusterIP
+    type: LoadBalancer
     port: 80
 
 backend:
   image:
     repository: techdays.azurecr.io/qboxcoreapi
-    tag: "1.1"
+    tag: "2.1.102"
     pullPolicy: IfNotPresent
   containerPort: 80
 
 db:
   image:
-    repository: mcr.microsoft.com/mssql/server
-    tag: "2017-latest-ubuntu"
+    repository: microsoft/mssql-server-linux
+    tag: "2017-CU9"
     pullPolicy: IfNotPresent
-  containerPort: 80    
-  password: 1qaz2WSX3edc
-
-ingress:
-  hostname: techdays.somewhere.com
-  trafficManagerEnabled: false
-  trafficManagerDNS: tdswe.trafficmanager.net
+  service: 
+    port: 80    
 

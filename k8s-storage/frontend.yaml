@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: jakobehn/qboxcoreweb:1.0
+        image: techdays.azurecr.io/qboxcoreweb:2.1.102
         ports:
         - containerPort: 80
         volumeMounts:
