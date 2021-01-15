@@ -47,4 +47,16 @@ stages:
       runOnce:
         deploy:
           steps:
-             
+          - task: HelmDeploy@0
+            inputs:
+              connectionType: 'Azure Resource Manager'
+              azureSubscription: 'Azure Sponsorship'
+              azureResourceGroup: 'ndc-test'
+              kubernetesCluster: 'ndc-test'
+              namespace: 'qbox'
+              command: 'upgrade'
+              chartType: 'FilePath'
+              chartPath: '$(System.DefaultWorkingDirectory)/_QBox/drop/qbox-$(build.buildnumber).tgz'
+              releaseName: 'traefik'
+              overrideValues: 'frontend.image.tag=$(build.buildnumber),backend.image.tag=$(build.buildnumber),ingress.hostname=ndc-test-2f685e2a.hcp.westeurope.azmk8s.io,db.service.port=1433'
+              waitForExecution: false
