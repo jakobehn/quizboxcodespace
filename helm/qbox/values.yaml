@@ -5,7 +5,7 @@
 replicaCount: 1
 frontend: 
   image:
-    repository: techdays.azurecr.io/qboxcoreweb
+    repository: jakob.azurecr.io/qboxcoreweb
     tag: "2.1.102"
     pullPolicy: IfNotPresent
   containerPort: 80    
@@ -16,7 +16,7 @@ frontend:
 
 backend:
   image:
-    repository: techdays.azurecr.io/qboxcoreapi
+    repository: jakob.azurecr.io/qboxcoreapi
     tag: "2.1.102"
     pullPolicy: IfNotPresent
   containerPort: 80
