@@ -1,29 +1,7 @@
-# Deploy to Azure Kubernetes Service
-# Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
-# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
-
-trigger:
-- main
-
-resources:
-- repo: self
-
 variables:
-
-  # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '190e78dc-156b-42bd-be70-7b6d888f1a5c'
-  imageRepository: 'qboxcoreweb'
-  containerRegistry: 'jakob.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
-  tag: '$(Build.BuildId)'
-  imagePullSecret: 'jakob4558098b-auth'
-
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
   
-  # Name of the new namespace being created to deploy the PR changes.
-  k8sNamespaceForPR: 'review-app-$(System.PullRequest.PullRequestId)'
-
 resources:
   pipelines:
   - pipeline: QBox
