@@ -10,7 +10,7 @@ variables:
 
   dockerRegistryServiceConnection: '72c293a5-902c-4f0f-b415-743aeff8b352'
   imageRepository: 'qboxcoreweb'
-  containerRegistry: 'techdays.azurecr.io'
+  containerRegistry: 'jakob.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(build.buildnumber)'
 
@@ -24,7 +24,7 @@ jobs:
     inputs:
       containerregistrytype: 'Azure Container Registry'
       azureSubscription: 'Azure Sponsorship'
-      azureContainerRegistry: '{"loginServer":"techdays.azurecr.io", "id" : "/subscriptions/b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5/resourceGroups/techdays/providers/Microsoft.ContainerRegistry/registries/techdays"}'
+      azureContainerRegistry: '{"loginServer":"jakob.azurecr.io", "id" : "/subscriptions/b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5/resourceGroups/acr/providers/Microsoft.ContainerRegistry/registries/jakob"}'
       dockerComposeFile: '**/docker-compose.yml'
       action: 'Build services'
       additionalImageTags: '$(build.buildnumber)'
@@ -35,23 +35,13 @@ jobs:
     inputs:
       containerregistrytype: 'Azure Container Registry'
       azureSubscription: 'Azure Sponsorship'
-      azureContainerRegistry: '{"loginServer":"techdays.azurecr.io", "id" : "/subscriptions/b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5/resourceGroups/techdays/providers/Microsoft.ContainerRegistry/registries/techdays"}'
+      azureContainerRegistry: '{"loginServer":"jakob.azurecr.io", "id" : "/subscriptions/b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5/resourceGroups/acr/providers/Microsoft.ContainerRegistry/registries/jakob"}'
       action: 'Push services'
       additionalImageTags: '$(build.buildnumber)'        
     
   - task: HelmInstaller@1
     inputs:
-      helmVersionToInstall: '2.14.1'
-
-  - task: HelmDeploy@0
-    inputs:
-      connectionType: 'Azure Resource Manager'
-      azureSubscription: 'Azure Sponsorship'
-      azureResourceGroup: 'tdswe-test'
-      kubernetesCluster: 'tdswe-test'
-      command: 'init'
-      upgradeTiller: false
-      arguments: '--client-only'
+      helmVersionToInstall: '3.4.2'
       
   - task: HelmDeploy@0
     inputs:
