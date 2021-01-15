@@ -27,7 +27,7 @@ stages:
     displayName: Deploy
     pool:
       vmImage: $(vmImageName)
-    environment: 'QBox.qbox'
+    environment: 'qbox-devtest.qbox'
     strategy:
       runOnce:
         deploy:
