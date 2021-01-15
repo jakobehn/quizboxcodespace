@@ -1,0 +1,43 @@
+variables:
+  # Agent VM image name
+  vmImageName: 'windows-2019'
+  
+resources:
+  pipelines:
+  - pipeline: QBox
+    project: QBox
+    source: QBox
+    branch: master
+
+stages:
+
+- stage: DevTest
+  displayName: Deploy stage
+
+  jobs:
+  - deployment: Deploy
+    condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
+    displayName: Deploy
+    pool:
+      vmImage: $(vmImageName)
+    environment: 'QBox.qbox'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: HelmInstaller@0
+            inputs:
+              helmVersion: '3.4.2'
+              installKubectl: true
+              
+          - task: HelmDeploy@0
+            inputs:
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceConnection: 'ndc-test-qbox'
+              namespace: 'qbox'
+              command: 'upgrade'
+              chartType: 'FilePath'
+              chartPath: '$(Pipeline.Workspace)/QBox/drop/qbox-$(resources.pipeline.qbox.runName).tgz'
+              releaseName: 'quizbox'
+              overrideValues: 'frontend.image.tag=$(resources.pipeline.qbox.runName),backend.image.tag=$(resources.pipeline.qbox.runName),ingress.hostname=ndc-test-2f685e2a.hcp.westeurope.azmk8s.io,db.service.port=1433,db.password=1qaz2WSX3edc'
+              waitForExecution: false
