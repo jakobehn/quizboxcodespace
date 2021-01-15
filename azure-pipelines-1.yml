@@ -32,10 +32,8 @@ stages:
               
           - task: HelmDeploy@0
             inputs:
-              connectionType: 'Azure Resource Manager'
-              azureSubscription: 'Azure Sponsorship'
-              azureResourceGroup: 'ndc-test'
-              kubernetesCluster: 'ndc-test'
+              connectionType: 'Kubernetes Service Connection'
+              kubernetesServiceConnection: 'ndc-test-qbox'
               namespace: 'qbox'
               command: 'upgrade'
               chartType: 'FilePath'
