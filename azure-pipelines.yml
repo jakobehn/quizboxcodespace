@@ -19,7 +19,7 @@ jobs:
 - job: Build
   displayName: Build
   pool:
-    vmImage: $(vmImageName)
+    name: Local
   steps:
   - task: DockerCompose@0
     inputs:
