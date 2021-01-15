@@ -13,12 +13,13 @@ variables:
   containerRegistry: 'jakob.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(build.buildnumber)'
+  vmImageName: 'windows-2019'  
 
 jobs:
 - job: Build
   displayName: Build
   pool:
-    name: Local
+    vmImage: $(vmImageName)
   steps:
   - task: DockerCompose@0
     inputs:
