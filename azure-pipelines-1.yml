@@ -1,3 +1,6 @@
+
+trigger: none
+
 variables:
   # Agent VM image name
   vmImageName: 'windows-2019'
