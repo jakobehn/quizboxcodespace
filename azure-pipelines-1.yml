@@ -46,5 +46,5 @@ stages:
               chartType: 'FilePath'
               chartPath: '$(Pipeline.Workspace)/QBox/drop/qbox-$(resources.pipeline.qbox.runName).tgz'
               releaseName: 'quizbox'
-              overrideValues: 'frontend.image.tag=$(resources.pipeline.qbox.runName),backend.image.tag=$(resources.pipeline.qbox.runName),ingress.hostname=ndc-test-7e114b9a.hcp.westeurope.azmk8s.io,db.service.port=1433,db.password=1qaz2WSX3edc'
+              overrideValues: 'frontend.image.tag=$(resources.pipeline.qbox.runName),backend.image.tag=$(resources.pipeline.qbox.runName),ingress.hostname=qbox-dev.westeurope.cloudapp.azure.com,db.service.port=1433,db.password=1qaz2WSX3edc'
               waitForExecution: false
