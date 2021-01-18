@@ -40,7 +40,7 @@ stages:
           - task: HelmDeploy@0
             inputs:
               connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceConnection: 'ndc-test-qbox'
+              kubernetesServiceConnection: 'ndc-test'
               namespace: 'qbox'
               command: 'upgrade'
               chartType: 'FilePath'
