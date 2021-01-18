@@ -27,7 +27,7 @@ stages:
     displayName: Deploy
     pool:
       name: Local
-    environment: 'qbox-devtest.qbox'
+    environment: 'qbox-dev.qbox'
     strategy:
       runOnce:
         deploy:
