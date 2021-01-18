@@ -6,7 +6,7 @@ variables:
   ingressHostName: qbox-dev.westeurope.cloudapp.azure.com
   dbpassword: 1qaz2WSX3edc
   trafficManagerEnabled: true
-  trafficManagerDNS: ndc-test.trafficmanager.net
+  trafficManagerDNS: quizbox.trafficmanager.net
   
 resources:
   pipelines:
