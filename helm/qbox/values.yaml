@@ -23,8 +23,8 @@ backend:
 
 db:
   image:
-    repository: microsoft/mssql-server-linux
-    tag: "2017-CU9"
+    repository: mcr.microsoft.com/mssql/server
+    tag: "2017-latest"
     pullPolicy: IfNotPresent
   service: 
     port: 80    
