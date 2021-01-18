@@ -26,8 +26,8 @@ stages:
     condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
     displayName: Deploy
     pool:
-      vmImage: $(vmImageName)
-    environment: 'qbox-devtest.qbox'
+      name: Local
+    environment: 'qbox-dev.qbox'
     strategy:
       runOnce:
         deploy:
@@ -40,7 +40,7 @@ stages:
           - task: HelmDeploy@0
             inputs:
               connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceConnection: 'ndc-test-qbox'
+              kubernetesServiceConnection: 'ndc-test'
               namespace: 'qbox'
               command: 'upgrade'
               chartType: 'FilePath'
