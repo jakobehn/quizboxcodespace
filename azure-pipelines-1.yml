@@ -2,8 +2,11 @@
 trigger: none
 
 variables:
-  # Agent VM image name
-  vmImageName: 'windows-2019'
+  environment: qbox-dev.qbox
+  ingressHostName: qbox-dev.westeurope.cloudapp.azure.com
+  dbpassword: 1qaz2WSX3edc
+  trafficManagerEnabled: true,
+  trafficManagerDNS: ndc-test.trafficmanager.net
   
 resources:
   pipelines:
@@ -27,7 +30,7 @@ stages:
     displayName: Deploy
     pool:
       name: Local
-    environment: 'qbox-dev.qbox'
+    environment: '$(environment)'
     strategy:
       runOnce:
         deploy:
@@ -46,5 +49,5 @@ stages:
               chartType: 'FilePath'
               chartPath: '$(Pipeline.Workspace)/QBox/drop/qbox-$(resources.pipeline.qbox.runName).tgz'
               releaseName: 'quizbox'
-              overrideValues: 'frontend.image.tag=$(resources.pipeline.qbox.runName),backend.image.tag=$(resources.pipeline.qbox.runName),ingress.hostname=qbox-dev.westeurope.cloudapp.azure.com,db.service.port=1433,db.password=1qaz2WSX3edc'
+              overrideValues: 'frontend.image.tag=$(resources.pipeline.qbox.runName),backend.image.tag=$(resources.pipeline.qbox.runName),ingress.hostname=$(ingressHostName),db.service.port=1433,db.password=$(dbpassword),trafficManagerEnabled=$(trafficManagerEnabled),ingress.trafficManagerDNS=$(trafficManagerDNS)'
               waitForExecution: false
