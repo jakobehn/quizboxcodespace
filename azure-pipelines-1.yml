@@ -2,11 +2,7 @@
 trigger: none
 
 variables:
-  environment: qbox-dev.qbox
-  ingressHostName: qbox-dev.westeurope.cloudapp.azure.com
-  dbpassword: 1qaz2WSX3edc
-  trafficManagerEnabled: true
-  trafficManagerDNS: quizbox.trafficmanager.net
+- group: quizbox-dev
   
 resources:
   pipelines:
