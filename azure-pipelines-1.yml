@@ -26,7 +26,7 @@ stages:
     condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
     displayName: Deploy
     pool:
-      vmImage: $(vmImageName)
+      name: Local
     environment: 'qbox-devtest.qbox'
     strategy:
       runOnce:
