@@ -21,7 +21,7 @@ stages:
   jobs:
   - template: deploy-template.yml
     parameters:
-      environment: $(environment)
+      environment: ndc-test
       kubernetesServiceConnection: ndc-test
       ingressHostName: $(ingressHostName)
       dbpassword: $(dbpassword)
@@ -37,8 +37,8 @@ stages:
   jobs:
   - template: deploy-template.yml
     parameters:
-      environment: $(environment)
-      kubernetesServiceConnection: ndc-test
+      environment: ndc-prodeu
+      kubernetesServiceConnection: ndc-prodeu
       ingressHostName: $(ingressHostName)
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
@@ -53,8 +53,8 @@ stages:
   jobs:
   - template: deploy-template.yml
     parameters:
-      environment: $(environment)
-      kubernetesServiceConnection: ndc-test
+      environment: ndc-produs
+      kubernetesServiceConnection: ndc-produs
       ingressHostName: $(ingressHostName)
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
