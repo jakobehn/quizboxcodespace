@@ -1,9 +1,7 @@
 
 trigger: none
 
-variables:
-- group: quizbox-dev
-  
+ 
 resources:
   pipelines:
   - pipeline: QBox
@@ -19,31 +17,15 @@ stages:
 
 - stage: DevTest
   displayName: Deploy stage
+  variables:
+  - group: quizbox-dev
 
   jobs:
-  - deployment: Deploy
-    condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))
-    displayName: Deploy
-    pool:
-      name: Local
-    environment: '$(environment)'
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-          - task: HelmInstaller@0
-            inputs:
-              helmVersion: '3.4.2'
-              installKubectl: true
-              
-          - task: HelmDeploy@0
-            inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceConnection: 'ndc-test'
-              namespace: 'qbox'
-              command: 'upgrade'
-              chartType: 'FilePath'
-              chartPath: '$(Pipeline.Workspace)/QBox/drop/qbox-$(resources.pipeline.qbox.runName).tgz'
-              releaseName: 'quizbox'
-              overrideValues: 'frontend.image.tag=$(resources.pipeline.qbox.runName),backend.image.tag=$(resources.pipeline.qbox.runName),ingress.hostname=$(ingressHostName),db.service.port=1433,db.password=$(dbpassword),ingress.trafficManagerEnabled=$(trafficManagerEnabled),ingress.trafficManagerDNS=$(trafficManagerDNS)'
-              waitForExecution: false
+  - template: deploy-template.yml  # Template reference
+    parameters:
+      environment: $(environment)
+      kubernetesServiceConnection: ndc-test
+      ingressHostName: $(ingressHostName)
+      dbpassword: $(dbpassword)
+      trafficManagerEnabled: $(trafficManagerEnabled)
+      trafficManagerDNS: $(trafficManagerDNS)
