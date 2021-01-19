@@ -17,7 +17,7 @@ jobs:
     displayName: Deploy
     pool:
       name: Local
-    environment: '{{ environment }}'
+    environment: '${{ environment }}'
     strategy:
       runOnce:
         deploy:
@@ -30,11 +30,11 @@ jobs:
           - task: HelmDeploy@0
             inputs:
               connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceConnection: '{{ parameters.kubernetesServiceConnection }}'
+              kubernetesServiceConnection: '${{ parameters.kubernetesServiceConnection }}'
               namespace: 'qbox'
               command: 'upgrade'
               chartType: 'FilePath'
               chartPath: '$(Pipeline.Workspace)/QBox/drop/qbox-$(resources.pipeline.qbox.runName).tgz'
               releaseName: 'quizbox'
-              overrideValues: 'frontend.image.tag=$(resources.pipeline.qbox.runName),backend.image.tag=$(resources.pipeline.qbox.runName),ingress.hostname={{ parameters.ingressHostName }},db.service.port=1433,db.password={{ parameters.dbpassword }},ingress.trafficManagerEnabled={{ parameters.trafficManagerEnabled }},ingress.trafficManagerDNS={{ parameters.trafficManagerDNS }}'
+              overrideValues: 'frontend.image.tag=$(resources.pipeline.qbox.runName),backend.image.tag=$(resources.pipeline.qbox.runName),ingress.hostname=${{ parameters.ingressHostName }},db.service.port=1433,db.password=${{ parameters.dbpassword }},ingress.trafficManagerEnabled=${{ parameters.trafficManagerEnabled }},ingress.trafficManagerDNS=${{ parameters.trafficManagerDNS }}'
               waitForExecution: false

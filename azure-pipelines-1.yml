@@ -1,7 +1,5 @@
-
 trigger: none
 
- 
 resources:
   pipelines:
   - pipeline: QBox
@@ -21,7 +19,7 @@ stages:
   - group: quizbox-dev
 
   jobs:
-  - template: deploy-template.yml  # Template reference
+  - template: deploy-template.yml
     parameters:
       environment: $(environment)
       kubernetesServiceConnection: ndc-test
@@ -29,3 +27,33 @@ stages:
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
       trafficManagerDNS: $(trafficManagerDNS)
+
+- stage: ProdEU
+  displayName: Deploy stage
+  variables:
+  - group: quizbox-prodeu
+
+  jobs:
+  - template: deploy-template.yml
+    parameters:
+      environment: $(environment)
+      kubernetesServiceConnection: ndc-test
+      ingressHostName: $(ingressHostName)
+      dbpassword: $(dbpassword)
+      trafficManagerEnabled: $(trafficManagerEnabled)
+      trafficManagerDNS: $(trafficManagerDNS)
+
+- stage: ProdUS
+  displayName: Deploy stage
+  variables:
+  - group: quizbox-produs
+
+  jobs:
+  - template: deploy-template.yml
+    parameters:
+      environment: $(environment)
+      kubernetesServiceConnection: ndc-test
+      ingressHostName: $(ingressHostName)
+      dbpassword: $(dbpassword)
+      trafficManagerEnabled: $(trafficManagerEnabled)
+      trafficManagerDNS: $(trafficManagerDNS)      
