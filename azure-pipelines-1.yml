@@ -14,7 +14,7 @@ resources:
 stages:
 
 - stage: DevTest
-  displayName: Deploy stage
+  displayName: DevTest
   variables:
   - group: quizbox-dev
 
@@ -29,7 +29,8 @@ stages:
       trafficManagerDNS: $(trafficManagerDNS)
 
 - stage: ProdEU
-  displayName: Deploy stage
+  displayName: Prod EU
+  dependsOn: DevTest
   variables:
   - group: quizbox-prodeu
 
@@ -44,7 +45,8 @@ stages:
       trafficManagerDNS: $(trafficManagerDNS)
 
 - stage: ProdUS
-  displayName: Deploy stage
+  displayName: Prod US
+  dependsOn: DevTest
   variables:
   - group: quizbox-produs
 
