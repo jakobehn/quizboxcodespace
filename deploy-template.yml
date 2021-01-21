@@ -29,7 +29,7 @@ jobs:
               
           - task: HelmDeploy@0
             inputs:
-              namespace: ${{ poarameters.namespace }}
+              namespace: ${{ parameters.namespace }}
               command: 'upgrade'
               chartType: 'FilePath'
               chartPath: '$(Pipeline.Workspace)/QBox/drop/qbox-$(resources.pipeline.qbox.runName).tgz'
