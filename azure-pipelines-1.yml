@@ -13,10 +13,26 @@ resources:
 
 stages:
 
-- stage: DevTest
-  displayName: DevTest
+- stage: Dev
+  displayName: Dev
   variables:
   - group: quizbox-dev
+
+  jobs:
+  - template: deploy-template.yml
+    parameters:
+      environment: ndc-test
+      kubernetesServiceConnection: ndc-dev
+      ingressHostName: $(ingressHostName)
+      dbpassword: $(dbpassword)
+      trafficManagerEnabled: $(trafficManagerEnabled)
+      trafficManagerDNS: $(trafficManagerDNS)
+
+- stage: Test
+  displayName: Test
+  dependsOn: Dev  
+  variables:
+  - group: quizbox-test
 
   jobs:
   - template: deploy-template.yml
@@ -26,11 +42,11 @@ stages:
       ingressHostName: $(ingressHostName)
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
-      trafficManagerDNS: $(trafficManagerDNS)
+      trafficManagerDNS: $(trafficManagerDNS)      
 
 - stage: ProdEU
   displayName: Prod EU
-  dependsOn: DevTest
+  dependsOn: Test
   variables:
   - group: quizbox-prodeu
 
@@ -46,7 +62,7 @@ stages:
 
 - stage: ProdUS
   displayName: Prod US
-  dependsOn: DevTest
+  dependsOn: Test
   variables:
   - group: quizbox-produs
 
