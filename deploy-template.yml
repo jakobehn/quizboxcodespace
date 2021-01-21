@@ -1,8 +1,6 @@
 parameters:
 - name: environment
   type: string
-- name: kubernetesServiceConnection
-  type: string  
 - name: ingressHostName
   type: string
 - name: dbpassword
@@ -12,7 +10,7 @@ parameters:
 - name: trafficManagerDNS
   type: string      
   
-jobs:
+jobs:    
   - deployment: Deploy
     displayName: Deploy
     pool:
@@ -29,8 +27,6 @@ jobs:
               
           - task: HelmDeploy@0
             inputs:
-              connectionType: 'Kubernetes Service Connection'
-              kubernetesServiceConnection: '${{ parameters.kubernetesServiceConnection }}'
               namespace: 'qbox'
               command: 'upgrade'
               chartType: 'FilePath'
