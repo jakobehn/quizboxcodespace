@@ -26,6 +26,7 @@ stages:
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
       trafficManagerDNS: $(trafficManagerDNS)
+      namespace: $(namespace)
 
 - stage: Test
   displayName: Test
@@ -40,7 +41,8 @@ stages:
       ingressHostName: $(ingressHostName)
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
-      trafficManagerDNS: $(trafficManagerDNS)      
+      trafficManagerDNS: $(trafficManagerDNS)
+      namespace: $(namespace)    
 
 - stage: ProdEU
   displayName: Prod EU
@@ -56,6 +58,7 @@ stages:
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
       trafficManagerDNS: $(trafficManagerDNS)
+      namespace: $(namespace)
 
 - stage: ProdUS
   displayName: Prod US
@@ -70,4 +73,5 @@ stages:
       ingressHostName: $(ingressHostName)
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
-      trafficManagerDNS: $(trafficManagerDNS)      
+      trafficManagerDNS: $(trafficManagerDNS)
+      namespace: $(namespace)    
