@@ -21,7 +21,7 @@ stages:
   jobs:
   - template: deploy-template.yml
     parameters:
-      environment: Development.dev
+      environment: ${{ variables.environment }}.dev
       ingressHostName: $(ingressHostName)
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
