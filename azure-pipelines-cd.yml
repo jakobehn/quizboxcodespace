@@ -1,3 +1,4 @@
+#Deployment pipeline for QBox, deploys latest version of QBox pipeline
 trigger: none
 
 resources:
@@ -13,40 +14,24 @@ resources:
 
 stages:
 
-- stage: Dev
-  displayName: Dev  
+- stage: DevTest
+  displayName: DevTest  
   variables:
   - group: quizbox-dev
 
   jobs:
   - template: deploy-template.yml
     parameters:
-      environment: Development.qbox-dev
+      environment: DevTest.qbox
       ingressHostName: $(ingressHostName)
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
       trafficManagerDNS: $(trafficManagerDNS)
       namespace: $(namespace)
 
-- stage: Test
-  displayName: Test
-  dependsOn: Dev  
-  variables:
-  - group: quizbox-test
-
-  jobs:
-  - template: deploy-template.yml
-    parameters:
-      environment: Test.qbox-test
-      ingressHostName: $(ingressHostName)
-      dbpassword: $(dbpassword)
-      trafficManagerEnabled: $(trafficManagerEnabled)
-      trafficManagerDNS: $(trafficManagerDNS)
-      namespace: $(namespace)    
-
 - stage: ProdEU
   displayName: Prod EU
-  dependsOn: Test
+  dependsOn: Dev
   variables:
   - group: quizbox-prodeu
 
@@ -62,7 +47,7 @@ stages:
 
 - stage: ProdUS
   displayName: Prod US
-  dependsOn: Test
+  dependsOn: Dev
   variables:
   - group: quizbox-produs
 

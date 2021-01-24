@@ -1,3 +1,4 @@
+#Build pipeline for QBox, builds and pushes Docker images, and publishes Helm chart back to Azure Pipelines
 name: 2.1$(rev:.r)
 
 trigger:
