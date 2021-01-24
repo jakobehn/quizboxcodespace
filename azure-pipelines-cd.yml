@@ -7,14 +7,14 @@ resources:
     source: QBox
     branch: master
     trigger:
-          branches:
-            include:
-            - master    
+      branches:
+        include:
+        - master    
 
 stages:
 
 - stage: Dev
-  displayName: Dev
+  displayName: Dev  
   variables:
   - group: quizbox-dev
 
