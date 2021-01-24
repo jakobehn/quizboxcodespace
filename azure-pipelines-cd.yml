@@ -31,7 +31,7 @@ stages:
 
 - stage: ProdEU
   displayName: Prod EU
-  dependsOn: Dev
+  dependsOn: DevTest
   variables:
   - group: quizbox-prodeu
 
@@ -47,7 +47,7 @@ stages:
 
 - stage: ProdUS
   displayName: Prod US
-  dependsOn: Dev
+  dependsOn: DevTest
   variables:
   - group: quizbox-produs
 
