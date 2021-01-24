@@ -17,13 +17,11 @@ stages:
   displayName: Dev
   variables:
   - group: quizbox-dev
-  - name: testtest
-    value: Development
 
   jobs:
   - template: deploy-template.yml
     parameters:
-      environment: ${{ variables.testtest }}.dev
+      environment: Development.qbox-dev
       ingressHostName: $(ingressHostName)
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
@@ -39,7 +37,7 @@ stages:
   jobs:
   - template: deploy-template.yml
     parameters:
-      environment: Test.test
+      environment: Test.qbox-test
       ingressHostName: $(ingressHostName)
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
