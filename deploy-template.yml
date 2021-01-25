@@ -21,7 +21,12 @@ jobs:
     strategy:
       runOnce:
         deploy:
-          steps:              
+          steps:  
+          - task: HelmInstaller@0
+            inputs:
+              helmVersion: '3.4.2'
+              installKubectl: true
+                                    
           - task: HelmDeploy@0
             displayName: 'Deploy QBox Helm chart'
             inputs:
