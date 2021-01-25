@@ -1,4 +1,4 @@
-$ACR_NAME="techdays"
+$ACR_NAME="jakob"
 $SERVICE_PRINCIPAL_NAME="acr-service-principal"
 
 # Populate the ACR login server and resource id.

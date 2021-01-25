@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: highscore-notification
@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: highscore-notification
-  replicas: 10
+  replicas: 1
   template:
     metadata:
       labels:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: qboxcorehighscorenotifications
-        image: techdays.azurecr.io/qboxcorehighscorenotification
+        image: jakob.azurecr.io/qboxcorehighscorenotification
       imagePullSecrets:
       - name: acr-auth
 

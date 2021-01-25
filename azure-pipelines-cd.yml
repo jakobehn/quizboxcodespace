@@ -19,7 +19,7 @@ stages:
   variables:
   - group: quizbox-dev
 
-  jobs:
+  jobs:    
   - template: deploy-template.yml
     parameters:
       environment: DevTest.qbox
@@ -28,6 +28,23 @@ stages:
       trafficManagerEnabled: $(trafficManagerEnabled)
       trafficManagerDNS: $(trafficManagerDNS)
       namespace: $(namespace)
+    condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))      
+
+- stage: DevTestPR
+  displayName: DevTestPR
+  variables:
+  - group: quizbox-dev
+
+  jobs:    
+  - template: deploy-template.yml
+    parameters:
+      environment: DevTest.$(k8sNamespaceForPR)
+      ingressHostName: $(ingressHostName)
+      dbpassword: $(dbpassword)
+      trafficManagerEnabled: $(trafficManagerEnabled)
+      trafficManagerDNS: $(trafficManagerDNS)
+      namespace: $(namespace)
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))  
 
 - stage: ProdEU
   displayName: Prod EU

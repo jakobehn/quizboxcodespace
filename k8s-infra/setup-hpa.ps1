@@ -1,1 +1,1 @@
-kubectl autoscale deployment frontend --namespace qbox-dev --cpu-percent=20 --min=1 --max=10
+kubectl autoscale deployment frontend --namespace qbox --cpu-percent=10 --min=1 --max=10
