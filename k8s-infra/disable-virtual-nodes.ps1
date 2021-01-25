@@ -1,4 +1,4 @@
 az aks disable-addons `
-    --resource-group tdswe-test `
-    --name tdswe-test `
+    --resource-group ndc-test `
+    --name ndc-test `
     --addons virtual-node

@@ -36,16 +36,19 @@ stages:
         additionalImageTags: '$(build.buildnumber)'        
       
     - task: HelmInstaller@1
+      displayName: Install Helm 3.4.2
       inputs:
         helmVersionToInstall: '3.4.2'
         
     - task: HelmDeploy@0
+      displayName: 'Package Helm chart'
       inputs:
         command: 'package'
         chartPath: 'helm/qbox'
         chartVersion: '$(build.buildnumber)'
 
     - task: PublishBuildArtifacts@1
+      displayName: 'Publish Helm chart artifact'
       inputs:
         PathtoPublish: '$(Build.ArtifactStagingDirectory)'
         ArtifactName: 'drop'
