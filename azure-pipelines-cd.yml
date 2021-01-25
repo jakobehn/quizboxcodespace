@@ -10,7 +10,8 @@ resources:
     trigger:
       branches:
         include:
-        - master    
+        - master
+        - pr/*
 
 stages:
 
