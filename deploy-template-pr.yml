@@ -17,12 +17,12 @@ jobs:
     displayName: Deploy
     pool:
       name: Local
-    environment: '${{ parameters.environment }}'
+    environment: '${{ parameters.environment }}'    
     strategy:
       runOnce:
         deploy:
           steps:
-          - reviewApp: $(resourceName)
+          - reviewApp: qbox
 
           - task: Kubernetes@1
             displayName: 'Create a new namespace for the pull request'
@@ -41,8 +41,8 @@ jobs:
               namespace: $(k8sNamespaceForPR)
               command: 'upgrade'
               chartType: 'FilePath'
-              chartPath: '$(Pipeline.Workspace)/QBox/drop/qbox-$(resources.pipeline.qbox.runName).tgz'
-              releaseName: 'quizbox-$(resourceName)'
-              overrideValues: 'frontend.image.tag=$(resources.pipeline.qbox.runName),backend.image.tag=$(resources.pipeline.qbox.runName),ingress.hostname=${{ parameters.ingressHostName }},db.service.port=1433,db.password=${{ parameters.dbpassword }},ingress.trafficManagerEnabled=${{ parameters.trafficManagerEnabled }},ingress.trafficManagerDNS=${{ parameters.trafficManagerDNS }}'
+              chartPath: '$(Pipeline.Workspace)/drop/qbox-$(Build.BuildNumber).tgz'
+              releaseName: 'quizbox-$(k8sNamespaceForPR)'
+              overrideValues: 'frontend.image.tag=$(Build.BuildNumber),backend.image.tag=$(Build.BuildNumber),ingress.hostname=${{ parameters.ingressHostName }},db.service.port=1433,db.password=${{ parameters.dbpassword }},ingress.trafficManagerEnabled=${{ parameters.trafficManagerEnabled }},ingress.trafficManagerDNS=${{ parameters.trafficManagerDNS }}'
               arguments: --atomic
               

@@ -1,22 +1,61 @@
+name: 2.2$(rev:.r)
 #Deployment pipeline for QBox, deploys latest version of QBox pipeline
 trigger: none
 
-resources:
-  pipelines:
-  - pipeline: QBox
-    project: QBox
-    source: QBox
-    branch: master
-    trigger:
-      branches:
-        include:
-        - master
-        - pr/*
+variables:
+  k8sNamespaceForPR: 'review-app-$(System.PullRequest.PullRequestId)'
 
 stages:
 
+- stage: Build
+  displayName: Build
+
+  jobs:
+  - job: Build
+    displayName: Build  
+    pool:
+      name: Local
+    steps:
+    - task: DockerCompose@0
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'Azure Sponsorship'
+        azureContainerRegistry: '{"loginServer":"jakob.azurecr.io", "id" : "/subscriptions/b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5/resourceGroups/acr/providers/Microsoft.ContainerRegistry/registries/jakob"}'
+        dockerComposeFile: '**/docker-compose.yml'
+        action: 'Build services'
+        additionalImageTags: '$(build.buildnumber)'
+        includeLatestTag: true
+
+    - task: DockerCompose@0
+      displayName: 'Push images'
+      inputs:
+        containerregistrytype: 'Azure Container Registry'
+        azureSubscription: 'Azure Sponsorship'
+        azureContainerRegistry: '{"loginServer":"jakob.azurecr.io", "id" : "/subscriptions/b7b2c6f7-b71e-4cd2-9e7c-409a44fe22f5/resourceGroups/acr/providers/Microsoft.ContainerRegistry/registries/jakob"}'
+        action: 'Push services'
+        additionalImageTags: '$(build.buildnumber)'        
+      
+    - task: HelmInstaller@1
+      inputs:
+        helmVersionToInstall: '3.4.2'
+        
+    - task: HelmDeploy@0
+      inputs:
+        command: 'package'
+        chartPath: 'helm/qbox'
+        chartVersion: '$(build.buildnumber)'
+
+    - task: PublishBuildArtifacts@1
+      inputs:
+        PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+        ArtifactName: 'drop'
+        publishLocation: 'Container'
+
+
 - stage: DevTest
   displayName: DevTest  
+  dependsOn: Build
+  condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))    
   variables:
   - group: quizbox-dev
 
@@ -28,24 +67,24 @@ stages:
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
       trafficManagerDNS: $(trafficManagerDNS)
-      namespace: $(namespace)
-    condition: and(succeeded(), not(startsWith(variables['Build.SourceBranch'], 'refs/pull/')))      
+      namespace: $(namespace)  
 
 - stage: DevTestPR
   displayName: DevTestPR
+  dependsOn: Build
+  condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))  
   variables:
   - group: quizbox-dev
 
   jobs:    
-  - template: deploy-template.yml
+  - template: deploy-template-pr.yml
     parameters:
       environment: DevTest.$(k8sNamespaceForPR)
-      ingressHostName: $(ingressHostName)
+      ingressHostName: $(k8sNamespaceForPR)-$(ingressHostName)
       dbpassword: $(dbpassword)
       trafficManagerEnabled: $(trafficManagerEnabled)
       trafficManagerDNS: $(trafficManagerDNS)
-      namespace: $(namespace)
-    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/pull/'))  
+      namespace: $(namespace)    
 
 - stage: ProdEU
   displayName: Prod EU
