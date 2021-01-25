@@ -26,7 +26,7 @@ jobs:
             inputs:
               helmVersion: '3.4.2'
               installKubectl: true
-                                    
+
           - task: HelmDeploy@0
             displayName: 'Deploy QBox Helm chart'
             inputs:
@@ -35,6 +35,6 @@ jobs:
               chartType: 'FilePath'
               chartPath: '$(Pipeline.Workspace)/drop/qbox-$(Build.BuildNumber).tgz'
               releaseName: 'quizbox'
-              overrideValues: 'frontend.image.tag=$(Build.BuildNumber),backend.image.tag=$(Build.BuildNumber),ingress.hostname=${{ parameters.ingressHostName }},db.service.port=1433,db.password=${{ parameters.dbpassword }},ingress.trafficManagerEnabled=${{ parameters.trafficManagerEnabled }},ingress.trafficManagerDNS=${{ parameters.trafficManagerDNS }}'
+              overrideValues: 'frontend.image.tag=$(Build.BuildNumber),backend.image.tag=$(Build.BuildNumber),ingress.hostname=${{ parameters.ingressHostName }},db.service.port=1434,db.password=${{ parameters.dbpassword }},ingress.trafficManagerEnabled=${{ parameters.trafficManagerEnabled }},ingress.trafficManagerDNS=${{ parameters.trafficManagerDNS }}'
               arguments: --atomic
               
