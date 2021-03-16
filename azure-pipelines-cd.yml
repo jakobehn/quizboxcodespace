@@ -1,6 +1,7 @@
 name: 2.2$(rev:.r)
-#Deployment pipeline for QBox, deploys latest version of QBox pipeline
-trigger: none
+
+trigger:
+- master
 
 variables:
   k8sNamespaceForPR: 'review-app-$(System.PullRequest.PullRequestId)'
