@@ -41,11 +41,25 @@ namespace QBoxCore.Api
             InitializeDatabase(initializer);
         }
 
-        private void InitializeDatabase(DbInitializer initializer)
+        private async void InitializeDatabase(DbInitializer initializer)
         {
-            using (var context = new QuizBoxContext())
+            int retryCount = 3;
+            int i = 0;
+            while(i < retryCount)
             {
-                context.Database.Migrate();
+                try{
+                    using (var context = new QuizBoxContext())
+                    {
+                        context.Database.Migrate();
+                    }
+                    i = 3;
+                }
+                catch( Exception ex)
+                {
+                    System.Threading.Thread.Sleep(3000);
+                    i = i +1;
+                }
+
             }
 
             initializer.Seed();
