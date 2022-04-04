@@ -1,0 +1,65 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: QBoxCore.Web/Dockerfile
+
+      args:
+        # Update 'VARIANT' to pick a version of .NET: 3.1-focal, 5.0-focal, 6.0-focal
+        VARIANT: "3.1-focal"
+        # Optional version of Node.js
+        NODE_VERSION: "16"
+
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    
+    ports: 
+      - 8081:80
+ 
+    volumes:
+      - ..:/workspace:cached
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
+    #network_mode: service:db
+    # Uncomment the next line to use a non-root user for all processes.
+    # user: vscode
+
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+
+  api:
+    image: qboxcoreapi
+
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development   
+
+    ports: 
+      - 8082:80      
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    # Runs app on the same network as the database container, allows "forwardPorts" in devcontainer.json function.
+    #network_mode: service:db
+    # Uncomment the next line to use a non-root user for all processes.
+    # user: vscode
+
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+    # Add "forwardPorts": ["1433"] to **devcontainer.json** to forward MSSQL locally.
+
+  db:
+     image: "mcr.microsoft.com/mssql/server:2019-latest"
+     ports:
+     - "1433:1433"
+     environment:
+       SA_PASSWORD: "1qaz2WSX3edc"
+       ACCEPT_EULA: "Y"
+       MSSQL_PID: "Express"
+    # Add "forwardPorts": ["1433"] to **devcontainer.json** to forward MSSQL locally.
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
