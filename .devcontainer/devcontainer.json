@@ -1,38 +1,31 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.224.2/containers/dotnet-mssql
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.231.6/containers/dotnet
 {
-	"name": "C# (.NET) and MS SQL",
+	"name": "QuizBox",
 	"dockerComposeFile": "../Source/docker-compose-dev.yml",
 	"service": "web",
 	"workspaceFolder": "/workspace",
-
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": { 
+			// Update 'VARIANT' to pick a .NET Core version: 3.1, 5.0, 6.0
+			// Append -bullseye or -focal to pin to an OS version.
+			"VARIANT": "3.1",
+			// Options
+			"NODE_VERSION": "none"
+		}
+	},
 
 	// Set *default* container specific settings.json values on container create.
-	"settings": {
-		"mssql.connections": [
-			{
-				"server": "localhost,1433",
-				"database": "",
-				"authenticationType": "SqlLogin",
-				"user": "sa",
-				"password": "1qaz2WSX3edc",
-				"emptyPasswordInput": false,
-				"savePassword": false,
-				"profileName": "mssql-container"
-			}
-		]
-	},
+	"settings": {},
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"ms-dotnettools.csharp",
-		"ms-mssql.mssql"
+		"ms-dotnettools.csharp"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	// "forwardPorts": [
-	// 	80
-	// ],	
+	// "forwardPorts": [5000, 5001],
 
 	// [Optional] To reuse of your local HTTPS dev cert:
 	//
@@ -48,16 +41,18 @@
 	//        "ASPNETCORE_Kestrel__Certificates__Default__Path": "/home/vscode/.aspnet/https/aspnetapp.pfx",
 	//    },
 	//
-	// 3. Next, copy your certificate into the container:
+	// 3. Do one of the following depending on your scenario:
+	//    * When using GitHub Codespaces and/or Remote - Containers:
 	//      1. Start the container
 	//      2. Drag ~/.aspnet/https/aspnetapp.pfx into the root of the file explorer
 	//      3. Open a terminal in VS Code and run "mkdir -p /home/vscode/.aspnet/https && mv aspnetapp.pfx /home/vscode/.aspnet/https"
+	//
+	//    * If only using Remote - Containers with a local container, uncomment this line instead:
+	//      "mounts": [ "source=${env:HOME}${env:USERPROFILE}/.aspnet/https,target=/home/vscode/.aspnet/https,type=bind" ],
 
-	// postCreateCommand.sh parameters: $1=SA password, $2=dacpac path, $3=sql script(s) path
-	//"postCreateCommand": "bash .devcontainer/mssql/postCreateCommand.sh '1qaz2WSX3edc' './bin/Debug/' './.devcontainer/mssql/'",
-	"features": {
-		"docker-in-docker": "latest",
-		"kubectl-helm-minikube": "1.22"
-	}
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "dotnet restore",
 
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode"
 }
