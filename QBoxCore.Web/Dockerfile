@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/aspnet:3.1 AS base
+FROM mcr.microsoft.com/vscode/devcontainers/dotnet:0-3.1 AS base
 WORKDIR /app
 EXPOSE 80
 

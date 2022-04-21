@@ -1,7 +1,0 @@
-FROM microsoft/dotnet
-WORKDIR /app
-COPY ./ .
-RUN dir
-RUN dotnet restore
-RUN dotnet publish -c Release out
-ENTRYPOINT ["dotnet", "out/QBox.API.dll"]

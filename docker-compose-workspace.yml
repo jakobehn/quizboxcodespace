@@ -6,20 +6,27 @@ services:
       context: .
       dockerfile: QBoxCore.Web/Dockerfile
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development    
-    ports: 
-      - 8081:80 
+      - ASPNETCORE_ENVIRONMENT=Development
     volumes:
-      - ..:/workspace:cached
+      - .:/workspace:cached
     # Overrides default command so things don't shut down after the process ends.
     command: /bin/sh -c "while sleep 1000; do :; done"
+    network_mode: service:db
+    depends_on:
+      - api
 
   api:
-    image: qboxcoreapi
+    build:
+      context: .
+      dockerfile: QBoxCore.Api/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+
     # Overrides default command so things don't shut down after the process ends.
     command: /bin/sh -c "while sleep 1000; do :; done"
+    network_mode: service:db
+    depends_on:
+      - db
     
   db:
      image: "mcr.microsoft.com/mssql/server:2019-latest"
