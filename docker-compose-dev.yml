@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: QBoxCore.Web/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development    
+    ports: 
+      - 8081:80 
+    volumes:
+      - ..:/workspace:cached
+    # Overrides default command so things don't shut down after the process ends.
+    command: /bin/sh -c "while sleep 1000; do :; done"
+
+  api:
+    image: qboxcoreapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    # Overrides default command so things don't shut down after the process ends.
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    
+  db:
+     image: "mcr.microsoft.com/mssql/server:2019-latest"
+     ports:
+     - "1433:1433"
+     environment:
+       SA_PASSWORD: "1qaz2WSX3edc"
+       ACCEPT_EULA: "Y"
+       MSSQL_PID: "Express"
