@@ -8,11 +8,11 @@
             "name": ".NET Core Launch (web)",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "build",
+            "preLaunchTask": "buildweb",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Source/QBoxCore.Api/bin/Debug/netcoreapp2.1/QBoxCore.Api.dll",
+            "program": "${workspaceFolder}/QBoxCore.Web/bin/Debug/netcoreapp3.1/QBoxCore.Web.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Source/QBoxCore.Api",
+            "cwd": "${workspaceFolder}/QBoxCore.Web",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
@@ -30,17 +30,51 @@
                 }
             },
             "env": {
-                "ASPNETCORE_ENVIRONMENT": "Development"
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:55000"
             },
             "sourceFileMap": {
                 "/Views": "${workspaceFolder}/Views"
             }
         },
         {
-            "name": ".NET Core Attach",
+            "name": ".NET Core Launch (api)",
             "type": "coreclr",
-            "request": "attach",
-            "processId": "${command:pickProcess}"
+            "request": "launch",
+            "preLaunchTask": "buildapi",
+            // If you have changed target frameworks, make sure to update the program path.
+            "program": "${workspaceFolder}/QBoxCore.Api/bin/Debug/netcoreapp3.1/QBoxCore.Api.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/QBoxCore.Api",
+            "stopAtEntry": false,
+            "internalConsoleOptions": "openOnSessionStart",
+            "launchBrowser": {
+                "enabled": true,
+                "args": "${auto-detect-url}",
+                "windows": {
+                    "command": "cmd.exe",
+                    "args": "/C start ${auto-detect-url}"
+                },
+                "osx": {
+                    "command": "open"
+                },
+                "linux": {
+                    "command": "xdg-open"
+                }
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "http://localhost:55001"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
         }
-    ,]
+    ],
+    "compounds": [
+        {
+            "name": "Run all",
+            "configurations": [".NET Core Launch (api)", ".NET Core Launch (web)"]
+        }
+    ]
 }

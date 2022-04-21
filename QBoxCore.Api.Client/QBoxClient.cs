@@ -16,7 +16,7 @@ namespace QBoxCore.Api.Client
         public QBoxClient()
         {
             httpClient = new HttpClient();
-            this.baseUrl = $"http://api";
+            this.baseUrl = $"http://localhost:55001";
         }
 
         public async Task<List<CategoryDTO>> GetCategories()

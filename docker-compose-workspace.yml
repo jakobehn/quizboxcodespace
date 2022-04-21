@@ -1,32 +1,14 @@
 version: '3'
 
 services:
-  web:
+  dev:
     build:
-      context: .
-      dockerfile: QBoxCore.Web/Dockerfile
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
+      context: ./.devcontainer
+      dockerfile: ./Dockerfile
     volumes:
       - .:/workspace:cached
     # Overrides default command so things don't shut down after the process ends.
     command: /bin/sh -c "while sleep 1000; do :; done"
-    network_mode: service:db
-    depends_on:
-      - api
-
-  api:
-    build:
-      context: .
-      dockerfile: QBoxCore.Api/Dockerfile
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-
-    # Overrides default command so things don't shut down after the process ends.
-    command: /bin/sh -c "while sleep 1000; do :; done"
-    network_mode: service:db
-    depends_on:
-      - db
     
   db:
      image: "mcr.microsoft.com/mssql/server:2019-latest"
