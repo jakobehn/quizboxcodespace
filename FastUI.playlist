@@ -1,1 +1,0 @@
-<Playlist Version="1.0"><Add Test="QBox.Web.UITests.QuestionTests.ChromeLoginUser" /><Add Test="QBox.Web.UITests.QuestionTests.IELoginUserWithInvalidCredentials" /><Add Test="QBox.Web.UITests.QuestionTests.IELoginUser" /><Add Test="QBox.Web.UITests.QuestionTests.ChromeLoginUserWithInvalidCredentials" /></Playlist>

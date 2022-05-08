@@ -11,7 +11,7 @@
             ],
             "problemMatcher": "$msCompile"
         },
-        { 
+        {
             "label": "buildweb",
             "command": "dotnet",
             "type": "process",
@@ -19,7 +19,11 @@
                 "build",
                 "${workspaceFolder}/QBoxCore.Web/QBoxCore.Web.csproj"
             ],
-            "problemMatcher": "$msCompile"
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

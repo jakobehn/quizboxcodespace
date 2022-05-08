@@ -5,10 +5,10 @@
    "version": "0.2.0",
    "configurations": [
         {
-            "name": ".NET Core Launch (web)",
+            "name": "quizbox web",
             "type": "coreclr",
             "request": "launch",
-            "preLaunchTask": "buildweb",
+           "preLaunchTask": "buildweb",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/QBoxCore.Web/bin/Debug/netcoreapp3.1/QBoxCore.Web.dll",
             "args": [],
@@ -38,7 +38,7 @@
             }
         },
         {
-            "name": ".NET Core Launch (api)",
+            "name": "quizbox api",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "buildapi",
@@ -74,7 +74,7 @@
     "compounds": [
         {
             "name": "Run all",
-            "configurations": [".NET Core Launch (api)", ".NET Core Launch (web)"]
+            "configurations": ["quizbox api", "quizbox web"]
         }
     ]
 }
